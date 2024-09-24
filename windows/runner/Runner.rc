@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.badyih" "\0"
-            VALUE "FileDescription", "badyih_calendar" "\0"
+            VALUE "CompanyName", "com.badiyh" "\0"
+            VALUE "FileDescription", "badiyh_calendar" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "badyih_calendar" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.badyih. All rights reserved." "\0"
-            VALUE "OriginalFilename", "badyih_calendar.exe" "\0"
-            VALUE "ProductName", "badyih_calendar" "\0"
+            VALUE "InternalName", "badiyh_calendar" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.badiyh. All rights reserved." "\0"
+            VALUE "OriginalFilename", "badiyh_calendar.exe" "\0"
+            VALUE "ProductName", "badiyh_calendar" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

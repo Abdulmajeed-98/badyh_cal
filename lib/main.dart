@@ -1,42 +1,25 @@
-import 'package:badiyh_calendar/core/view_model/BeeKeepingPhaseVM.dart';
-import 'package:badiyh_calendar/core/views/bee_calendar_screen.dart';
+import 'package:badiyh_calendar/core/views/test.dart';
+import 'package:badiyh_calendar/helper/manger_route.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Bee Calendar App',
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        useMaterial3: true,
       ),
-      home: BeeCalendarScreen(
-        beeCalendars: [
-          // هنا يمكنك إضافة بيانات BeeCalendarVM الخاصة بك
-          BeeCalendarVM(
-            phaseID: 1,
-            phaseName: 'مجنى الضبة',
-            startDate: '2024-01-27',
-            endDate: '2024-02-08',
-            description: 'فترة مجنى الضبة',
-            stars: [
-              StarViewModel(
-                starID: 3,
-                starName: 'النثرة',
-                startDate: '2024-01-27',
-                endDate: '2024-02-08',
-                seasonID: 1,
-                duration: 13,
-              ),
-            ],
-          ),
-          // يمكنك إضافة المزيد من البيانات هنا
-        ],
-      ),
+      initialRoute: '/bee',
+      onGenerateRoute: MangerRoute.appRoute,
     );
   }
 }

@@ -1,46 +1,58 @@
-import 'package:badiyh_calendar/core/view_model/BeeKeepingPhaseVM.dart';
+import 'package:badiyh_calendar/core/model/bee_calendar.dart';
+import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
 import 'package:flutter/material.dart';
-class BeeCalendarScreen extends StatelessWidget {
-  final List<BeeCalendarVM> beeCalendars; // قائمة بمراحل النحل
 
-  BeeCalendarScreen({required this.beeCalendars});
+class BeeCalendarScreen extends StatelessWidget {
+  BeeCalendarScreen({
+    Key? key,
+  }) : super(key: key);
+
+  BeeCalendarVM bvm = BeeCalendarVM();
+  late List<BeeCalendar> allBee;
 
   @override
   Widget build(BuildContext context) {
+    allBee = bvm.loadAllBeePhases();
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bee Calendar'),
+        title: Text("مراحل تربية النحل وجني العسل"),
       ),
-      body: ListView.builder(
-        itemCount: beeCalendars.length,
-        itemBuilder: (context, index) {
-          final phase = beeCalendars[index];
-          return Card(
-            margin: EdgeInsets.all(8.0),
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    phase.phaseName,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Start Date: ${phase.startDate}'),
-                  Text('End Date: ${phase.endDate}'),
-                  Text('Description: ${phase.description}'),
-                  SizedBox(height: 8),
-                  Text('Stars:', style: TextStyle(fontWeight: FontWeight.bold)),
-                  ...phase.stars.map((star) => Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: Text(' - ${star.starName} (ID: ${star.starID})'),
-                  )),
-                ],
-              ),
-            ),
-          );
-        },
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Container(
+          //  width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.all(1),
+          child: DataTable(
+            columns: [
+              DataColumn(
+                  label: Text('فترات النحل',
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold))),
+              DataColumn(
+                  label: Text('النجوم',
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold))),
+              DataColumn(
+                  label: Text(':من تاريخ',
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold))),
+              DataColumn(
+                  label: Text(':إلى تاريخ',
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold))),
+            ],
+            rows: allBee.map((b) {
+              return DataRow(cells: [
+                DataCell(Text("${b.phaseName}")),
+                DataCell(Text(
+                    "${b.stars!.map((star) => star.starName).join(' - ')}")),
+                DataCell(Text("${b.startDate}")),
+                DataCell(Text("${b.endDate}")),
+              ]);
+            }).toList(),
+          ),
+        ),
       ),
     );
   }

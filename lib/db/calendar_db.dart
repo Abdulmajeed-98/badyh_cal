@@ -4,7 +4,7 @@ class CalendarDb {
       {
         "SeasonID": 1,
         "SeasonName": "الربيع",
-        "monthID": [1, 2, 3],
+        "monthID": [1, 2, 3]
       },
       {
         "SeasonID": 2,

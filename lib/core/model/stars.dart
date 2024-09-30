@@ -1,20 +1,20 @@
 class Stars {
-  int? starID;
-  String? starName;
-  String? startDate;
-  String? endDate;
-  int? seasonID;
-  int? duration;
+  late int starID;
+  late String starName;
+  late String startDate;
+  late String endDate;
+  late int seasonID;
+  late int duration;
 
   Stars(
-      {this.starID,
-      this.starName,
-      this.startDate,
-      this.endDate,
-      this.seasonID,
-      this.duration});
+      {required this.starID,
+      required this.starName,
+      required this.startDate,
+      required this.endDate,
+      required this.seasonID,
+      required this.duration});
 
-  Stars.fromJson(Map<String, dynamic> json) {
+  Stars.fromMap(Map<String, dynamic> json) {
     starID = json['StarID'];
     starName = json['StarName'];
     startDate = json['StartDate'];

@@ -1,20 +1,20 @@
 class BeeKeepingPhases {
-  int? phaseID;
-  String? phaseName;
-  String? startDate;
-  String? endDate;
-  String? description;
-  String? relatedStars;
+  late int phaseID;
+  late String phaseName;
+  late String startDate;
+  late String endDate;
+  late String description;
+  late String relatedStars;
 
   BeeKeepingPhases(
-      {this.phaseID,
-      this.phaseName,
-      this.startDate,
-      this.endDate,
-      this.description,
-      this.relatedStars});
+      {required this.phaseID,
+      required this.phaseName,
+      required this.startDate,
+      required this.endDate,
+      required this.description,
+      required this.relatedStars});
 
-  BeeKeepingPhases.fromJson(Map<String, dynamic> json) {
+  BeeKeepingPhases.fromMap(Map<String, dynamic> json) {
     phaseID = json['PhaseID'];
     phaseName = json['PhaseName'];
     startDate = json['StartDate'];

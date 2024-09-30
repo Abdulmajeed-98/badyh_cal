@@ -1,12 +1,12 @@
 class Crops {
-  int? cropID;
-  String? cropName;
-  int? starID;
-  String? plantingInstructions;
+  late int cropID;
+  late String cropName;
+  late int starID;
+  late String plantingInstructions;
 
-  Crops({this.cropID, this.cropName, this.starID, this.plantingInstructions});
+  Crops({required this.cropID, required this.cropName, required this.starID, required this.plantingInstructions});
 
-  Crops.fromJson(Map<String, dynamic> json) {
+  Crops.fromMap(Map<String, dynamic> json) {
     cropID = json['CropID'];
     cropName = json['CropName'];
     starID = json['StarID'];

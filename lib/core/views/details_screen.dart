@@ -1,19 +1,19 @@
 import 'package:badiyh_calendar/core/model/months.dart';
-import 'package:badiyh_calendar/core/model/stars.dart';
-import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
+import 'package:badiyh_calendar/core/model/seasons.dart';
+import 'package:badiyh_calendar/core/viewmodels/month_v_m.dart';
 import 'package:flutter/material.dart';
 
-class StarsScreen extends StatelessWidget {
-late Months m;
-  StarsScreen({Key? key, required this.m}) : super(key: key);
-  StarVM svm = StarVM();
-  late List<Stars> allStars;
+class DetailsScreen extends StatelessWidget {
+  late Seasons s;
+  DetailsScreen({Key? key, required this.s}) : super(key: key);
+  MonthVM mvm = MonthVM();
+  late List<Months> allMonths;
   @override
   Widget build(BuildContext context) {
-        allStars = svm.loadAllStars();
+    allMonths = mvm.loadAllMonths();
     return Scaffold(
       appBar: AppBar(
-        title: Text(m.monthName),
+        title: Text(s.seasonName),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -23,17 +23,17 @@ late Months m;
               SizedBox(
                 height: 200,
                 child: ListView.builder(
-                  itemCount: allStars.length,
+                  itemCount: s.monthID.length,
                   itemBuilder: (ctx,index){
                       return ListTile(
-                        title: Text('${allStars[index].starName}'));
+                        onTap: () => Navigator.pushNamed(ctx,'/stars',arguments: allMonths[index]),
+                        title: Text(allMonths[s.monthID[index]-1].monthName));
                   })
               ),
             ],
           ),
         ),
       ),
-
     );
   }
 }

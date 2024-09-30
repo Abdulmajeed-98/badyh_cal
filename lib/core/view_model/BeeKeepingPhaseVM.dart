@@ -1,34 +1,59 @@
 import 'package:badiyh_calendar/core/model/BeeKeepingPhase.dart';
 
-class BeeKeepingPhaseVM {
-  final int phaseID;
-  final String phaseName;
-  final DateTime startDate;
-  final DateTime endDate;
-  final String description;
-  final String relatedStars;
+class BeeCalendarVM {
+  int phaseID;
+  String phaseName;
+  String startDate;
+  String endDate;
+  String description;
+  List<StarViewModel> stars;
 
-  BeeKeepingPhaseVM({required this.phaseID, required this.phaseName, required this.startDate, required this.endDate, required this.description, required this.relatedStars});
+  BeeCalendarVM({
+    required this.phaseID,
+    required this.phaseName,
+    required this.startDate,
+    required this.endDate,
+    required this.description,
+    required this.stars,
+  });
 
-  factory BeeKeepingPhaseVM.fromBeeKeepingPhase(BeeKeepingPhase phase) {
-    return BeeKeepingPhaseVM(
-      phaseID: phase.phaseID,
-      phaseName: phase.phaseName,
-      startDate: phase.startDate,
-      endDate: phase.endDate,
-      description: phase.description,
-      relatedStars: phase.relatedStars,
+  factory BeeCalendarVM.fromBeeCalendar(BeeCalendar model) {
+    return BeeCalendarVM(
+      phaseID: model.phaseID ?? 0,
+      phaseName: model.phaseName ?? 'Unknown Phase',
+      startDate: model.startDate ?? 'N/A',
+      endDate: model.endDate ?? 'N/A',
+      description: model.description ?? 'No Description',
+      stars: model.stars?.map((star) => StarViewModel.fromStar(star)).toList() ?? [],
     );
   }
+}
 
-  Map<String, dynamic> toJson() {
-    return {
-      'PhaseID': phaseID,
-      'PhaseName': phaseName,
-      'StartDate': startDate.toIso8601String(),
-      'EndDate': endDate.toIso8601String(),
-      'Description': description,
-      'RelatedStars': relatedStars,
-    };
+class StarViewModel {
+  int starID;
+  String starName;
+  String startDate;
+  String endDate;
+  int seasonID;
+  int duration;
+
+  StarViewModel({
+    required this.starID,
+    required this.starName,
+    required this.startDate,
+    required this.endDate,
+    required this.seasonID,
+    required this.duration,
+  });
+
+  factory StarViewModel.fromStar(Stars model) {
+    return StarViewModel(
+      starID: model.starID ?? 0,
+      starName: model.starName ?? 'Unknown Star',
+      startDate: model.startDate ?? 'N/A',
+      endDate: model.endDate ?? 'N/A',
+      seasonID: model.seasonID ?? 0,
+      duration: model.duration ?? 0,
+    );
   }
 }

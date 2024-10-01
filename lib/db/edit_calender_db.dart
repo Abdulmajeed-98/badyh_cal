@@ -9,7 +9,8 @@ class EditCalenderDb {
           "monthName": "January",
           "monthNum": 1,
           "seasonsID": 1,
-          "crops": "",
+          "crops":
+              "زراعة القرعيات حبحب - شمام - بطيخ - دبا - زراعة البقل - تفخيط النخيل - تقليم العنب - زراعة البصل الصيفي",
           "stars": [
             {
               "StarID": 1,
@@ -42,7 +43,8 @@ class EditCalenderDb {
           "monthName": "February",
           "monthNum": 2,
           "seasonsID": 1,
-          "crops": "",
+          "crops":
+              "حصاد البصل الأحمر - حصاد البطاطس زراعة - البرسيم - زراعة الشمار - البقل - زراعة السمسم والدجر الأبيض والأسود والكوبيش",
           "stars": [
             {
               "StarID": 3,
@@ -75,7 +77,7 @@ class EditCalenderDb {
           "monthName": "March",
           "monthNum": 3,
           "seasonsID": 1,
-          "crops": "",
+          "crops": "زراعة الذرة والبرسيم والشمار وحصاد القمح و الثوم",
           "stars": [
             {
               "StarID": 5,
@@ -114,7 +116,7 @@ class EditCalenderDb {
           "monthName": "April",
           "monthNum": 4,
           "seasonsID": 2,
-          "crops": "",
+          "crops": "زراعة الضدح - حصاد الثوم - توضيع النخل",
           "stars": [
             {
               "StarID": 8,
@@ -147,7 +149,8 @@ class EditCalenderDb {
           "monthName": "May",
           "monthNum": 5,
           "seasonsID": 2,
-          "crops": "",
+          "crops":
+              "جني القرعيات حبحب - شمام - جني الليم الحامض - زراعة الضدح تكوين ثمار النخيل",
           "stars": [
             {
               "StarID": 10,
@@ -180,7 +183,8 @@ class EditCalenderDb {
           "monthName": "June",
           "monthNum": 6,
           "seasonsID": 2,
-          "crops": "",
+          "crops":
+              "جني البصل الصيفي - حصاد الذرة - تخبير النخيل - زراعة الضدح والدبَّا الأسود والأبيض",
           "stars": [
             {
               "StarID": 12,
@@ -219,7 +223,8 @@ class EditCalenderDb {
           "monthName": "July",
           "monthNum": 7,
           "seasonsID": 3,
-          "crops": "",
+          "crops":
+              "زراعة الدرة الشتوية - جني ثمار النخيل والسمسم - زراعة مشتل البصل",
           "stars": [
             {
               "StarID": 15,
@@ -252,7 +257,8 @@ class EditCalenderDb {
           "monthName": "August",
           "monthNum": 8,
           "seasonsID": 3,
-          "crops": "",
+          "crops":
+              "زراعة الطماطم - زراعة البصل - استمرار حبس البصل - زراعة حبس طماطم - راعة طماطم دري محمله",
           "stars": [
             {
               "StarID": 17,
@@ -285,7 +291,7 @@ class EditCalenderDb {
           "monthName": "September",
           "monthNum": 9,
           "seasonsID": 3,
-          "crops": "",
+          "crops": "حصاد البصل الأخضر - زراعة الجزر - والبرسيم - والشمار",
           "stars": [
             {
               "StarID": 19,
@@ -324,7 +330,8 @@ class EditCalenderDb {
           "monthName": "October",
           "monthNum": 10,
           "seasonsID": 4,
-          "crops": "",
+          "crops":
+              "موعد تصويم أشجار الليم - زراعة البطاطس والحلف والحيدوان والحبة السوداء والقمح وموعد زراعة البصل والثوم والزموتة والبرسيم والكراث والكمون الارضية والشبرم والحلبة والشمار والبقل وتبالة البقل والبصل",
           "stars": [
             {
               "StarID": 22,
@@ -357,7 +364,8 @@ class EditCalenderDb {
           "monthName": "November",
           "monthNum": 11,
           "seasonsID": 4,
-          "crops": "",
+          "crops":
+              "زراعة قمح الكليانسونا - والحلف - والزموتة والكراث والكمون - والشبرم - والحلبة والبقل - والحيدوان - وجني الطماطم وحصاد الدرة الشتوية",
           "stars": [
             {
               "StarID": 24,
@@ -390,7 +398,8 @@ class EditCalenderDb {
           "monthName": "December",
           "monthNum": 12,
           "seasonsID": 4,
-          "crops": "",
+          "crops":
+              "قلع البصل -  والجزر -  وبدء ظهور الطلع في النخيل - وزراعة الحلف والشبرم - والبقل",
           "stars": [
             {
               "StarID": 26,

@@ -78,7 +78,8 @@ class CalendarDb {
             "monthName": "March",
             "monthNum": 3,
             "seasonsID": 1,
-            "crops": "زراعة الذرة والبرسيم والشمار وحصاد القمح و الثوم",
+            "crops": 
+            "زراعة الذرة والبرسيم والشمار وحصاد القمح و الثوم",
             "stars": [
               {
                 "StarID": 5,
@@ -117,7 +118,8 @@ class CalendarDb {
             "monthName": "April",
             "monthNum": 4,
             "seasonsID": 2,
-            "crops": "زراعة الضدح - حصاد الثوم - توضيع النخل",
+            "crops": 
+            "زراعة الضدح - حصاد الثوم - توضيع النخل",
             "stars": [
               {
                 "StarID": 8,

@@ -1,7 +1,4 @@
-import 'package:badiyh_calendar/core/model/months.dart';
-import 'package:badiyh_calendar/core/model/seasons.dart';
 import 'package:badiyh_calendar/core/views/bee_calendar_screen.dart';
-import 'package:badiyh_calendar/core/views/details_screen.dart';
 import 'package:badiyh_calendar/core/model/all_models.dart';
 import 'package:badiyh_calendar/core/views/detalis_screen.dart';
 import 'package:badiyh_calendar/core/views/home_screen.dart';
@@ -15,23 +12,15 @@ class MangerRoute {
       case '/home':
         return MaterialPageRoute(builder: (ctx) => HomeScreen());
       case '/detalis':
-                Seasons season = route.arguments as Seasons;
-        return MaterialPageRoute(builder: (ctx)=> DetailsScreen(s: season,),settings: route);
-      case '/stars':
-                Months month = route.arguments as Months;
-        return MaterialPageRoute(builder: (ctx)=> StarsScreen(m: month,),settings: route);
-      case '/test':
-        return MaterialPageRoute(builder: (ctx)=> TestView());
-      case '/bee':
-        return MaterialPageRoute(builder: (ctx)=> BeeCalendarScreen());
-      case '/test':
-        return MaterialPageRoute(builder: (ctx)=> TestView());
-        
-        Seasons seasons = route.arguments as Seasons;
+        Seasons season = route.arguments as Seasons;
         return MaterialPageRoute(
             builder: (ctx) => DetalisScreen(
-                  s: seasons,
-                ));
+                  s: season,
+                ),
+            settings: route);
+      case '/bee':
+        return MaterialPageRoute(builder: (ctx) => BeeCalendarScreen());
+
       default:
         return MaterialPageRoute(builder: (ctx) => NotFoundPage());
     }

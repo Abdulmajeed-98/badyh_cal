@@ -36,19 +36,26 @@ class DetalisScreen extends StatelessWidget {
                           monthStars =
                               starvm.loadStarsByMonth(s.months[mIndex]);
                           return Expanded(
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Card(
-                                      child: Center(
-                                          child: Text(
-                                              monthStars[sIndex].starName)))));
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 50,
+                                    child: Card(
+                                        child: Center(
+                                            child: Text(
+                                                monthStars[sIndex].starName))),
+                                  ),
+                                
+                                ],
+                              ));
                         }),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Container(
-                        height: 200,
+                        padding: EdgeInsets.all(15),
+                        height: 150,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             gradient: LinearGradient(
@@ -58,6 +65,7 @@ class DetalisScreen extends StatelessWidget {
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight)),
+                                child: Text(s.months[mIndex].crops),
                       ),
                       SizedBox(
                         height: 10,

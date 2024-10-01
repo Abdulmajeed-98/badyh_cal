@@ -1,4 +1,3 @@
-import 'package:badiyh_calendar/core/views/test.dart';
 import 'package:badiyh_calendar/helper/manger_route.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      initialRoute: '/bee',
+      initialRoute: '/home',
       onGenerateRoute: MangerRoute.appRoute,
     );
   }

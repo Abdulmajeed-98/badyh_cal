@@ -7,3 +7,4 @@ class SeasonVM {
     return db.calendar['crops']!.map((e) => Crops.fromMap(e)).toList();
   }
 }
+

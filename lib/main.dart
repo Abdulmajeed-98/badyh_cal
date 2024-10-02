@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      initialRoute: '/home',
+      initialRoute: '/splach',
       onGenerateRoute: MangerRoute.appRoute,
     );
   }

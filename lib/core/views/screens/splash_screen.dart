@@ -8,7 +8,9 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(onPressed: () => Navigator.popAndPushNamed(context,'/testh'), child: Text('Home')),
+        child: ElevatedButton(
+            onPressed: () => Navigator.popAndPushNamed(context, '/testd'),
+            child: Text('Home')),
       ),
     );
   }

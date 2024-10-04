@@ -15,6 +15,8 @@ class MangerRoute {
     switch (route.name) {
       case '/wid':
         return MaterialPageRoute(builder: (ctx) => TestWidgets());
+      case '/widgets':
+        // return MaterialPageRoute(builder: (ctx) => TestWidgets());
       case '/home':
         return MaterialPageRoute(builder: (ctx) => HomeScreen());
       case '/splach':

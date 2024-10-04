@@ -6,7 +6,6 @@ class DrawerContents extends StatelessWidget {
   DrawerContents({super.key});
   ArticlesVM avm = ArticlesVM();
   CategoriesVM cvm = CategoriesVM();
-
   String? selectedElement, selectedItem;
   @override
   Widget build(BuildContext context) {
@@ -38,14 +37,16 @@ class DrawerContents extends StatelessWidget {
                         children: [
                           Container(
                             margin: EdgeInsets.only(right: 15),
-                            child: DropdownButton(
+                            child: 
+                            DropdownButton(
                               underline: Container(),
                               isDense: true,
                               // autofocus: true,
                               // focusColor: Color(0xFF09A223),
                               // iconEnabledColor: Color(0xFF09A223),
                                 items: snapshot.data![i].children!.map((e) {
-                                  return DropdownMenuItem(
+                                  return 
+                                  DropdownMenuItem(
                                     value: e.name,
                                     child: e.children!.isEmpty
                                         ? Text(

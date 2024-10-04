@@ -1,8 +1,8 @@
 import 'package:badiyh_calendar/core/views/widgets/drawer_contents.dart';
 import 'package:flutter/material.dart';
 
-class CosAppDrawer extends StatelessWidget {
-  CosAppDrawer({super.key});
+class CusAppDrawer extends StatelessWidget {
+  CusAppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

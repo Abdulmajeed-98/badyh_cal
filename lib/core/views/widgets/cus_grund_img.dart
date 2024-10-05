@@ -13,7 +13,6 @@ class CusGrundImg extends StatelessWidget {
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   colors: [Colors.black, Color.fromRGBO(102, 102, 102, 1)])),
-          child: Center(child: Text('data')),
         ),
         Container(
           width: double.infinity,
@@ -23,7 +22,7 @@ class CusGrundImg extends StatelessWidget {
                   image: AssetImage('assets/images/badyh_complex.png'),
                   fit: BoxFit.fill,
                   opacity: 0.2)),
-          child: Center(child: Text('data')),
+          child: Center(child: Text('data',style: TextStyle(color: Colors.white),)),
         ),
       ],
     );

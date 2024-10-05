@@ -1,9 +1,16 @@
-import 'package:badiyh_calendar/core/model/stars.dart';
-import 'package:badiyh_calendar/db/edit_calender_db.dart';
+import 'package:badiyh_calendar/core/model/all_models.dart';
+import 'package:badiyh_calendar/core/viewmodels/month_v_m.dart';
 
 class StarVM {
-  List<Stars> loadAllStars() {
-    CalendarDb db = CalendarDb();
-    return db.calendar['stars']!.map((e) => Stars.fromMap(e)).toList();
+  MonthVM mvm = MonthVM();
+  List<Stars> loadStarsByMonth(Months month) {
+    List<Stars> monthStars = [];
+    try {
+      monthStars.addAll(month.stars);
+      return monthStars;
+    } catch (e) {
+      print(e);
+      return [];
+    }
   }
 }

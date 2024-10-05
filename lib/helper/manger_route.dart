@@ -1,30 +1,61 @@
-import 'package:badiyh_calendar/core/model/months.dart';
-import 'package:badiyh_calendar/core/model/seasons.dart';
-import 'package:badiyh_calendar/core/views/bee_calendar_screen.dart';
-import 'package:badiyh_calendar/core/views/details_screen.dart';
-import 'package:badiyh_calendar/core/views/not_found_page.dart';
-import 'package:badiyh_calendar/core/views/stars_screen.dart';
-import 'package:badiyh_calendar/core/views/test.dart';
+import 'package:badiyh_calendar/core/model/categories_api.dart';
+import 'package:badiyh_calendar/core/model/pages_api.dart';
+import 'package:badiyh_calendar/core/views/screens/about_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/bee_calendar_screen.dart';
+import 'package:badiyh_calendar/core/model/all_models.dart';
+import 'package:badiyh_calendar/core/views/screens/calendar_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/detalis_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/eventsBadyh_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/home_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/not_found_page.dart';
+import 'package:badiyh_calendar/core/views/screens/splash_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/stars_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/test_details_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/test_home_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/test_page.dart';
+
 import 'package:flutter/material.dart';
 
 class MangerRoute {
-  static Route<dynamic>? appRoute(RouteSettings route){
+  static Route<dynamic>? appRoute(RouteSettings route) {
     switch (route.name) {
+      case '/home':
+        return MaterialPageRoute(builder: (ctx) => HomeScreen());
+      case '/splach':
+        return MaterialPageRoute(builder: (ctx) => SplashScreen());
+      case '/testh':
+        return MaterialPageRoute(builder: (ctx) => TestHomeScreen());
+      case '/testd':
+        Categories category = route.arguments as Categories;
+        return MaterialPageRoute(
+            builder: (ctx) => TestDetailsScreen(
+                  c: category,
+                ));
+      // case '/النماذج والاستمارات':
+      //   Pages pages = route.arguments as Pages;
+      //   return MaterialPageRoute(builder: (ctx) => TestDetailsScreen(p: pages,));
       case '/detalis':
-                Seasons season = route.arguments as Seasons;
-        return MaterialPageRoute(builder: (ctx)=> DetailsScreen(s: season,),settings: route);
-      case '/stars':
-                Months month = route.arguments as Months;
-        return MaterialPageRoute(builder: (ctx)=> StarsScreen(m: month,),settings: route);
-      case '/test':
-        return MaterialPageRoute(builder: (ctx)=> TestView());
+        Seasons season = route.arguments as Seasons;
+        return MaterialPageRoute(
+            builder: (ctx) => DetalisScreen(
+                  s: season,
+                ),
+            settings: route);
       case '/bee':
-        return MaterialPageRoute(builder: (ctx)=> BeeCalendarScreen());
+        return MaterialPageRoute(builder: (ctx) => BeeCalendarScreen());
+      case '/calendar':
+        return MaterialPageRoute(builder: (ctx) => CalendarScreen());
+      case '/star':
+        return MaterialPageRoute(builder: (ctx) => StarsScreen());
+      case '/event':
+        return MaterialPageRoute(builder: (ctx) => EventsBadyhScreen());
+      case '/about':
+        return MaterialPageRoute(builder: (ctx) => AboutScreen());
+        ////
       case '/test':
-        return MaterialPageRoute(builder: (ctx)=> TestView());
-        
+        return MaterialPageRoute(builder: (ctx) => TestPage());
       default:
-        return MaterialPageRoute(builder: (ctx)=> NotFoundPage());
+        return MaterialPageRoute(builder: (ctx) => NotFoundPage());
     }
   }
 }

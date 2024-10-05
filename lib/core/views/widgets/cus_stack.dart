@@ -10,15 +10,16 @@ class CusStack extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          width: MediaQuery.of(context).size.width / 2.23,
-          height: (MediaQuery.of(context).size.width / 2.23) - 20,
+          // width: MediaQuery.of(context).size.width / 2.23,
+          // height: (MediaQuery.of(context).size.width / 2.23),
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(1.25)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: (MediaQuery.of(context).size.width / 3) - 10,
+                height: (MediaQuery.of(context).size.width / 4) ,
                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
                     image: DecorationImage(
                         image: AssetImage('assets/images/the_news.png'),
                         fit: BoxFit.fill)),
@@ -27,7 +28,7 @@ class CusStack extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: -8,
+          bottom: -15,
           child: Container(
             decoration: BoxDecoration(
               boxShadow: [
@@ -44,36 +45,36 @@ class CusStack extends StatelessWidget {
                   begin: Alignment.topRight,
                   end: Alignment.bottomCenter),
             ),
-            padding: EdgeInsets.only(top: 5),
+            padding: EdgeInsets.only(top: 5,left: 10,right: 10),
             height: 42,
             width: (MediaQuery.of(context).size.width / 2.23) - 20,
             child: Column(
               children: [
                 Text('مؤسسة البادية للتنمية',
-                    style: TextStyle(fontFamily: 'Tajawal')),
+                    style: TextStyle(fontFamily: 'Tajawal',fontSize: 12)),
                 SizedBox(
                   height: 4,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Icon(
                       Icons.calendar_today,
-                      size: 10,
+                      size: 8,
                     ),
                     Text(
                       '2024.12ديسمبر',
-                      style: TextStyle(fontFamily: 'Tajawal', fontSize: 10),
+                      style: TextStyle(fontFamily: 'Tajawal', fontSize: 8),
                     ),
                     SizedBox(
                       width: 4,
                     ),
                     Icon(
                       Icons.person_outline_rounded,
-                      size: 12,
+                      size: 10,
                     ),
                     Text('عمر عيضه',
-                        style: TextStyle(fontFamily: 'Tajawal', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Tajawal', fontSize: 8)),
                   ],
                 ),
               ],

@@ -1,5 +1,4 @@
 import 'package:badiyh_calendar/core/model/categories_api.dart';
-import 'package:badiyh_calendar/core/model/pages_api.dart';
 import 'package:badiyh_calendar/core/views/screens/about_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/bee_calendar_screen.dart';
 import 'package:badiyh_calendar/core/model/all_models.dart';
@@ -13,12 +12,17 @@ import 'package:badiyh_calendar/core/views/screens/stars_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/test_details_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/test_home_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/test_page.dart';
+import 'package:badiyh_calendar/core/views/screens/test_widgets.dart';
 
 import 'package:flutter/material.dart';
 
 class MangerRoute {
   static Route<dynamic>? appRoute(RouteSettings route) {
     switch (route.name) {
+       case '/wid':
+        return MaterialPageRoute(builder: (ctx) => TestWidgets());
+      case '/widgets':
+        // return MaterialPageRoute(builder: (ctx) => TestWidgets());
       case '/home':
         return MaterialPageRoute(builder: (ctx) => HomeScreen());
       case '/splach':

@@ -9,5 +9,5 @@ class HttpUrls {
   static String cURL = (categoryURL+c);
   static const articlURL = 'https://badyh.org/wp-json/custom-api/v1/articles/';
   static late String a;
-  static String aURL = (articlURL+a);
+  // static String aURL = (articlURL+a);
 }

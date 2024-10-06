@@ -10,12 +10,13 @@ class Cust_BoxShadow extends StatelessWidget {
       this.alignmen,
       this.begin,
       this.end,
-      this.colors});
+      this.colors,this.borderRadius});
   Widget? child;
   EdgeInsetsGeometry? padding;
   double? height, width;
   AlignmentGeometry? alignmen, begin, end;
   List<Color>? colors = [];
+  BorderRadiusGeometry? borderRadius;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +35,7 @@ class Cust_BoxShadow extends StatelessWidget {
                 Color.fromRGBO(227, 226, 226, 1)
               ],
         ),
-        borderRadius: BorderRadius.circular(2.5),
+        borderRadius:borderRadius?? BorderRadius.circular(2.5),
         boxShadow: [
           BoxShadow(
               color: Color.fromRGBO(0, 0, 0, 0.15),

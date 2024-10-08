@@ -9,6 +9,7 @@ import 'package:badiyh_calendar/core/views/screens/home_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/not_found_page.dart';
 import 'package:badiyh_calendar/core/views/screens/splash_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/stars_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/test_calendarPro.dart';
 import 'package:badiyh_calendar/core/views/screens/test_details_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/test_home_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/test_page.dart';
@@ -49,6 +50,8 @@ class MangerRoute {
         return MaterialPageRoute(builder: (ctx) => BeeCalendarScreen());
       case '/calendar':
         return MaterialPageRoute(builder: (ctx) => CalendarScreen());
+      case '/testcal':
+        return MaterialPageRoute(builder: (ctx) => TestCalendarPro());
       case '/star':
         return MaterialPageRoute(builder: (ctx) => StarsScreen());
       case '/event':

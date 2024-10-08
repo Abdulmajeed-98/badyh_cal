@@ -1,11 +1,8 @@
 import 'package:badiyh_calendar/core/model/events_badyh.dart';
 import 'package:badiyh_calendar/core/viewmodels/events_badyh_VM.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxEvent.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_appBar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
-import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +35,7 @@ class EventsBadyhScreen extends StatelessWidget {
                     child: IconButton(
                       icon: Icon(
                         Icons.menu,
+                        size: 35,
                         color: Colors.white,
                       ),
                       onPressed: () => scaffoldKey.currentState!.openDrawer(),

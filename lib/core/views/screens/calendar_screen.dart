@@ -2,6 +2,7 @@ import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
 import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
+import 'package:badiyh_calendar/core/views/screens/testScreen/testStar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,11 @@ class CalendarScreen extends StatelessWidget {
   var scaffoldKey = GlobalKey<ScaffoldState>();
   SeasonVM sVM = SeasonVM();
   StarVM staVM = StarVM();
+  List<Stars> lisStar = [];
 
   @override
   Widget build(BuildContext context) {
+    lisStar = staVM.loadAllStars();
     Jiffy.setLocale("ar");
     HijriCalendar.setLocal("ar");
     return Directionality(
@@ -30,7 +33,7 @@ class CalendarScreen extends StatelessWidget {
             body: SingleChildScrollView(
               child: Container(
                 color: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 13),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 // color: Colors.yellow,
@@ -40,7 +43,7 @@ class CalendarScreen extends StatelessWidget {
                     Container(
                       //  color: Colors.blue,
                       padding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 0),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 0),
                       margin: EdgeInsets.only(bottom: 10),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,6 +67,8 @@ class CalendarScreen extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                                 onPressed: () {
+                                  print("${lisStar[0].starName}");
+                                  // print("${staVM.load()}");
                                   // staVM.getStar(cT)
                                   // sVM.getSeason();
                                   // print(sVM.getSeason(calendarDateVM));
@@ -85,7 +90,12 @@ class CalendarScreen extends StatelessWidget {
                                         onPressed: () {
                                           cT.previousDay();
                                         },
-                                        icon: Icon(Icons.arrow_back_ios))
+                                        icon: Icon(Icons.arrow_back_ios)),
+                                    IconButton(
+                                        onPressed: () {
+                                          //  print("${staVM.getStar(cT)}");
+                                        },
+                                        icon: Icon(Icons.app_blocking)),
                                   ]),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -143,7 +153,7 @@ class CalendarScreen extends StatelessWidget {
                                     children: [
                                       Icon(Icons.apple),
                                       SizedBox(width: 10),
-                                      Text("نجم الدلو",
+                                      Text("نجم ${staVM.getStar(cT)}",
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.w500)),
@@ -204,7 +214,7 @@ class CalendarScreen extends StatelessWidget {
                     ]),
                     //This Need Provider...
                     Container(
-                      margin: EdgeInsets.only(bottom: 20),
+                      margin: EdgeInsets.only(bottom: 10),
                       padding:
                           EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                       alignment: Alignment.bottomRight,

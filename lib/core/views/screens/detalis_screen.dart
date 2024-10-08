@@ -31,24 +31,25 @@ class DetalisScreen extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        children: List.generate(3, (sIndex) {
-                          monthStars =
-                              starvm.loadStarsByMonth(s.months[mIndex]);
-                          return Expanded(
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 50,
-                                    child: Card(
-                                        child: Center(
-                                            child: Text(
-                                                monthStars[sIndex].starName))),
-                                  ),
+                      // Row(
+                      //   children: List.generate(3, (sIndex) {
+                      //     monthStars =
+                      //         starvm.loadStarsByMonth(s.months[mIndex]);
+                      //     return Expanded(
+                      //         child: Column(
+                      //           children: [
+                      //             SizedBox(height: 50,
+                      //               child: Card(
+                      //                   child: Center(
+                      //                       child: Text(
+                      //                           monthStars[sIndex].starName))),
+                      //             ),
                                 
-                                ],
-                              ));
-                        }),
-                      ),
+                      //           ],
+                      //         ));
+                      //   }),
+                      // ),
+             
                       SizedBox(
                         height: 10,
                       ),

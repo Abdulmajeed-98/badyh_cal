@@ -34,7 +34,7 @@ class CalendarScreen extends StatelessWidget {
               child: Container(
                 margin: EdgeInsets.only(bottom: 20),
                 color: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 // height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 // color: Colors.yellow,
@@ -46,7 +46,7 @@ class CalendarScreen extends StatelessWidget {
                       //  color: Colors.blue,
                       padding: const EdgeInsets.symmetric(
                           vertical: 5, horizontal: 0),
-                      margin: const EdgeInsets.only(bottom: 10),
+                      margin: const EdgeInsets.only(bottom: 1),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -82,14 +82,13 @@ class CalendarScreen extends StatelessWidget {
                     Consumer<CalendarDateVM>(builder: (ctx, cT, child) {
                       return Cust_BoxShadow(
                         padding: EdgeInsets.only(
-                            top: 5, bottom: 5, left: 8, right: 2),
+                            top: 5, bottom: 5, left: 3, right: 5),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
                                 // color: Colors.green,
-
                                 child: InkWell(
                                     onTap: () {
                                       cT.previousDay();
@@ -198,7 +197,6 @@ class CalendarScreen extends StatelessWidget {
                                   color: Colors.red,
                                 ),
                               ),
-                            
                             ]),
                       );
                     }),

@@ -29,9 +29,9 @@ class StarVM {
 
     return allStars;
   }
-  SeasonVM sea = SeasonVM();
+  SeasonVM seaVM = SeasonVM();
   getStar(DateTime selectedDate) {
-    
+
     var dateNow =
         Jiffy.parse(Jiffy.parse(selectedDate.toString()).MMMd, pattern: "MMMd");
     var firstMonth = Jiffy.parse('01 January', pattern: 'dd MMMM');
@@ -46,20 +46,12 @@ class StarVM {
         if (dateNow.isBetween(starStart, starEnd, unit: Unit.day) ||
             dateNow.isSame(starStart, unit: Unit.day) ||
             dateNow.isSame(starEnd, unit: Unit.day)) {
-          print(starEnd.MMMd);
-          print(starStart.MMMd);
-          print(
-              "الهقعة== ${i}=/${Jiffy.parse(selectedDate.toString()).daysInMonth}");
-          return i;
+         return i;
         }
       } else if (dateNow.isBetween(starStart, starEnd, unit: Unit.day) ||
           dateNow.isSame(starStart, unit: Unit.day) ||
           dateNow.isSame(starEnd, unit: Unit.day)) {
-        print(starEnd.MMMd);
-        print(starStart.MMMd);
-        print(
-            " Not Hag ==${i}=+-+=${Jiffy.parse(selectedDate.toString()).daysInMonth}");
-        return i;
+            return i;
       }
     }
 

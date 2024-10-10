@@ -18,13 +18,13 @@ class Cust_Appbar extends StatelessWidget {
       backgroundColor: Colors.white,
       title: title ??
           Text(txtTitle,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
       centerTitle: true,
       actions: actions ??
           [
             Container(
-              padding: EdgeInsets.all(20),
-              child: Row(
+              padding: const EdgeInsets.all(20),
+              child: const Row(
                 children: [
                   // Icon(Icons.menu, size: 30),
                   Icon(Icons.arrow_forward_ios, size: 25),

@@ -14,11 +14,11 @@ class EventsBadyh {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['day'] = this.day;
-    data['month'] = this.month;
-    data['title'] = this.title;
-    data['subject'] = this.subject;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['day'] = day;
+    data['month'] = month;
+    data['title'] = title;
+    data['subject'] = subject;
     return data;
   }
 }

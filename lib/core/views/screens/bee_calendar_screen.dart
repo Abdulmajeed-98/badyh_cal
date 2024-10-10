@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class BeeCalendarScreen extends StatelessWidget {
   BeeCalendarScreen({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   BeeCalendarVM bvm = BeeCalendarVM();
   late List<BeeCalendar> allBee;
@@ -16,15 +16,15 @@ class BeeCalendarScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("مراحل تربية النحل وجني العسل"),
+        title: const Text("مراحل تربية النحل وجني العسل"),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Container(
           //  width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.all(1),
+          padding: const EdgeInsets.all(1),
           child: DataTable(
-            columns: [
+            columns: const [
               DataColumn(
                   label: Text('فترات النحل',
                       style: TextStyle(
@@ -46,7 +46,7 @@ class BeeCalendarScreen extends StatelessWidget {
               return DataRow(cells: [
                 DataCell(Text("${b.phaseName}")),
                 DataCell(Text(
-                    "${b.stars!.map((star) => star.starName).join(' - ')}")),
+                    b.stars!.map((star) => star.starName).join(' - '))),
                 DataCell(Text("${b.startDate}")),
                 DataCell(Text("${b.endDate}")),
               ]);

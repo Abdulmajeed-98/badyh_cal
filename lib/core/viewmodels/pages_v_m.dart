@@ -20,5 +20,6 @@ class PagesVM {
     } catch (e) {
       print("the exception is $e");
     }
+    return null;
   }
 }

@@ -12,11 +12,11 @@ class CusButton extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: h??28,vertical: v??6),
         decoration: BoxDecoration(
-          color: Color.fromRGBO(34, 34, 39, 1),
+          color: const Color.fromRGBO(34, 34, 39, 1),
           borderRadius: BorderRadius.circular(2.5),
         ),
 
-        child: Text(txt??'المزيد',style: TextStyle(color: Colors.white,fontFamily: 'Tajawal'),),
+        child: Text(txt??'المزيد',style: const TextStyle(color: Colors.white,fontFamily: 'Tajawal'),),
       ),
     );
     

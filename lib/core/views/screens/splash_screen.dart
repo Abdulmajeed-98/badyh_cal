@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SplashScreen extends StatefulWidget {
-  SplashScreen({super.key});
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -16,11 +16,12 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushReplacementNamed(context, "/home");
     });
   }
 
+  @override
   void dispose() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values);
@@ -33,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen>
       child: Scaffold(
         body: Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/images/badyh_splach.png"),
                   fit: BoxFit.cover)),
@@ -44,10 +45,10 @@ class _SplashScreenState extends State<SplashScreen>
                   child: SizedBox(
                       height: 144,
                       width: 144,
-                      child: Image.asset("assets/images/badyh_logo.png"))),
-              Text("مؤسسة البادية للتنمية",
+                      child: Image.asset("assets/images/badyh_logo1.png"))),
+              const Text("مؤسسة البادية للتنمية",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-              Text("والأعمال الإنسانية",
+              const Text("والأعمال الإنسانية",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))
               // ElevatedButton(  onPressed: () => Navigator.popAndPushNamed(context, '/testh'),
               //     child: Text('Home')),

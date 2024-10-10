@@ -14,7 +14,7 @@ class Tousedrawer extends StatelessWidget {
         drawer: CusAppDrawer(),
         body: Stack(
           children: <Widget>[
-            Center(
+            const Center(
                 child: Column(
               children: <Widget>[],
             )),
@@ -22,7 +22,7 @@ class Tousedrawer extends StatelessWidget {
               left: 10,
               top: 20,
               child: IconButton(
-                icon: Icon(Icons.menu),
+                icon: const Icon(Icons.menu),
                 onPressed: () => scaffoldKey.currentState!.openDrawer(),
               ),
             ),

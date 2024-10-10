@@ -10,20 +10,20 @@ class AboutScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-          drawer: Drawer(),
+          drawer: const Drawer(),
           appBar: PreferredSize(
-              preferredSize: Size.fromHeight(60.0),
+              preferredSize: const Size.fromHeight(60.0),
               child: Cust_Appbar(txtTitle: "من نحن")),
           body: SingleChildScrollView(
             child: Container(
                 color: Colors.white,
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 //  color: Colors.yellow,
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         Icon(Icons.people),
                         SizedBox(width: 8),
@@ -34,25 +34,25 @@ class AboutScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(height: 24),
-                    Text(
+                    const SizedBox(height: 24),
+                    const Text(
                       """مؤسسة البادية للتنمية والأعمال الإنسانية، أحدى المنظمات اليمنية الرائدة  العاملة بالداخل اليمني في المجالات التنموية والإنسانية المختلفة، وقد  تاسست في 21 رجب لعام 1422هـ الموافق أكتوبر عام 2001م .واتخذت من وادي  حضرموت مقراً رئيسياً لها وانطلقت منذ تأسيها جاهدة لتكون موضع الريادة في  تطوير حياة الناس وتوجيه طاقاتهم نحو التنمية والبناء، معتمدة العمل  المؤسسي المشترك في سبيل تحقيق أهدافها، لتجعل الإنسان أولاً وترسم صورة  رائعة لمعاني الإنسانية والمصداقية والشفافية في كل مشاريعها وبرامجها .""",
                       style:
                           TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                       textAlign: TextAlign.justify,
                     ),
-                    SizedBox(height: 24),
+                    const SizedBox(height: 24),
                     Row(
                       children: [
                         Expanded(
                             child: Cust_BoxShadow(
                           alignmen: Alignment.center,
                           height: 145,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               vertical: 15, horizontal: 10),
                           begin: Alignment.topRight,
                           end: Alignment.bottomRight,
-                          colors: [
+                          colors: const [
                             Color.fromRGBO(0, 0, 0, 1),
                             Color.fromRGBO(34, 34, 39, 1)
                           ],
@@ -66,14 +66,14 @@ class AboutScreen extends StatelessWidget {
                                     "assets/images/eye.png",
                                     fit: BoxFit.fill,
                                   )),
-                              Text(
+                              const Text(
                                 "رؤيتنا",
                                 style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w700,
                                     color: Color.fromRGBO(8, 164, 34, 1)),
                               ),
-                              Text(
+                              const Text(
                                 "أن نكون عنوان الإنسانية ، والمشاركة المؤسساتية التنموية محلياً واقليمياً",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -84,16 +84,16 @@ class AboutScreen extends StatelessWidget {
                             ],
                           ),
                         )),
-                        SizedBox(width: 7),
+                        const SizedBox(width: 7),
                         Expanded(
                             child: Cust_BoxShadow(
                           alignmen: Alignment.center,
                           height: 145,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               vertical: 15, horizontal: 10),
                           begin: Alignment.topRight,
                           end: Alignment.bottomRight,
-                          colors: [
+                          colors: const [
                             Color.fromRGBO(0, 0, 0, 1),
                             Color.fromRGBO(34, 34, 39, 1)
                           ],
@@ -107,14 +107,14 @@ class AboutScreen extends StatelessWidget {
                                     "assets/images/email.png",
                                     fit: BoxFit.fill,
                                   )),
-                              Text(
+                              const Text(
                                 "رسالتنا",
                                 style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w700,
                                     color: Color.fromRGBO(8, 164, 34, 1)),
                               ),
-                              Text(
+                              const Text(
                                 "مؤسسة تنموية انسانية ، تعتمد العمل المؤسسي المشترك لرقي المجتمع اليمني ونهضته",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -127,7 +127,7 @@ class AboutScreen extends StatelessWidget {
                         )),
                       ],
                     ),
-                    SizedBox(height: 24),
+                    const SizedBox(height: 24),
                     Cust_BoxShadow()
                   ],
                 )),

@@ -15,12 +15,12 @@ class Cust_BoxEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Cust_BoxShadow(
-      padding: EdgeInsets.only(left: 9, right: 9),
+      padding: const EdgeInsets.only(left: 9, right: 9),
       height: MediaQuery.of(context).size.height * 0.109,
       width: MediaQuery.of(context).size.width * 0.445,
       begin: Alignment.topRight,
       end: Alignment.bottomRight,
-      colors: [
+      colors: const [
         Color.fromRGBO(255, 255, 255, 1),
         Color.fromRGBO(238, 238, 238, 1)
       ],
@@ -35,14 +35,14 @@ class Cust_BoxEvent extends StatelessWidget {
                   children: [
                 Text(
                   txtTitle ?? "برامج الخير الرمضانية",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                       color: Color.fromRGBO(8, 164, 34, 1)),
                 ),
                 Text(
                   txtSubject ?? "اول ايام شهر رمضان",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 8,
                       fontWeight: FontWeight.w400,
                       color: Color.fromRGBO(147, 147, 147, 1)),
@@ -51,12 +51,12 @@ class Cust_BoxEvent extends StatelessWidget {
           Cust_BoxShadow(
             borderRadius: BorderRadius.circular(0),
             alignmen: Alignment.center,
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             width: MediaQuery.of(context).size.width * 0.12,
             height: MediaQuery.of(context).size.width * 0.19, //60,
             begin: Alignment.topRight,
             end: Alignment.bottomRight,
-            colors: [
+            colors: const [
               Color.fromRGBO(9, 162, 35, 1),
               Color.fromRGBO(112, 187, 65, 1)
             ],
@@ -65,21 +65,21 @@ class Cust_BoxEvent extends StatelessWidget {
               children: [
                 Text(
                   day ?? "11",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
                       color: Colors.white),
                 ),
                 Text(
                   month ?? "مارس",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
                       color: Colors.white),
                 ),
                 Text(
                   year ?? "2024",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
                       color: Colors.white),

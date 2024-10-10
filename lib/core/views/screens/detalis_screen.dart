@@ -20,7 +20,7 @@ class DetalisScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Column(
             children: [
               Column(
@@ -28,7 +28,7 @@ class DetalisScreen extends StatelessWidget {
                   return Column(
                     children: [
                       Text(s.months[mIndex].monthName),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       // Row(
@@ -50,11 +50,11 @@ class DetalisScreen extends StatelessWidget {
                       //   }),
                       // ),
              
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         height: 150,
                         width: double.infinity,
                         decoration: BoxDecoration(
@@ -68,7 +68,7 @@ class DetalisScreen extends StatelessWidget {
                                 end: Alignment.bottomRight)),
                                 child: Text(s.months[mIndex].crops),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                     ],

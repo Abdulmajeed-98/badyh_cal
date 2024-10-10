@@ -6,7 +6,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:hijri/hijri_calendar.dart';
 
 class TestCalendarPro extends StatefulWidget {
-  TestCalendarPro({super.key});
+  const TestCalendarPro({super.key});
 
   @override
   State<TestCalendarPro> createState() => _TestCalendarProState();
@@ -23,13 +23,13 @@ class _TestCalendarProState extends State<TestCalendarPro> {
   //////
   void _previousDay() {
     setState(() {
-      _selectedDate = _selectedDate.subtract(Duration(days: 1));
+      _selectedDate = _selectedDate.subtract(const Duration(days: 1));
     });
   }
 
   void _nextDay() {
     setState(() {
-      _selectedDate = _selectedDate.add(Duration(days: 1));
+      _selectedDate = _selectedDate.add(const Duration(days: 1));
     });
   }
 
@@ -60,7 +60,7 @@ class _TestCalendarProState extends State<TestCalendarPro> {
             body: SingleChildScrollView(
               child: Container(
                 color: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 13),
+                padding: const EdgeInsets.symmetric(horizontal: 13),
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 // color: Colors.yellow,
@@ -71,13 +71,13 @@ class _TestCalendarProState extends State<TestCalendarPro> {
                       //  color: Colors.blue,
 
                       padding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 0),
-                      margin: EdgeInsets.only(bottom: 10),
+                          const EdgeInsets.symmetric(vertical: 12, horizontal: 0),
+                      margin: const EdgeInsets.only(bottom: 10),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.menu,
                                 size: 35,
                                 color: Colors.black,
@@ -85,17 +85,17 @@ class _TestCalendarProState extends State<TestCalendarPro> {
                               onPressed: () =>
                                   scaffoldKey.currentState!.openDrawer(),
                             ),
-                            Text("التقويم",
+                            const Text("التقويم",
                                 style: TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.w600)),
                             IconButton(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_forward_ios,
                                   size: 25,
                                   color: Colors.black,
                                 ),
                                 onPressed: () {
-                                  print("${_selectedDate}");
+                                  print("$_selectedDate");
                                 }),
                           ]),
                     ),
@@ -109,47 +109,47 @@ class _TestCalendarProState extends State<TestCalendarPro> {
                                 children: [
                                   IconButton(
                                       onPressed: _previousDay,
-                                      icon: Icon(Icons.arrow_back_ios))
+                                      icon: const Icon(Icons.arrow_back_ios))
                                 ]),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text("${_selectedDate.day}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 96,
                                         color: Color.fromRGBO(8, 164, 34, 1),
                                         fontWeight: FontWeight.w700)),
                                 Text(
-                                    "${Jiffy.parse(_selectedDate.toString()).MMMM}",
-                                    style: TextStyle(
+                                    Jiffy.parse(_selectedDate.toString()).MMMM,
+                                    style: const TextStyle(
                                         fontSize: 32,
                                         fontWeight: FontWeight.w400)),
                                 Text("${_selectedDate.year}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 32,
                                         fontWeight: FontWeight.w400)),
                                 /////////////////////
                                 Row(
                                   children: [
                                     Text("${_hijriDate.hDay}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w400)),
-                                    SizedBox(width: 10),
-                                    Text("${_hijriDate.longMonthName}",
-                                        style: TextStyle(
+                                    const SizedBox(width: 10),
+                                    Text(_hijriDate.longMonthName,
+                                        style: const TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w400)),
-                                    SizedBox(width: 10),
+                                    const SizedBox(width: 10),
                                     Text("${_hijriDate.hYear}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w400)),
                                   ],
                                 ),
                               ],
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -180,19 +180,19 @@ class _TestCalendarProState extends State<TestCalendarPro> {
                                 children: [
                                   IconButton(
                                       onPressed: _nextDay,
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.arrow_forward_ios,
                                         color: Colors.red,
                                       ))
                                 ]),
                           ]),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Cust_BoxShadow(
-                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                       height: MediaQuery.of(context).size.height * 0.11,
                       width: MediaQuery.of(context).size.width,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Row(children: [
@@ -212,8 +212,8 @@ class _TestCalendarProState extends State<TestCalendarPro> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 32),
-                    Row(children: [
+                    const SizedBox(height: 32),
+                    const Row(children: [
                       Icon(Icons.apple),
                       SizedBox(width: 8),
                       Text("محاصيل الشهر",
@@ -221,11 +221,11 @@ class _TestCalendarProState extends State<TestCalendarPro> {
                               fontSize: 16, fontWeight: FontWeight.w500))
                     ]),
                     Container(
-                      margin: EdgeInsets.only(bottom: 20),
+                      margin: const EdgeInsets.only(bottom: 20),
                       padding:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                          const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                       alignment: Alignment.bottomRight,
-                      child: Column(
+                      child: const Column(
                         children: [
                           Text(
                               "هذا النص قابل للإستبدال هذا النص قابل للإستبدال",
@@ -265,7 +265,7 @@ class _TestCalendarProState extends State<TestCalendarPro> {
                           height: 100,
                           alignmen: Alignment.center,
                           // width: 150,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Icon(Icons.apple),
@@ -278,14 +278,14 @@ class _TestCalendarProState extends State<TestCalendarPro> {
                                 ),
                               ]),
                         )),
-                        SizedBox(width: 40),
+                        const SizedBox(width: 40),
                         Expanded(
                           child: Cust_BoxShadow(
                             height: 100,
                             // width: 150,
                             alignmen: Alignment.center,
 
-                            child: Column(
+                            child: const Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [

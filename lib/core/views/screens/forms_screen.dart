@@ -21,7 +21,7 @@ class FormsScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.only(top: 10, right: 10),
+            padding: const EdgeInsets.only(top: 10, right: 10),
             child: Column(
               children: [
                 SizedBox(
@@ -40,7 +40,7 @@ class FormsScreen extends StatelessWidget {
                                       arguments: snapshot.data![i]),
                                   child: Card(
                                     child: Container(
-                                      padding: EdgeInsetsDirectional.symmetric(
+                                      padding: const EdgeInsetsDirectional.symmetric(
                                           horizontal: 20),
                                       child: Center(
                                         child: Text(snapshot.data![i].title!),
@@ -66,11 +66,11 @@ class FormsScreen extends StatelessWidget {
                     future: cvm.getCategories(),
                     builder: (ctx, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
-                        snapshot.data!.forEach((e) {
+                        for (var e in snapshot.data!) {
                           if (e.name == "استمارات") {
                             id = e.id.toString();
                           }
-                        });
+                        }
                         return FutureBuilder(
                             future: avm.getArticles(id),
                             builder: (ctx, snapshot) {
@@ -85,7 +85,7 @@ class FormsScreen extends StatelessWidget {
                                       return Stack(
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.only(top: 10,left: 10),
+                                            margin: const EdgeInsets.only(top: 10,left: 10),
                                             width: MediaQuery.of(context).size.width * 0.75,
                                             decoration: BoxDecoration(
                                               color: Colors.green,
@@ -96,10 +96,10 @@ class FormsScreen extends StatelessWidget {
                                           Positioned(
                                             bottom: 0,
                                             child: Container(
-                                              padding: EdgeInsets.symmetric(horizontal: 10),
+                                              padding: const EdgeInsets.symmetric(horizontal: 10),
                                               height: 50,
                                             width: MediaQuery.of(context).size.width * 0.75,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               gradient: LinearGradient(colors: [Colors.white24,Colors.grey],begin: Alignment.topCenter,end: Alignment.bottomCenter),
                                               borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
                                             ),
@@ -110,11 +110,11 @@ class FormsScreen extends StatelessWidget {
                                     }),
                                 );
                               } else {
-                                return Center(child: CircularProgressIndicator());
+                                return const Center(child: CircularProgressIndicator());
                               }
                             });
                       } else {
-                        return Center(child: CircularProgressIndicator());
+                        return const Center(child: CircularProgressIndicator());
                       }
                     })
               ],

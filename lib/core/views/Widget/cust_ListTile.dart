@@ -13,7 +13,7 @@ class Cust_Listtile extends StatelessWidget {
       leading: Icon(icon, color: Colors.green[500]),
       title: Text(
         text,
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
       ),
       onTap: onTap,
     );

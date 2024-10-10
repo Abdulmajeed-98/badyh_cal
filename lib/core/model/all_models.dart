@@ -16,10 +16,10 @@ class Seasons {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['SeasonID'] = this.seasonID;
-    data['SeasonName'] = this.seasonName;
-    data['months'] = this.months.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['SeasonID'] = seasonID;
+    data['SeasonName'] = seasonName;
+    data['months'] = months.map((v) => v.toJson()).toList();
     return data;
   }
 }
@@ -53,13 +53,13 @@ class Months {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['monthID'] = this.monthID;
-    data['monthName'] = this.monthName;
-    data['monthNum'] = this.monthNum;
-    data['seasonsID'] = this.seasonsID;
-    data['crops'] = this.crops;
-    data['stars'] = this.stars.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['monthID'] = monthID;
+    data['monthName'] = monthName;
+    data['monthNum'] = monthNum;
+    data['seasonsID'] = seasonsID;
+    data['crops'] = crops;
+    data['stars'] = stars.map((v) => v.toJson()).toList();
     return data;
   }
 }
@@ -90,13 +90,13 @@ class Stars {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['StarID'] = this.starID;
-    data['StarName'] = this.starName;
-    data['StartDate'] = this.startDate;
-    data['EndDate'] = this.endDate;
-    data['SeasonID'] = this.seasonID;
-    data['Duration'] = this.duration;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['StarID'] = starID;
+    data['StarName'] = starName;
+    data['StartDate'] = startDate;
+    data['EndDate'] = endDate;
+    data['SeasonID'] = seasonID;
+    data['Duration'] = duration;
     return data;
   }
 }

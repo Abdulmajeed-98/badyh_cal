@@ -5,7 +5,7 @@ class BeeCalendarVM {
   
   List<BeeCalendar> loadAllBeePhases() {
     BeeCalendar_DB db = BeeCalendar_DB();
-    return db.beeCalendar!
+    return db.beeCalendar
         .map((e) => BeeCalendar.fromJson(e))
         .toList();
   }

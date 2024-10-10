@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CusWideContainer extends StatelessWidget {
-  CusWideContainer({super.key});
+  const CusWideContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,28 +11,28 @@ class CusWideContainer extends StatelessWidget {
         // height: MediaQuery.of(context).size.height / 12,
         height: 70,
         decoration: BoxDecoration(
-          boxShadow: [BoxShadow(color: const Color.fromARGB(150, 0, 0, 0),blurRadius: 5,offset: Offset(-4, 10),spreadRadius: -10,)],
+          boxShadow: const [BoxShadow(color: Color.fromARGB(150, 0, 0, 0),blurRadius: 5,offset: Offset(-4, 10),spreadRadius: -10,)],
           borderRadius: BorderRadius.circular(1.25)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               width: MediaQuery.of(context).size.width / 2.4,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/the_news.png'),
                       fit: BoxFit.fill)),
             ),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                     colors: [Color.fromRGBO(240, 240, 240, 10), Colors.white],
                     begin: Alignment.topRight,
                     end: Alignment.bottomCenter),
               ),
-              padding: EdgeInsets.only(top: 5, right: 5),
+              padding: const EdgeInsets.only(top: 5, right: 5),
               width: MediaQuery.of(context).size.width / 2.1,
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Wrap(

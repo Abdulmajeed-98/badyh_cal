@@ -4,8 +4,7 @@ class HttpHelper{
   static HttpHelper? httpHelper;
   HttpHelper._();
   static HttpHelper get instance{
-   if(httpHelper==null)
-     httpHelper=HttpHelper._();
+   httpHelper ??= HttpHelper._();
    return httpHelper!;
   }
   Dio d=Dio();

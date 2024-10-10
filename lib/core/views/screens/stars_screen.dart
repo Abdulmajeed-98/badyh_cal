@@ -5,20 +5,20 @@ import 'package:flutter/material.dart';
 class StarsScreen extends StatelessWidget {
   StarsScreen({super.key});
   List<DropdownMenuItem<dynamic>> list = [
-    DropdownMenuItem(child: Text("data"))
+    const DropdownMenuItem(child: Text("data"))
   ];
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-          drawer:Drawer(),
+          drawer:const Drawer(),
           appBar: PreferredSize(
-              preferredSize: Size.fromHeight(60.0),
+              preferredSize: const Size.fromHeight(60.0),
               child: Cust_Appbar(txtTitle: "النجوم")),
           body: Container(
             color: Colors.white,
-            padding: EdgeInsets.all(18),
+            padding: const EdgeInsets.all(18),
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             //  color: Colors.yellow,
@@ -27,21 +27,21 @@ class StarsScreen extends StatelessWidget {
               children: [
                 Container(
                   height: 40,
-                  margin: EdgeInsets.only(bottom: 23),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  margin: const EdgeInsets.only(bottom: 23),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(3),
                       border: Border.all(
-                          width: 1, color: Color.fromRGBO(221, 221, 221, 1))),
+                          width: 1, color: const Color.fromRGBO(221, 221, 221, 1))),
                   child: DropdownButtonFormField(
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                           color: Color.fromRGBO(147, 147, 147, 1)),
                       items: list,
                       onChanged: (c) {}),
                 ),
-                Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height * 0.771,
                   child: SingleChildScrollView(
                     child: Wrap(
@@ -51,7 +51,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -84,7 +84,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -118,7 +118,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -151,7 +151,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -184,7 +184,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -217,7 +217,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -250,7 +250,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -283,7 +283,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -316,7 +316,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -349,7 +349,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -382,7 +382,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -415,7 +415,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),
@@ -448,7 +448,7 @@ class StarsScreen extends StatelessWidget {
                         Cust_BoxShadow(
                           height: 128,
                           width: 192,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.apple),

@@ -21,7 +21,7 @@ class TestDetailsScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.only(top: 10, right: 10),
+            padding: const EdgeInsets.only(top: 10, right: 10),
             child: Column(
               children: [
                 SizedBox(
@@ -42,7 +42,7 @@ class TestDetailsScreen extends StatelessWidget {
                                       arguments: snapshot.data![i]),
                                   child: Card(
                                     child: Container(
-                                      padding: EdgeInsetsDirectional.symmetric(
+                                      padding: const EdgeInsetsDirectional.symmetric(
                                           horizontal: 20),
                                       child: Center(
                                         child: Text(snapshot.data![i].name!),
@@ -78,7 +78,7 @@ class TestDetailsScreen extends StatelessWidget {
                                   children: [
                                     Container(
                                       margin:
-                                          EdgeInsets.only(top: 10, left: 10),
+                                          const EdgeInsets.only(top: 10, left: 10),
                                       width: MediaQuery.of(context).size.width *
                                           0.75,
                                       decoration: BoxDecoration(
@@ -93,13 +93,13 @@ class TestDetailsScreen extends StatelessWidget {
                                     Positioned(
                                       bottom: 0,
                                       child: Container(
-                                        padding: EdgeInsets.symmetric(
+                                        padding: const EdgeInsets.symmetric(
                                             horizontal: 10),
                                         height: 50,
                                         width:
                                             MediaQuery.of(context).size.width *
                                                 0.75,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                             gradient: LinearGradient(
                                                 colors: [
                                                   Colors.white24,
@@ -117,7 +117,7 @@ class TestDetailsScreen extends StatelessWidget {
                               }),
                         );
                       } else {
-                        return CircularProgressIndicator();
+                        return const CircularProgressIndicator();
                       }
                     })
               ],

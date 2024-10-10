@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CusTallContainer extends StatelessWidget {
-  CusTallContainer({super.key});
+  const CusTallContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,29 +9,29 @@ class CusTallContainer extends StatelessWidget {
       width: MediaQuery.of(context).size.width / 2.23,
       height: (MediaQuery.of(context).size.width / 2.23)-10,
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(color: const Color.fromARGB(150, 0, 0, 0),blurRadius: 5,offset: Offset(-4, 10),spreadRadius: -10,)],
+        boxShadow: const [BoxShadow(color: Color.fromARGB(150, 0, 0, 0),blurRadius: 5,offset: Offset(-4, 10),spreadRadius: -10,)],
         borderRadius: BorderRadius.circular(1.25)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             height: (MediaQuery.of(context).size.width / 2.23)/1.9,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/images/the_news.png'),
                     fit: BoxFit.fill)),
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                   colors: [Color.fromRGBO(240, 240, 240, 10), Colors.white],
                   begin: Alignment.topRight,
                   end: Alignment.bottomCenter),
             ),
-            padding: EdgeInsets.only(top: 5, right: 5),
+            padding: const EdgeInsets.only(top: 5, right: 5),
             height: ((MediaQuery.of(context).size.width / 2.23)/1.9)-20,
             // width: MediaQuery.of(context).size.width / 2.23,
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(

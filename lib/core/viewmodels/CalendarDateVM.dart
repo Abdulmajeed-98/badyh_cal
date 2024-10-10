@@ -1,7 +1,5 @@
-import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
-import 'package:jiffy/jiffy.dart';
 
 class CalendarDateVM with ChangeNotifier {
 // CalendarDateVM(){
@@ -12,15 +10,24 @@ class CalendarDateVM with ChangeNotifier {
   DateTime _selectedDate = DateTime.now();
   DateTime get selectedDate => _selectedDate;
   HijriCalendar get hijriDate => HijriCalendar.fromDate(_selectedDate);
-  
 
   void previousDay() {
-    _selectedDate = _selectedDate.subtract(Duration(days: 1));
+    _selectedDate = _selectedDate.subtract(const Duration(days: 1));
+    notifyListeners();
+  }
+
+  void preeeeeee() {
+    _selectedDate = _selectedDate.subtract(const Duration(days: 29));
     notifyListeners();
   }
 
   void nextDay() {
-    _selectedDate = _selectedDate.add(Duration(days: 1));
+    _selectedDate = _selectedDate.add(const Duration(days: 1));
+    notifyListeners();
+  }
+
+  void nextDDDDay() {
+    _selectedDate = _selectedDate.add(const Duration(days: 29));
     notifyListeners();
   }
 

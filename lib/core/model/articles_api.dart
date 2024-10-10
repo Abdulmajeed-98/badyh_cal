@@ -24,13 +24,13 @@ class Articles {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['main_image'] = this.mainImage;
-    data['reads_count'] = this.readsCount;
-    data['published_date'] = this.publishedDate;
-    data['link'] = this.link;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['main_image'] = mainImage;
+    data['reads_count'] = readsCount;
+    data['published_date'] = publishedDate;
+    data['link'] = link;
     return data;
   }
 }

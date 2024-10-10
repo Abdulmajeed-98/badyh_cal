@@ -8,10 +8,10 @@ class CusGrundImg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: margin ?? null,
+      margin: margin,
       width: double.infinity,
       height: MediaQuery.of(context).size.height / 7,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: [Colors.black, Color.fromRGBO(102, 102, 102, 1)]),
           image: DecorationImage(
@@ -21,7 +21,7 @@ class CusGrundImg extends StatelessWidget {
       child: Center(
           child: Text(
         txt ?? 'data',
-        style: style ?? TextStyle(color: Colors.white),
+        style: style ?? const TextStyle(color: Colors.white),
       )),
     );
   }

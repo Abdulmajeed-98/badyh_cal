@@ -504,13 +504,15 @@ class StarsViewModel {
 class StarsScreen extends StatelessWidget {
   final StarsViewModel viewModel = StarsViewModel();
 
+  StarsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     List<Stars> starsList = viewModel.loadAllStars();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stars List'),
+        title: const Text('Stars List'),
       ),
       body: ListView.builder(
         itemCount: starsList.length,

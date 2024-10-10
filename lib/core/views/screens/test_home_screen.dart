@@ -12,7 +12,7 @@ class TestHomeScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('اخبار عامة'),
+          title: const Text('اخبار عامة'),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -34,7 +34,7 @@ class TestHomeScreen extends StatelessWidget {
                                       arguments: snapshot.data![i]),
                                   child: Card(
                                     child: Container(
-                                      padding: EdgeInsetsDirectional.symmetric(
+                                      padding: const EdgeInsetsDirectional.symmetric(
                                           horizontal: 20),
                                       child: Center(
                                         child: Text(snapshot.data![i].name!),
@@ -44,7 +44,7 @@ class TestHomeScreen extends StatelessWidget {
                                 ),
                               ),
                             );
-                          } else
+                          } else {
                             return ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: 10,
@@ -54,6 +54,7 @@ class TestHomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               );
+                          }
                         })),
                 
               ],

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CusBottomNaviBar extends StatelessWidget {
-  CusBottomNaviBar({super.key});
+  const CusBottomNaviBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.081,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
         Color.fromARGB(255, 21, 21, 21),
         Color.fromARGB(255, 15, 15, 15)

@@ -7,11 +7,11 @@ class MonthVM {
     try {
       List<Months> seasonMonths = [];
       List<Seasons> allSeasons = svm.loadAllSeasons();
-      allSeasons.forEach((s) {
+      for (var s in allSeasons) {
         if (s.seasonID == season.seasonID) {
           seasonMonths.addAll(s.months);
         }
-      });
+      }
       return seasonMonths;
     } catch (e) {
       print(e);

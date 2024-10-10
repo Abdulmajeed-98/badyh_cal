@@ -57,12 +57,12 @@ class MangerRoute {
       case '/event':
         return MaterialPageRoute(builder: (ctx) => EventsBadyhScreen());
       case '/about':
-        return MaterialPageRoute(builder: (ctx) => AboutScreen());
+        return MaterialPageRoute(builder: (ctx) => const AboutScreen());
         ////
       case '/test':
-        return MaterialPageRoute(builder: (ctx) => TestPage());
+        return MaterialPageRoute(builder: (ctx) => const TestPage());
       default:
-        return MaterialPageRoute(builder: (ctx) => NotFoundPage());
+        return MaterialPageRoute(builder: (ctx) => const NotFoundPage());
     }
   }
 }

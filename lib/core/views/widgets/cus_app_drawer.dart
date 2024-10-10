@@ -2,7 +2,7 @@ import 'package:badiyh_calendar/core/views/widgets/drawer_contents.dart';
 import 'package:flutter/material.dart';
 
 class CusAppDrawer extends StatelessWidget {
-  CusAppDrawer({super.key});
+  const CusAppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +13,18 @@ class CusAppDrawer extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 25, right: 25),
+              margin: const EdgeInsets.only(top: 25, right: 25),
               child: Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 15),
+                    margin: const EdgeInsets.only(left: 15),
                     height: 48,
                     width: 48,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage('assets/images/badyh_logo.png'))),
                   ),
-                  Text('مؤسسة البادية للتنمية\nوالأعمال الإنسانية'),
+                  const Text('مؤسسة البادية للتنمية\nوالأعمال الإنسانية'),
                 ],
               ),
             ),

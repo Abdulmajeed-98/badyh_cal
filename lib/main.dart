@@ -1,5 +1,4 @@
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
-import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/helper/manger_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<CalendarDateVM>(
             create: (ctx) => CalendarDateVM()),
-       
+
         // ChangeNotifierProvider<CalendarDateVM>(create: (ctx) => CalendarDateVM()),
       ],
       child: MaterialApp(

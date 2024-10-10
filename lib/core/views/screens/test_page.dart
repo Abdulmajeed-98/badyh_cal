@@ -8,10 +8,10 @@ class TestPage extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(title: Text("drawer")),
-        drawer: Drawer(),
+        appBar: AppBar(title: const Text("drawer")),
+        drawer: const Drawer(),
         body: Container(
-          child: Center(
+          child: const Center(
             child: Text("drawer"),
           ),
         ),

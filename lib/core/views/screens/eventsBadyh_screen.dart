@@ -26,14 +26,14 @@ class EventsBadyhScreen extends StatelessWidget {
                 Stack(children: [
                   CusGrundImg(
                     txt: "مناسبات البادية",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.w700),
                   ),
                   Positioned(
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.menu,
                         size: 35,
                         color: Colors.white,
@@ -42,14 +42,14 @@ class EventsBadyhScreen extends StatelessWidget {
                     ),
                   )
                 ]),
-                SizedBox(
+                const SizedBox(
                   height: 22,
                 ),
                 Expanded(
                   child: GridView.builder(
                       itemCount: listevent.length,
-                      padding: EdgeInsets.only(left: 14, right: 14, bottom: 22),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      padding: const EdgeInsets.only(left: 14, right: 14, bottom: 22),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 10,
                           mainAxisExtent: 85,

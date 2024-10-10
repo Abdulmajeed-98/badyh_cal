@@ -8,7 +8,7 @@ class CusDrawerIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       child: IconButton(
-        icon: Icon(Icons.menu),
+        icon: const Icon(Icons.menu),
         onPressed: () => scaffoldKey.currentState!.openDrawer(),
       ),
     );

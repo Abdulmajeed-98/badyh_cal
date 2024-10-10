@@ -27,16 +27,16 @@ class DrawerContents extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                                margin: EdgeInsets.only(right: 15),
+                                margin: const EdgeInsets.only(right: 15),
                                 child: Text(snapshot.data![i].name!)),
-                            Divider(),
+                            const Divider(),
                           ],
                         )
                       : Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(right: 15),
+                              margin: const EdgeInsets.only(right: 15),
                               child: DropdownButton(
                                   isExpanded: true,
                                   underline: Container(),
@@ -50,7 +50,7 @@ class DrawerContents extends StatelessWidget {
                                       child: e.children!.isEmpty
                                           ? Text(
                                               e.name!,
-                                              style: TextStyle(fontSize: 14),
+                                              style: const TextStyle(fontSize: 14),
                                             )
                                           : DropdownButton(
                                               underline: Container(),
@@ -60,13 +60,13 @@ class DrawerContents extends StatelessWidget {
                                                   child: Text(
                                                     item.name!,
                                                     style:
-                                                        TextStyle(fontSize: 14),
+                                                        const TextStyle(fontSize: 14),
                                                   ),
                                                 );
                                               }).toList(),
                                               hint: Text(e.name!,
                                                   style:
-                                                      TextStyle(fontSize: 14)),
+                                                      const TextStyle(fontSize: 14)),
                                               onTap: () {
                                                 snapshot
                                                     .data![i].children![i].id!;
@@ -83,7 +83,7 @@ class DrawerContents extends StatelessWidget {
                                     );
                                   }).toList(),
                                   hint: Text(snapshot.data![i].name!,
-                                      style: TextStyle(fontSize: 14)),
+                                      style: const TextStyle(fontSize: 14)),
                                   onTap: () {
                                     avm.id.value =
                                         snapshot.data![i].children![i].id!;
@@ -98,14 +98,14 @@ class DrawerContents extends StatelessWidget {
                                     print(avm.id);
                                   }),
                             ),
-                            Divider()
+                            const Divider()
                           ],
                         ),
                 ),
               ),
             );
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         });
   }

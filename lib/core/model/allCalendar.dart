@@ -11,17 +11,17 @@ class AllCalendar {
     if (json['months'] != null) {
       months = <Months>[];
       json['months'].forEach((v) {
-        months!.add(new Months.fromJson(v));
+        months!.add(Months.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['SeasonID'] = this.seasonID;
-    data['SeasonName'] = this.seasonName;
-    if (this.months != null) {
-      data['months'] = this.months!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['SeasonID'] = seasonID;
+    data['SeasonName'] = seasonName;
+    if (months != null) {
+      data['months'] = months!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -52,20 +52,20 @@ class Months {
     if (json['stars'] != null) {
       stars = <Stars>[];
       json['stars'].forEach((v) {
-        stars!.add(new Stars.fromJson(v));
+        stars!.add(Stars.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['monthID'] = this.monthID;
-    data['monthName'] = this.monthName;
-    data['monthNum'] = this.monthNum;
-    data['seasonsID'] = this.seasonsID;
-    data['crops'] = this.crops;
-    if (this.stars != null) {
-      data['stars'] = this.stars!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['monthID'] = monthID;
+    data['monthName'] = monthName;
+    data['monthNum'] = monthNum;
+    data['seasonsID'] = seasonsID;
+    data['crops'] = crops;
+    if (stars != null) {
+      data['stars'] = stars!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -97,13 +97,13 @@ class Stars {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['StarID'] = this.starID;
-    data['StarName'] = this.starName;
-    data['StartDate'] = this.startDate;
-    data['EndDate'] = this.endDate;
-    data['SeasonID'] = this.seasonID;
-    data['Duration'] = this.duration;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['StarID'] = starID;
+    data['StarName'] = starName;
+    data['StartDate'] = startDate;
+    data['EndDate'] = endDate;
+    data['SeasonID'] = seasonID;
+    data['Duration'] = duration;
     return data;
   }
 }

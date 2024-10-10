@@ -20,7 +20,7 @@ class CusStack extends StatelessWidget {
                 height: (MediaQuery.of(context).size.width / 4) ,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         image: AssetImage('assets/images/the_news.png'),
                         fit: BoxFit.fill)),
               ),
@@ -30,10 +30,10 @@ class CusStack extends StatelessWidget {
         Positioned(
           bottom: -15,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: const Color.fromARGB(150, 0, 0, 0),
+                  color: Color.fromARGB(150, 0, 0, 0),
                   blurRadius: 4,
                   blurStyle: BlurStyle.normal,
                   offset: Offset(0, 4),
@@ -45,10 +45,10 @@ class CusStack extends StatelessWidget {
                   begin: Alignment.topRight,
                   end: Alignment.bottomCenter),
             ),
-            padding: EdgeInsets.only(top: 5,left: 10,right: 10),
+            padding: const EdgeInsets.only(top: 5,left: 10,right: 10),
             height: 42,
             width: (MediaQuery.of(context).size.width / 2.23) - 20,
-            child: Column(
+            child: const Column(
               children: [
                 Text('مؤسسة البادية للتنمية',
                     style: TextStyle(fontFamily: 'Tajawal',fontSize: 12)),

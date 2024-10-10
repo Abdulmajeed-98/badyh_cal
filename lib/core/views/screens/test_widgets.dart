@@ -37,25 +37,25 @@ class TestWidgets extends StatelessWidget {
                                 DropdownMenuItem(value: e, child: Text(e)))
                             .toList(),
                         onChanged: (value) {},
-                        hint: Text('التصنيف'),
+                        hint: const Text('التصنيف'),
                       ),
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.view_headline_rounded)),
+                          icon: const Icon(Icons.view_headline_rounded)),
                     ],
                   ),
                   Expanded(
                     child: GridView.builder(
                         padding:
-                            EdgeInsets.only(bottom: 50, right: 10, left: 10),
+                            const EdgeInsets.only(bottom: 50, right: 10, left: 10),
                         itemCount: 9,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisSpacing: 10,
                             mainAxisExtent: 100,
                             mainAxisSpacing: 20,
                             crossAxisCount: 2),
                         itemBuilder: (ctx, i) {
-                          return CusStack();
+                          return const CusStack();
                         }),
                   )
                   // FutureBuilder(

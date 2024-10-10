@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 
 class HttpUrls {
   static const pageURL = 'https://badyh.org/wp-json/custom-api/v1/pages/';

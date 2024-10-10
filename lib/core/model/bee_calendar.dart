@@ -23,7 +23,7 @@ class BeeCalendar {
     if (json['stars'] != null) {
       stars = <Stars>[];
       json['stars'].forEach((v) {
-        stars!.add(new Stars.fromJson(v));
+        stars!.add(Stars.fromJson(v));
       });
     }
   }

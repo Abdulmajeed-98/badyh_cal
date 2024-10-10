@@ -24,6 +24,7 @@ class CategoriesVM {
     } catch (e) {
       print("the exception is $e");
     }
+    return null;
   }
 }
 

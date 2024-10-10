@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ScrachWidgets extends StatefulWidget {
+  const ScrachWidgets({super.key});
+
   @override
   _ScrachWidgetsState createState() => _ScrachWidgetsState();
 }
@@ -48,7 +50,7 @@ class _ScrachWidgetsState extends State<ScrachWidgets> {
             height: 28,
             left: MediaQuery.of(context).size.width / 2 - 126 / 2 - 21,
             top: 35,
-            child: Text(
+            child: const Text(
               'مؤسسة البادية للتنمية والأعمال الإنسانية',
               textAlign: TextAlign.right,
               style: TextStyle(
@@ -89,10 +91,10 @@ class _ScrachWidgetsState extends State<ScrachWidgets> {
           });
         },
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           decoration: BoxDecoration(
             color: selectedIndex == index ? Colors.grey[300] : Colors.transparent,
-            border: Border(
+            border: const Border(
               bottom: BorderSide(color: Color(0xFFDDDDDD), width: 1),
             ),
           ),
@@ -101,7 +103,7 @@ class _ScrachWidgetsState extends State<ScrachWidgets> {
             children: [
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.w500,
                   fontSize: 12,
@@ -129,23 +131,23 @@ class _ScrachWidgetsState extends State<ScrachWidgets> {
           });
         },
         child: Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: selectedIndex == index ? Colors.grey[300] : Colors.white,
-            border: Border(
+            border: const Border(
               bottom: BorderSide(color: Color(0xFFDDDDDD), width: 1),
             ),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
+              const Icon(
                 Icons.arrow_drop_down,
                 color: Color(0xFF59595D),
               ),
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.w500,
                   fontSize: 12,

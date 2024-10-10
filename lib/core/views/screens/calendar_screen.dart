@@ -21,7 +21,7 @@ class CalendarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     lisStar = staVM.loadAllStars();
-    Jiffy.setLocale("ar");
+    // Jiffy.setLocale("ar");
     HijriCalendar.setLocal("ar");
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -32,42 +32,44 @@ class CalendarScreen extends StatelessWidget {
             bottomNavigationBar: CusBottomNaviBar(),
             body: SingleChildScrollView(
               child: Container(
+                margin: EdgeInsets.only(bottom: 20),
                 color: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                height: MediaQuery.of(context).size.height,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                // height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 // color: Colors.yellow,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
+                      alignment: Alignment.center,
                       //  color: Colors.blue,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-                      margin: EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 0),
+                      margin: const EdgeInsets.only(bottom: 10),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.menu,
-                                size: 35,
+                                size: 30,
                                 color: Colors.black,
                               ),
                               onPressed: () =>
                                   scaffoldKey.currentState!.openDrawer(),
                             ),
-                            Text("التقويم",
+                            const Text("التقويم",
                                 style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.w600)),
+                                    fontSize: 18, fontWeight: FontWeight.w600)),
                             IconButton(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_forward_ios,
-                                  size: 25,
+                                  size: 20,
                                   color: Colors.black,
                                 ),
                                 onPressed: () {
-                                  print("${lisStar[0].starName}");
+                                  // print("${lisStar[0].starName}");
                                   // print("${staVM.load()}");
                                   // staVM.getStar(cT)
                                   // sVM.getSeason();
@@ -79,112 +81,136 @@ class CalendarScreen extends StatelessWidget {
                     //This Need Provider
                     Consumer<CalendarDateVM>(builder: (ctx, cT, child) {
                       return Cust_BoxShadow(
+                        padding: EdgeInsets.only(
+                            top: 5, bottom: 5, left: 8, right: 2),
                         child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Column(
+                              Container(
+                                // color: Colors.green,
+
+                                child: InkWell(
+                                    onTap: () {
+                                      cT.previousDay();
+                                      print(
+                                          "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                    },
+                                    child: Icon(Icons.arrow_back_ios)),
+                              ),
+                              Container(
+                                // color: Colors.yellow,
+                                //التقويم
+                                width: 150,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text("${cT.selectedDate.day}",
+                                        style: const TextStyle(
+                                            fontSize: 70,
+                                            color:
+                                                Color.fromRGBO(8, 164, 34, 1),
+                                            fontWeight: FontWeight.w700)),
+                                    Text(
+                                        Jiffy.parse(cT.selectedDate.toString())
+                                            .MMMM,
+                                        style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400)),
+                                    Text("${cT.selectedDate.year}",
+                                        style: const TextStyle(
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.w400)),
+                                    /////////////////////
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text("${cT.hijriDate.hDay}",
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w400)),
+                                        const SizedBox(width: 5),
+                                        Text(cT.hijriDate.longMonthName,
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w400)),
+                                        const SizedBox(width: 5),
+                                        Text("${cT.hijriDate.hYear}",
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w400)),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                width: 120,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  //stars & season
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    IconButton(
-                                        onPressed: () {
-                                          cT.previousDay();
-                                        },
-                                        icon: Icon(Icons.arrow_back_ios)),
-                                    IconButton(
-                                        onPressed: () {
-                                          //  print("${staVM.getStar(cT)}");
-                                        },
-                                        icon: Icon(Icons.app_blocking)),
-                                  ]),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text("${cT.selectedDate.day}",
-                                      style: TextStyle(
-                                          fontSize: 96,
-                                          color: Color.fromRGBO(8, 164, 34, 1),
-                                          fontWeight: FontWeight.w700)),
-                                  Text(
-                                      "${Jiffy.parse(cT.selectedDate.toString()).MMMM}",
-                                      style: TextStyle(
-                                          fontSize: 32,
-                                          fontWeight: FontWeight.w400)),
-                                  Text("${cT.selectedDate.year}",
-                                      style: TextStyle(
-                                          fontSize: 32,
-                                          fontWeight: FontWeight.w400)),
-                                  /////////////////////
-                                  Row(
-                                    children: [
-                                      Text("${cT.hijriDate.hDay}",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400)),
-                                      SizedBox(width: 10),
-                                      Text("${cT.hijriDate.longMonthName}",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400)),
-                                      SizedBox(width: 10),
-                                      Text("${cT.hijriDate.hYear}",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400)),
-                                    ],
-                                  ),
-                                ],
+                                    Container(
+                                      // color: Colors.blue,
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.apple),
+                                          SizedBox(height: 10),
+                                          Text("فصل ${sVM.getSeason(cT)}",
+                                              style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w500)),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(width: 3),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.apple),
+                                        const SizedBox(height: 10),
+                                        Text(
+                                            "${lisStar[staVM.getStar(cT.selectedDate)].starName}",
+                                            //${staVM.getHoliday(cT)}
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500)),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(Icons.apple),
-                                      SizedBox(width: 10),
-                                      Text("فصل ${sVM.getSeason(cT)}",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500)),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(Icons.apple),
-                                      SizedBox(width: 10),
-                                      Text("نجم ${staVM.getStar(cT)}",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500)),
-                                    ],
-                                  ),
-                                ],
+                              // Spacer(),
+                              InkWell(
+                                onTap: () {
+                                  cT.nextDay();
+                                  print(
+                                      "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                },
+                                child: const Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: Colors.red,
+                                ),
                               ),
-                              Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                        onPressed: () {
-                                          cT.nextDay();
-                                        },
-                                        // _nextDay,
-                                        icon: Icon(
-                                          Icons.arrow_forward_ios,
-                                          color: Colors.red,
-                                        ))
-                                  ]),
+                            
                             ]),
                       );
                     }),
 
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     //This Need Provider
                     Cust_BoxShadow(
-                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 8),
                       height: MediaQuery.of(context).size.height * 0.11,
                       width: MediaQuery.of(context).size.width,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Row(children: [
@@ -204,8 +230,8 @@ class CalendarScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 32),
-                    Row(children: [
+                    const SizedBox(height: 32),
+                    const Row(children: [
                       Icon(Icons.apple),
                       SizedBox(width: 8),
                       Text("محاصيل الشهر",
@@ -214,11 +240,11 @@ class CalendarScreen extends StatelessWidget {
                     ]),
                     //This Need Provider...
                     Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                      margin: const EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 16, horizontal: 32),
                       alignment: Alignment.bottomRight,
-                      child: Column(
+                      child: const Column(
                         children: [
                           Text(
                               "هذا النص قابل للإستبدال هذا النص قابل للإستبدال",
@@ -258,7 +284,7 @@ class CalendarScreen extends StatelessWidget {
                           height: 100,
                           alignmen: Alignment.center,
                           // width: 150,
-                          child: Column(
+                          child: const Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Icon(Icons.apple),
@@ -271,14 +297,14 @@ class CalendarScreen extends StatelessWidget {
                                 ),
                               ]),
                         )),
-                        SizedBox(width: 40),
+                        const SizedBox(width: 40),
                         Expanded(
                           child: Cust_BoxShadow(
                             height: 100,
                             // width: 150,
                             alignmen: Alignment.center,
 
-                            child: Column(
+                            child: const Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [

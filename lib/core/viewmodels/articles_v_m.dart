@@ -37,5 +37,6 @@ class ArticlesVM extends GetxController {
     } catch (e) {
       print("the exception is $e");
     }
+    return null;
   }
 }

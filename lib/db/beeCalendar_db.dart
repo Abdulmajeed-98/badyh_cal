@@ -3,15 +3,15 @@ class BeeCalendar_DB {
     {
       "PhaseID": 1,
       "PhaseName": "مجنى الضبة",
-      "StartDate": "2024-01-27",
-      "EndDate": "2024-02-08",
+      "StartDate": "27 يناير",
+      "EndDate": "8 فبراير",
       "Description": "فترة مجنى الضبة",
       "stars": [
         {
           "StarID": 3,
           "StarName": "النثرة",
-          "StartDate": "2024-01-27",
-          "EndDate": "2024-02-08",
+          "StartDate": "01-27",
+          "EndDate": "02-08",
           "SeasonID": 1,
           "Duration": 13
         }

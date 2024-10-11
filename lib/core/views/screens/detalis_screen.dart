@@ -1,4 +1,7 @@
 import 'package:badiyh_calendar/core/model/all_models.dart';
+import 'package:badiyh_calendar/core/model/months.dart';
+import 'package:badiyh_calendar/core/model/seasons.dart';
+import 'package:badiyh_calendar/core/model/stars.dart';
 import 'package:badiyh_calendar/core/viewmodels/month_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:flutter/material.dart';
@@ -44,12 +47,12 @@ class DetalisScreen extends StatelessWidget {
                       //                       child: Text(
                       //                           monthStars[sIndex].starName))),
                       //             ),
-                                
+
                       //           ],
                       //         ));
                       //   }),
                       // ),
-             
+
                       const SizedBox(
                         height: 10,
                       ),
@@ -66,7 +69,7 @@ class DetalisScreen extends StatelessWidget {
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight)),
-                                child: Text(s.months[mIndex].crops),
+                        child: Text(s.months[mIndex].crops),
                       ),
                       const SizedBox(
                         height: 10,

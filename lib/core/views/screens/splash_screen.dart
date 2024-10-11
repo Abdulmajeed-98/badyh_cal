@@ -1,5 +1,7 @@
+import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:badiyh_calendar/core/model/pages_api.dart';
 import 'package:badiyh_calendar/core/viewmodels/pages_v_m.dart';
+import 'package:badiyh_calendar/core/views/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -38,21 +40,36 @@ class _SplashScreenState extends State<SplashScreen>
               image: DecorationImage(
                   image: AssetImage("assets/images/badyh_splach.png"),
                   fit: BoxFit.cover)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                  child: SizedBox(
-                      height: 144,
-                      width: 144,
-                      child: Image.asset("assets/images/badyh_logo1.png"))),
-              const Text("مؤسسة البادية للتنمية",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-              const Text("والأعمال الإنسانية",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))
-              // ElevatedButton(  onPressed: () => Navigator.popAndPushNamed(context, '/testh'),
-              //     child: Text('Home')),
-            ],
+          child: FlutterSplashScreen.scale(
+            backgroundColor: Colors.white,
+            duration: Duration(seconds: 3),
+            animationDuration: const Duration(seconds: 2),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.green.shade100, Colors.green.shade900]),
+            onInit: () {
+              Text(
+                "dafdhffjjgjgta",
+                style: TextStyle(fontSize: 40),
+              );
+            },
+            onEnd: () {
+              Text(
+                "dafdhffjjgjgta",
+                style: TextStyle(fontSize: 40),
+              );
+            },
+            childWidget: SizedBox(
+              height: 150,
+              width: 150,
+              child: Image.asset("assets/images/badyh_logo1.png"),
+            ),
+            onAnimationEnd: () => Text(
+              "dafdhffjjgjgta",
+              style: TextStyle(fontSize: 40),
+            ),
+            nextScreen: HomeScreen(),
           ),
         ),
       ),

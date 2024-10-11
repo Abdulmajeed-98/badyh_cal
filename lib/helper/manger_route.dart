@@ -1,4 +1,5 @@
 import 'package:badiyh_calendar/core/model/categories_api.dart';
+import 'package:badiyh_calendar/core/model/seasons.dart';
 import 'package:badiyh_calendar/core/views/screens/about_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/bee_calendar_screen.dart';
 import 'package:badiyh_calendar/core/model/all_models.dart';
@@ -9,24 +10,24 @@ import 'package:badiyh_calendar/core/views/screens/home_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/not_found_page.dart';
 import 'package:badiyh_calendar/core/views/screens/splash_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/stars_screen.dart';
-import 'package:badiyh_calendar/core/views/screens/test_calendarPro.dart';
-import 'package:badiyh_calendar/core/views/screens/test_details_screen.dart';
-import 'package:badiyh_calendar/core/views/screens/test_home_screen.dart';
-import 'package:badiyh_calendar/core/views/screens/test_page.dart';
-import 'package:badiyh_calendar/core/views/screens/test_widgets.dart';
+import 'package:badiyh_calendar/core/views/screens/testScreen/test_calendarPro.dart';
+import 'package:badiyh_calendar/core/views/screens/testScreen/test_details_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/testScreen/test_home_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/testScreen/test_page.dart';
+import 'package:badiyh_calendar/core/views/screens/testScreen/test_widgets.dart';
 
 import 'package:flutter/material.dart';
 
 class MangerRoute {
   static Route<dynamic>? appRoute(RouteSettings route) {
     switch (route.name) {
-       case '/wid':
+      case '/wid':
         return MaterialPageRoute(builder: (ctx) => TestWidgets());
       case '/widgets':
-        // return MaterialPageRoute(builder: (ctx) => TestWidgets());
+      // return MaterialPageRoute(builder: (ctx) => TestWidgets());
       case '/home':
         return MaterialPageRoute(builder: (ctx) => HomeScreen());
-      case '/splach':
+      case '/splash':
         return MaterialPageRoute(builder: (ctx) => SplashScreen());
       case '/testh':
         return MaterialPageRoute(builder: (ctx) => TestHomeScreen());
@@ -58,7 +59,7 @@ class MangerRoute {
         return MaterialPageRoute(builder: (ctx) => EventsBadyhScreen());
       case '/about':
         return MaterialPageRoute(builder: (ctx) => const AboutScreen());
-        ////
+      ////
       case '/test':
         return MaterialPageRoute(builder: (ctx) => const TestPage());
       default:

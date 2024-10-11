@@ -1,21 +1,27 @@
-// class Seasons {
-//   late int seasonID;
-//   late String seasonName;
-//   late List monthID;
+import 'package:badiyh_calendar/core/model/months.dart';
 
-//   Seasons({required this.seasonID, required this.seasonName,required this.monthID});
+class Seasons {
+  late int seasonID;
+  late String seasonName;
+  late List<Months> months;
 
-//   Seasons.fromMap(Map<String, dynamic> json) {
-//     seasonID = json['SeasonID'];
-//     seasonName = json['SeasonName'];
-//     monthID = json['monthID'];
-//   }
+  Seasons(
+      {required this.seasonID, required this.seasonName, required this.months});
 
-//   Map<String, dynamic> toJson() {
-//     final Map<String, dynamic> data = new Map<String, dynamic>();
-//     data['SeasonID'] = this.seasonID;
-//     data['SeasonName'] = this.seasonName;
-//     data['monthID'];
-//     return data;
-//   }
-// }
+  Seasons.fromMap(Map<String, dynamic> json) {
+    seasonID = json['SeasonID'];
+    seasonName = json['SeasonName'];
+    months = <Months>[];
+    json['months'].forEach((v) {
+      months.add(Months.fromMap(v));
+    });
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['SeasonID'] = seasonID;
+    data['SeasonName'] = seasonName;
+    data['months'] = months.map((v) => v.toJson()).toList();
+    return data;
+  }
+}

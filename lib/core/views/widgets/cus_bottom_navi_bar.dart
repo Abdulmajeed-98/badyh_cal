@@ -28,7 +28,7 @@ class CusBottomNaviBar extends StatelessWidget {
           ),
           IconButton(
             iconSize: 3,
-            onPressed: () {},
+            onPressed: () => Navigator.pushReplacementNamed(context, "/bee"),
             icon: SizedBox(
               height: 20,
               width: 20,
@@ -52,7 +52,9 @@ class CusBottomNaviBar extends StatelessWidget {
             color: Colors.white,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, "/star");
+            },
             icon: SizedBox(
               height: 20,
               width: 20,

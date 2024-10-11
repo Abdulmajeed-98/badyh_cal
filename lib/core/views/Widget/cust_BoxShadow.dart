@@ -16,7 +16,7 @@ class Cust_BoxShadow extends StatelessWidget {
   EdgeInsetsGeometry? padding;
   double? height, width;
   AlignmentGeometry? alignmen, begin, end;
-  List<Color>? colors = [];
+  List<Color>? colors;
   BorderRadiusGeometry? borderRadius;
   @override
   Widget build(BuildContext context) {

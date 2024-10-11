@@ -1,102 +1,104 @@
-class Seasons {
-  late int seasonID;
-  late String seasonName;
-  late List<Months> months;
+import 'package:badiyh_calendar/core/model/stars.dart';
 
-  Seasons(
-      {required this.seasonID, required this.seasonName, required this.months});
+// class Seasons {
+//   late int seasonID;
+//   late String seasonName;
+//   late List<Months> months;
 
-  Seasons.fromMap(Map<String, dynamic> json) {
-    seasonID = json['SeasonID'];
-    seasonName = json['SeasonName'];
-    months = <Months>[];
-    json['months'].forEach((v) {
-      months.add(Months.fromMap(v));
-    });
-  }
+//   Seasons(
+//       {required this.seasonID, required this.seasonName, required this.months});
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['SeasonID'] = seasonID;
-    data['SeasonName'] = seasonName;
-    data['months'] = months.map((v) => v.toJson()).toList();
-    return data;
-  }
-}
+//   Seasons.fromMap(Map<String, dynamic> json) {
+//     seasonID = json['SeasonID'];
+//     seasonName = json['SeasonName'];
+//     months = <Months>[];
+//     json['months'].forEach((v) {
+//       months.add(Months.fromMap(v));
+//     });
+//   }
 
-class Months {
-  late int monthID;
-  late String monthName;
-  late int monthNum;
-  late int seasonsID;
-  late String crops;
-  late List<Stars> stars;
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = <String, dynamic>{};
+//     data['SeasonID'] = seasonID;
+//     data['SeasonName'] = seasonName;
+//     data['months'] = months.map((v) => v.toJson()).toList();
+//     return data;
+//   }
+// }
 
-  Months(
-      {required this.monthID,
-      required this.monthName,
-      required this.monthNum,
-      required this.seasonsID,
-      required this.crops,
-      required this.stars});
+// class Months {
+//   late int monthID;
+//   late String monthName;
+//   late int monthNum;
+//   late int seasonsID;
+//   late String crops;
+//   late List<Stars> stars;
 
-  Months.fromMap(Map<String, dynamic> json) {
-    monthID = json['monthID'];
-    monthName = json['monthName'];
-    monthNum = json['monthNum'];
-    seasonsID = json['seasonsID'];
-    crops = json['crops'];
-    stars = <Stars>[];
-    json['stars'].forEach((v) {
-      stars.add(Stars.fromMap(v));
-    });
-  }
+//   Months(
+//       {required this.monthID,
+//       required this.monthName,
+//       required this.monthNum,
+//       required this.seasonsID,
+//       required this.crops,
+//       required this.stars});
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['monthID'] = monthID;
-    data['monthName'] = monthName;
-    data['monthNum'] = monthNum;
-    data['seasonsID'] = seasonsID;
-    data['crops'] = crops;
-    data['stars'] = stars.map((v) => v.toJson()).toList();
-    return data;
-  }
-}
+//   Months.fromMap(Map<String, dynamic> json) {
+//     monthID = json['monthID'];
+//     monthName = json['monthName'];
+//     monthNum = json['monthNum'];
+//     seasonsID = json['seasonsID'];
+//     crops = json['crops'];
+//     stars = <Stars>[];
+//     json['stars'].forEach((v) {
+//       stars.add(Stars.(v));
+//     });
+//   }
 
-class Stars {
-  late int starID;
-  late String starName;
-  late String startDate;
-  late String endDate;
-  late int seasonID;
-  late int duration;
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = <String, dynamic>{};
+//     data['monthID'] = monthID;
+//     data['monthName'] = monthName;
+//     data['monthNum'] = monthNum;
+//     data['seasonsID'] = seasonsID;
+//     data['crops'] = crops;
+//     data['stars'] = stars.map((v) => v.toJson()).toList();
+//     return data;
+//   }
+// }
 
-  Stars(
-      {required this.starID,
-      required this.starName,
-      required this.startDate,
-      required this.endDate,
-      required this.seasonID,
-      required this.duration});
+// class Stars {
+//   late int starID;
+//   late String starName;
+//   late String startDate;
+//   late String endDate;
+//   late int seasonID;
+//   late int duration;
 
-  Stars.fromMap(Map<String, dynamic> json) {
-    starID = json['StarID'];
-    starName = json['StarName'];
-    startDate = json['StartDate'];
-    endDate = json['EndDate'];
-    seasonID = json['SeasonID'];
-    duration = json['Duration'];
-  }
+//   Stars(
+//       {required this.starID,
+//       required this.starName,
+//       required this.startDate,
+//       required this.endDate,
+//       required this.seasonID,
+//       required this.duration});
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['StarID'] = starID;
-    data['StarName'] = starName;
-    data['StartDate'] = startDate;
-    data['EndDate'] = endDate;
-    data['SeasonID'] = seasonID;
-    data['Duration'] = duration;
-    return data;
-  }
-}
+//   Stars.fromMap(Map<String, dynamic> json) {
+//     starID = json['StarID'];
+//     starName = json['StarName'];
+//     startDate = json['StartDate'];
+//     endDate = json['EndDate'];
+//     seasonID = json['SeasonID'];
+//     duration = json['Duration'];
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = <String, dynamic>{};
+//     data['StarID'] = starID;
+//     data['StarName'] = starName;
+//     data['StartDate'] = startDate;
+//     data['EndDate'] = endDate;
+//     data['SeasonID'] = seasonID;
+//     data['Duration'] = duration;
+//     return data;
+//   }
+// }

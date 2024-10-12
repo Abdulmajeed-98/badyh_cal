@@ -66,7 +66,7 @@ class AppDrawer extends StatelessWidget {
                 return ListTile(
                   title: Text(subChild.name!),
                   onTap: () {
-                    Navigator.pushNamed(context, "/posts",arguments: cat);
+                    Navigator.pushNamed(context, "/posts",arguments: subChild);
                   },
                 );
               }).toList(),

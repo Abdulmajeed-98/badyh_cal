@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 
 class PostsScreens extends StatelessWidget {
   PostsScreens({super.key, required this.category});
-  final Category category;  // جعل category ثابتًا
+  final Category category;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final PostsVm postsVm = Get.put(PostsVm());
   RxBool isOn = true.obs;
@@ -21,9 +21,7 @@ class PostsScreens extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    postsVm.posts.clear();
-    postsVm.loadPosts(category_id: category.id!);
-
+    // إزالة استدعاء loadPosts من هنا
     return SafeArea(
       child: Directionality(
         textDirection: TextDirection.rtl,
@@ -31,103 +29,121 @@ class PostsScreens extends StatelessWidget {
           bottomNavigationBar: CusBottomNaviBar(),
           drawer: AppDrawer(),
           key: scaffoldKey,
-          body: Obx(() => postsVm.posts.isEmpty
-              ? Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Stack(
-                  children: [
-                    Column(
+          body: FutureBuilder(
+            future: postsVm.loadPosts(category_id: category.id!), // تحميل البيانات هنا
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              }
+              
+              return Obx(() => postsVm.posts.isEmpty
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : Stack(
                       children: [
-                        CusGrundImg(
-                          txt: category.name,
+                        Column(
+                          children: [
+                            CusGrundImg(
+                              txt: category.name,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 14),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: DropdownButton(
+                                      isExpanded: true,
+                                      items: ['asd', 'zxc', 'fgh']
+                                          .map((e) => DropdownMenuItem(
+                                              value: e, child: Text(e)))
+                                          .toList(),
+                                      onChanged: (value) {},
+                                      hint: Text('التصنيف'),
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      isOn.value = !isOn.value;
+                                    },
+                                    icon: isOn.value
+                                        ? Icon(Icons.grid_view)
+                                        : Icon(Icons.table_rows),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: isOn.value
+                                  ? GridView.builder(
+                                      padding: EdgeInsets.symmetric(horizontal: 14),
+                                      itemCount: postsVm.posts.length,
+                                      gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        mainAxisExtent:
+                                            (MediaQuery.of(context).size.width /
+                                                    2.23) -
+                                                10,
+                                        crossAxisSpacing: 10,
+                                        mainAxisSpacing: 10,
+                                      ),
+                                      itemBuilder: (context, index) {
+                                        post = postsVm.posts[index];
+                                        return CusTallContainer(
+                                          image: post.featuredImage,
+                                          dateTxt: post.date!,
+                                          authorTxt: post.author!,
+                                          titleTxt: post.title!,
+                                          onTap: () {},
+                                        );
+                                      },
+                                    )
+                                  : ListView.separated(
+                                      separatorBuilder: (context, index) =>
+                                          SizedBox(
+                                        height: 10,
+                                      ),
+                                      padding: EdgeInsets.symmetric(horizontal: 14),
+                                      itemCount: postsVm.posts.length,
+                                      itemBuilder: (context, index) {
+                                        post = postsVm.posts[index];
+                                        return CusWideContainer(
+                                          image: post.featuredImage,
+                                          dateTxt: post.date!,
+                                          authorTxt: post.author!,
+                                          titleTxt: post.title!,
+                                        );
+                                      },
+                                    ),
+                            ),
+                            CusButton(margin: EdgeInsets.only(bottom: 10), onTap: () {}),
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 14),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: DropdownButton(
-                                  isExpanded: true,
-                                  items: ['asd', 'zxc', 'fgh']
-                                      .map((e) => DropdownMenuItem(
-                                          value: e, child: Text(e)))
-                                      .toList(),
-                                  onChanged: (value) {},
-                                  hint: Text('التصنيف'),
-                                ),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  isOn.value = !isOn.value;
-                                },
-                                icon: isOn.value
-                                    ? Icon(Icons.grid_view)
-                                    : Icon(Icons.table_rows),
-                              ),
-                            ],
+                        Positioned(
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                            ),
+                            onPressed: () =>
+                                scaffoldKey.currentState!.openDrawer(),
                           ),
                         ),
-                        Expanded(  // استخدام Expanded لتوسيع مساحة GridView أو ListView
-                          child: isOn.value
-                              ? GridView.builder(
-                                  itemCount: postsVm.posts.length,
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    crossAxisSpacing: 10,
-                                    mainAxisSpacing: 10,
-                                  ),
-                                  itemBuilder: (context, index) {
-                                    post = postsVm.posts[index];
-                                    return CusTallContainer(
-                                      image: post.featuredImage,
-                                      dateTxt: post.date!,
-                                      authorTxt: post.author!,
-                                      titleTxt: post.title!,
-                                      onTap: () {},
-                                    );
-                                  },
-                                )
-                              : ListView.builder(
-                                  itemCount: postsVm.posts.length,
-                                  itemBuilder: (context, index) {
-                                    post = postsVm.posts[index];
-                                    return CusWideContainer(
-                                      image: post.featuredImage,
-                                      dateTxt: post.date!,
-                                      authorTxt: post.author!,
-                                      titleTxt: post.title!,
-                                    );
-                                  },
-                                ),
+                        Positioned(
+                          left: 0,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
                         ),
-                        CusButton(onTap: () {}),
                       ],
-                    ),
-                    Positioned(
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.menu,
-                          color: Colors.white,
-                        ),
-                        onPressed: () =>
-                            scaffoldKey.currentState!.openDrawer(),
-                      ),
-                    ),
-                    Positioned(
-                      left: 10,
-                      top: 10,
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                )),
+                    ));
+            },
+          ),
         ),
       ),
     );

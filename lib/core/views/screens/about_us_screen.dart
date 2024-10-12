@@ -1,0 +1,33 @@
+import 'package:badyh_cal/core/views/widgets/cus_back_button.dart';
+import 'package:badyh_cal/helpers/web_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+class AboutUsScreen extends StatelessWidget {
+  AboutUsScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
+          body: Stack(
+            children: [
+              WebViewWidget(controller: controller),
+              Positioned(
+                left: 10,
+                top: 15,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(2.5),
+                    color: Color.fromRGBO(15, 15, 15, 1)
+                  ),
+                  child: CusBackButton()),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

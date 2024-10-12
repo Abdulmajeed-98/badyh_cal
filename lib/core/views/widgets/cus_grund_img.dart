@@ -22,7 +22,7 @@ class CusGrundImg extends StatelessWidget {
                   image: AssetImage('assets/images/badyh_complex.png'),
                   fit: BoxFit.fill,
                   opacity: 0.2)),
-          child: Center(child: Text(txt??'مؤسسة البادية للتنمية والأعمال الإنسانية',style: Theme.of(context).textTheme.headlineMedium,)),
+          child: Center(child: Text(txt??'',style: Theme.of(context).textTheme.headlineMedium,)),
         ),
       ],
     );

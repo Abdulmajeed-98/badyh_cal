@@ -2,8 +2,10 @@ import 'package:badyh_cal/core/models/category.dart';
 import 'package:badyh_cal/core/models/post.dart';
 import 'package:badyh_cal/core/viewmodels/posts_vm.dart';
 import 'package:badyh_cal/core/views/widgets/app_drawer.dart';
+import 'package:badyh_cal/core/views/widgets/cus_back_button.dart';
 import 'package:badyh_cal/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:badyh_cal/core/views/widgets/cus_button.dart';
+import 'package:badyh_cal/core/views/widgets/cus_drawer_icon.dart';
 import 'package:badyh_cal/core/views/widgets/cus_grund_img.dart';
 import 'package:badyh_cal/core/views/widgets/cus_tall_container.dart';
 import 'package:badyh_cal/core/views/widgets/cus_wide_container.dart';
@@ -67,8 +69,8 @@ class PostsScreens extends StatelessWidget {
                                       isOn.value = !isOn.value;
                                     },
                                     icon: isOn.value
-                                        ? Icon(Icons.grid_view)
-                                        : Icon(Icons.table_rows),
+                                        ? Icon(Icons.table_rows)
+                                        : Icon(Icons.grid_view),
                                   ),
                                 ],
                               ),
@@ -120,26 +122,9 @@ class PostsScreens extends StatelessWidget {
                             CusButton(margin: EdgeInsets.only(bottom: 10), onTap: () {}),
                           ],
                         ),
-                        Positioned(
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.menu,
-                              color: Colors.white,
-                            ),
-                            onPressed: () =>
-                                scaffoldKey.currentState!.openDrawer(),
-                          ),
-                        ),
-                        Positioned(
-                          left: 0,
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                          ),
-                        ),
+                        CusDrawerIcon(onPressed: () =>
+                                scaffoldKey.currentState!.openDrawer(),),
+                       CusBackButton(),
                       ],
                     ));
             },

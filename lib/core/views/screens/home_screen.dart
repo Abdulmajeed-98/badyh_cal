@@ -4,6 +4,7 @@ import 'package:badyh_cal/core/viewmodels/home_vm.dart';
 import 'package:badyh_cal/core/views/widgets/app_drawer.dart';
 import 'package:badyh_cal/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:badyh_cal/core/views/widgets/cus_button.dart';
+import 'package:badyh_cal/core/views/widgets/cus_drawer_icon.dart';
 import 'package:badyh_cal/core/views/widgets/cus_grund_img.dart';
 import 'package:badyh_cal/core/views/widgets/cus_stack.dart';
 import 'package:badyh_cal/core/views/widgets/cus_tall_container.dart';
@@ -29,12 +30,25 @@ class HomeScreen extends StatelessWidget {
               Column(
                 children: [
                   Stack(
-                    alignment: Alignment.topCenter,
+                    alignment: Alignment.center,
                     children: [
                       CusGrundImg(),
                       Positioned(
-                        top: 30,
-                        child: Text('أهلاً في تطبيق',style: Theme.of(context).textTheme.titleSmall,))
+                          child: Column(
+                        children: [
+                          Text(
+                            'أهلاً في تطبيق',
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            'مؤسسة البادية للتنمية والأعمال الإنسانية',
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          )
+                        ],
+                      )),
                     ],
                   ),
                   Obx(() {
@@ -45,9 +59,9 @@ class HomeScreen extends StatelessWidget {
                         child: ListView.separated(
                           separatorBuilder: (context, index) => index.isOdd
                               ? Container(
-                                  height:
-                                      MediaQuery.of(context).size.height / 8,
-                                  margin: EdgeInsets.only(bottom: 15),
+                                  // height:
+                                  // MediaQuery.of(context).size.height / 8,
+                                  margin: EdgeInsets.symmetric(vertical: 15),
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 15, vertical: 15),
                                   decoration: BoxDecoration(
@@ -96,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                                     ],
                                   ),
                                 )
-                              : Container(),
+                              : SizedBox.shrink(),
                           padding: EdgeInsets.symmetric(
                               horizontal: 14, vertical: 10),
                           // physics: NeverScrollableScrollPhysics(),
@@ -116,7 +130,10 @@ class HomeScreen extends StatelessWidget {
                                     style:
                                         Theme.of(context).textTheme.bodyLarge,
                                   ),
-                                  CusButton(onTap: () {})
+                                  CusButton(
+                                      onTap: () => Navigator.pushNamed(
+                                          context, '/posts',
+                                          arguments: item as Category))
                                 ],
                               );
                             } else if (item is List<Post> && index < 2) {
@@ -134,36 +151,15 @@ class HomeScreen extends StatelessWidget {
                   }),
                 ],
               ),
-              Positioned(
-                  child: IconButton(
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                ),
+              CusDrawerIcon(
                 onPressed: () => scaffoldKey.currentState!.openDrawer(),
-              ))
+              )
             ],
           ),
         ),
       ),
     );
   }
-}
-
-Widget _buildCategoryItem(Category category, BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        category.name!,
-        style: Theme.of(context).textTheme.bodyLarge,
-      ),
-      CusButton(onTap: () {
-        print(category.id);
-        Navigator.pushNamed(context, '/view');
-      })
-    ],
-  );
 }
 
 // Widget for displaying a list of Posts
@@ -185,7 +181,9 @@ Widget _buildPostGrid(List<Post> posts, BuildContext context) {
             dateTxt: posts[i].date!,
             nameTxt: posts[i].author!,
             titleTxt: posts[i].title!,
-            onTap: () {})),
+            onTap: () {
+              Navigator.pushNamed(context, '/web',arguments: posts[i].link);
+            })),
   );
 }
 

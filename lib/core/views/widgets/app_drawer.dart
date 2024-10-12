@@ -1,3 +1,4 @@
+import 'package:badyh_cal/core/constants/http_urls.dart';
 import 'package:badyh_cal/core/models/category.dart';
 import 'package:badyh_cal/core/models/navigation.dart';
 import 'package:badyh_cal/helpers/drawer_helper.dart';
@@ -44,6 +45,8 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             title: Text(item.title),
             onTap: () {
+              print(item.route);
+              print(HttpUrls.ABOUT_US);
               Navigator.pushNamed(context, item.route);
             },
           ),

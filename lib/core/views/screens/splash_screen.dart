@@ -1,7 +1,7 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
-import 'package:badyh_cal/core/viewmodels/setup_vm.dart';
-import 'package:badyh_cal/core/views/screens/home_screen.dart';
-import 'package:badyh_cal/helpers/drawer_helper.dart';
+import 'package:badiyh_calendar/core/viewmodels/setup_vm.dart';
+import 'package:badiyh_calendar/core/views/screens/home_screen.dart';
+import 'package:badiyh_calendar/helpers/drawer_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

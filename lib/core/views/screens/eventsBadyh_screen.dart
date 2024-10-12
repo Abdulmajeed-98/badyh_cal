@@ -1,9 +1,10 @@
 import 'package:badiyh_calendar/core/model/events_badyh.dart';
 import 'package:badiyh_calendar/core/viewmodels/events_badyh_VM.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxEvent.dart';
-import 'package:badiyh_calendar/core/views/widgets/cus_app_drawer.dart';
+import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
+
 import 'package:flutter/material.dart';
 
 class EventsBadyhScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class EventsBadyhScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: SafeArea(
         child: Scaffold(
-            drawer: CusAppDrawer(),
+            drawer: AppDrawer(),
             key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(),
             body: Column(
@@ -26,10 +27,11 @@ class EventsBadyhScreen extends StatelessWidget {
                 Stack(children: [
                   CusGrundImg(
                     txt: "مناسبات البادية",
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
-                        fontWeight: FontWeight.w700),
+                        fontWeight: FontWeight.w700
+                        ),
                   ),
                   Positioned(
                     child: IconButton(

@@ -1,8 +1,7 @@
-import 'package:badyh_cal/core/constants/http_urls.dart';
-import 'package:badyh_cal/core/models/category.dart';
-import 'package:badyh_cal/core/viewmodels/home_vm.dart';
-import 'package:badyh_cal/helpers/dio_helper.dart';
-import 'package:badyh_cal/helpers/drawer_helper.dart';
+import 'package:badiyh_calendar/core/constants/http_urls.dart';
+import 'package:badiyh_calendar/core/models/category.dart';
+import 'package:badiyh_calendar/helpers/dio_helper.dart';
+import 'package:badiyh_calendar/helpers/drawer_helper.dart';
 import 'package:dio/dio.dart' as d;
 import 'package:get/get.dart';
 

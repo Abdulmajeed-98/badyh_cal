@@ -1,14 +1,14 @@
-import 'package:badyh_cal/core/models/category.dart';
-import 'package:badyh_cal/core/models/post.dart';
-import 'package:badyh_cal/core/viewmodels/home_vm.dart';
-import 'package:badyh_cal/core/views/widgets/app_drawer.dart';
-import 'package:badyh_cal/core/views/widgets/cus_bottom_navi_bar.dart';
-import 'package:badyh_cal/core/views/widgets/cus_button.dart';
-import 'package:badyh_cal/core/views/widgets/cus_drawer_icon.dart';
-import 'package:badyh_cal/core/views/widgets/cus_grund_img.dart';
-import 'package:badyh_cal/core/views/widgets/cus_stack.dart';
-import 'package:badyh_cal/core/views/widgets/cus_tall_container.dart';
-import 'package:badyh_cal/helpers/dio_helper.dart';
+import 'package:badiyh_calendar/core/models/category.dart';
+import 'package:badiyh_calendar/core/models/post.dart';
+import 'package:badiyh_calendar/core/viewmodels/home_vm.dart';
+import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_button.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_stack.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_tall_container.dart';
+import 'package:badiyh_calendar/helpers/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

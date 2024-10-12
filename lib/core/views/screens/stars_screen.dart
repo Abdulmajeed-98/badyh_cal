@@ -1,14 +1,12 @@
-import 'package:badiyh_calendar/core/model/all_models.dart';
 import 'package:badiyh_calendar/core/model/seasons.dart';
 import 'package:badiyh_calendar/core/model/stars.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
 import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_appBar.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_dropDownSearch.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
-import 'package:badiyh_calendar/core/views/widgets/cus_app_drawer.dart';
+import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
@@ -29,7 +27,7 @@ class StarsScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: SafeArea(
         child: Scaffold(
-            drawer: CusAppDrawer(),
+            drawer: AppDrawer(),
             key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(),
             body: Container(

@@ -13,10 +13,10 @@
 
 
 
-import 'package:badyh_cal/core/constants/http_urls.dart';
-import 'package:badyh_cal/core/models/category.dart';
-import 'package:badyh_cal/core/models/post.dart';
-import 'package:badyh_cal/helpers/dio_helper.dart';
+import 'package:badiyh_calendar/core/constants/http_urls.dart';
+import 'package:badiyh_calendar/core/models/category.dart';
+import 'package:badiyh_calendar/core/models/post.dart';
+import 'package:badiyh_calendar/helpers/dio_helper.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 

@@ -1,11 +1,8 @@
-import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
 import 'package:badiyh_calendar/core/viewmodels/month_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/db/edit_calender_db.dart';
 import 'package:jiffy/jiffy.dart';
-
 import '../model/stars.dart';
-import '../views/screens/testScreen/testStar.dart';
 
 class StarVM {
   MonthVM mvm = MonthVM();

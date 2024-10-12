@@ -11,7 +11,7 @@ import 'package:badiyh_calendar/core/views/Widget/cust_imageHony.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imgCrops.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imgSeasons.dart';
-import 'package:badiyh_calendar/core/views/widgets/cus_app_drawer.dart';
+import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intlDate;
@@ -45,11 +45,12 @@ class CalendarScreen extends StatelessWidget {
 
     // Jiffy.setLocale("ar");
     HijriCalendar.setLocal("ar");
-    return Directionality(
+    return ChangeNotifierProvider(create: (context)=>CalendarDateVM() ,child: 
+    Directionality(
       textDirection: TextDirection.rtl,
       child: SafeArea(
         child: Scaffold(
-            drawer: CusAppDrawer(),
+            drawer: AppDrawer(),
             key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(
               imgCal: Image.asset("assets/images/calendarBottomOn.png"),
@@ -91,12 +92,7 @@ class CalendarScreen extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                                 onPressed: () {
-                                  // print("${lisStar[0].starName}");
-                                  // print("${staVM.load()}");
-                                  // staVM.getStar(cT)
-                                  // sVM.getSeason();
-                                  // print(sVM.getSeason(calendarDateVM));
-                                  // print("${_selectedDate}");
+                                 
                                 }),
                           ]),
                     ),
@@ -361,6 +357,6 @@ class CalendarScreen extends StatelessWidget {
               ),
             )),
       ),
-    );
+    ));
   }
 }

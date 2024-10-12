@@ -1,5 +1,5 @@
-import 'package:badyh_cal/core/views/widgets/cus_back_button.dart';
-import 'package:badyh_cal/helpers/web_controller.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
+import 'package:badiyh_calendar/helpers/web_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

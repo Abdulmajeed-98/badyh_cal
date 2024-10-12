@@ -25,9 +25,9 @@ class AppRoutes {
         return MaterialPageRoute(builder: (ctx) => HomeScreen());
       case '/splash':
         return MaterialPageRoute(builder: (ctx) => SplashScreen());
-      case '/web':
-      String path = settings.arguments as String;
-        return MaterialPageRoute(builder: (ctx) => WebScreen(path: path,));
+      // case '/web':
+      // String path = settings.arguments as String;
+      //   return MaterialPageRoute(builder: (ctx) => WebScreen(path: path,));
       case '/posts':
         {
           Category category = settings.arguments as Category;

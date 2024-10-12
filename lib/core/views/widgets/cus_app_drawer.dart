@@ -1,4 +1,3 @@
-import 'package:badiyh_calendar/core/views/widgets/drawer_contents.dart';
 import 'package:flutter/material.dart';
 
 class CusAppDrawer extends StatelessWidget {
@@ -28,7 +27,6 @@ class CusAppDrawer extends StatelessWidget {
                 ],
               ),
             ),
-            DrawerContents(),
           ],
         ),
       ),

@@ -1,8 +1,13 @@
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_boxContact.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_dropDown.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_formField.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_imgLocaGreen.dart';
 import 'package:flutter/material.dart';
 
 class ContactScreen extends StatelessWidget {
+  GlobalKey<FormState> keyForm = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -17,133 +22,99 @@ class ContactScreen extends StatelessWidget {
                 SingleChildScrollView(
                   child: Container(
                     padding: EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                            child: Text("لديك مشكلة .. فريقنا في خدمتك 7/24",
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500))),
-                        SizedBox(height: 20),
-                        Text('الاسم الأول',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500)),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 10),
-                            border: OutlineInputBorder(),
-                            hintText: 'أدخل اسمك الأول',
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        Text('اسم العائلة',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500)),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 10),
-                            border: OutlineInputBorder(),
-                            hintText: 'أدخل اسم عائلتك',
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        Text('البريد الإلكتروني',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500)),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 10),
-                            border: OutlineInputBorder(),
-                            hintText: 'أدخل بريدك الإلكتروني',
-                          ),
-                          keyboardType: TextInputType.emailAddress,
-                        ),
-                        SizedBox(height: 16),
-                        Text('التصنيف',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500)),
-                        DropdownButtonFormField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 10),
-                          ),
-                          items: [
-                            DropdownMenuItem(
-                              child: Text('استفسار'),
-                              value: 'استفسار',
-                            ),
-                            DropdownMenuItem(
-                              child: Text('شكوى'),
-                              value: 'شكوى',
-                            ),
-                            DropdownMenuItem(
-                              child: Text('اقتراح'),
-                              value: 'اقتراح',
-                            ),
-                          ],
-                          onChanged: (value) {},
-                          hint: Text('اختر تصنيفًا'),
-                        ),
-                        SizedBox(height: 16),
-                        Text('الرسالة',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500)),
-                        TextFormField(
-                          maxLines: 10,
-                          minLines: 8,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'أدخل رسالتك',
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Center(
-                          child: Cust_ButtonApp(
-                            // width: 100,
-                            child: Text(
-                              'إرسال',
-                              style: TextStyle(color: Colors.white),
+                    child: Form(
+                      key: keyForm,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                              child: Text(
+                            "لديك مشكلة .. فريقنا في خدمتك 7/24",
+                          )),
+                          SizedBox(height: 20),
+                          Cust_FormField(
+                              txtF: "أدخل اسمك الأول", txt: 'الاسم الأول'),
+                          Cust_FormField(
+                              txtF: 'أدخل اسم عائلتك', txt: 'اسم العائلة'),
+                          Cust_FormField(
+                              txtF: 'أدخل بريدك الإلكتروني',
+                              txt: 'البريد الإلكتروني'),
+
+                          SizedBox(height: 16),
+                          Text('التصنيف',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w500)),
+                          Cust_DropDown(),
+                          SizedBox(height: 16),
+
+                          Cust_FormField(
+                              txt: "الرسالة",
+                              txtF: "أدخل رسالتك",
+                              max: 10,
+                              min: 8),
+                          Center(
+                            child: Cust_ButtonApp(
+                              width: 100,
                             ),
                           ),
-                        ),
-                        SizedBox(height: 10),
-                        // Expanded(
-                        //   child: Cust_ButtonApp(
-                        //     //  width: 100,
-                        //     child: Column(
-                        //       children: [
-                        //         Text(
-                        //           'إرسال',
-                        //           style: TextStyle(color: Colors.white),
-                        //         ),
-                        //         Text(
-                        //           'إرسال',
-                        //           style: TextStyle(color: Colors.white),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ),
-                        ////////
-                        // Center(
-                        //   child: ElevatedButton(
-                        //     onPressed: () {
-                        //       // Handle send action
-                        //     },
-                        //     child: Text('إرسال'),
-                        //     style: ElevatedButton.styleFrom(
-                        //       // padding: EdgeInsets.symmetric(vertical: 15)
-                        //       backgroundColor: Colors.black,
-                        //       textStyle: TextStyle(fontSize: 16),
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
+                          SizedBox(height: 16),
+                          cust_boxContact(
+                            child: Row(
+                              children: [
+                                Cust_ImglocaGreen(),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("الجمهورية اليمنية - حضرموت",
+                                        style: TextStyle(color: Colors.white)),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      "م/ القطن - مجمع البادية التنموي",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 16),
+                          cust_boxContact(
+                            child: Row(
+                              children: [
+                                Cust_ImglocaGreen(),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "967711797771 +",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      "967772204777 +",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          ////////
+                          // Center(
+                          //   child: ElevatedButton(
+                          //     onPressed: () {
+                          //       // Handle send action
+                          //     },
+                          //     child: Text('إرسال'),
+                          //     style: ElevatedButton.styleFrom(
+                          //       // padding: EdgeInsets.symmetric(vertical: 15)
+                          //       backgroundColor: Colors.black,
+                          //       textStyle: TextStyle(fontSize: 16),
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

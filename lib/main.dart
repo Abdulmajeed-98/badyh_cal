@@ -14,23 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<CalendarDateVM>(
-            create: (ctx) => CalendarDateVM()),
-        // ChangeNotifierProvider<MonthVM>(create: (ctx) => MonthVM()),
-        // ChangeNotifierProvider<BeeCalendarVM>(create: (ctx) => BeeCalendarVM()),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: "Tajawal",
-          useMaterial3: false,
-        ),
-        initialRoute: '/splash',
-        onGenerateRoute: MangerRoute.appRoute,
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: "Tajawal",
+        useMaterial3: false,
       ),
+      initialRoute: '/splash',
+      onGenerateRoute: MangerRoute.appRoute,
     );
   }
 }

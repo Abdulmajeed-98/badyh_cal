@@ -1,0 +1,31 @@
+import 'package:badyh_cal/core/models/category.dart';
+import 'package:badyh_cal/core/models/navigation.dart';
+
+class DrawerHelper{
+  DrawerHelper._();
+  static DrawerHelper? _drawerHelper;
+  List<dynamic> drawerItems=[];
+  List<Category>drawerCategoriesItems=[];
+  bool isEmpty=true;
+
+  static DrawerHelper get instance{
+    if(_drawerHelper==null)
+    _drawerHelper=DrawerHelper._();
+    return _drawerHelper!;
+  }
+
+  initDrawer(){
+    drawerItems.add(Navigation(title: "الرئيسية", route: "/home"));
+    drawerItems.add(Navigation(title: "من نحن", route: "/about_us"));
+    drawerItems.add(drawerCategoriesItems);
+    drawerItems.add(Navigation(title: " التقويم الزراعي", route: "/calndar"));
+    drawerItems.add(Navigation(title: 'مناسبات البادية', route: "/events"));
+    drawerItems.add(Navigation(title: 'الاسئلة الشائعة', route: "/faq"));
+    drawerItems.add(Navigation(title: 'اتصل بنا', route: "/contact_us"));
+    isEmpty=false;
+
+
+  }
+
+
+}

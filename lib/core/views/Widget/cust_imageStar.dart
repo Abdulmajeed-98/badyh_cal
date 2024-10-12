@@ -6,7 +6,8 @@ class Cust_ImageStar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image.asset("assets/images/Star.svg"),
+      margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
+      child: Image.asset("assets/images/Star.png"),
     );
   }
 }

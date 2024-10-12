@@ -15,24 +15,24 @@ class EditCalenderDb {
             {
               "StarID": 1,
               "StarName": "الهنعة",
-              "StartDate": "2024-01-01",
-              "EndDate": "2024-01-13",
+              "StartDate": "1 يناير",
+              "EndDate": "13 يناير",
               "SeasonID": 1,
               "Duration": 13
             },
             {
               "StarID": 2,
               "StarName": "الذراع",
-              "StartDate": "2024-01-14",
-              "EndDate": "2024-01-26",
+              "StartDate": "14 يناير",
+              "EndDate": "26 يناير",
               "SeasonID": 1,
               "Duration": 13
             },
             {
               "StarID": 3,
               "StarName": "النثرة",
-              "StartDate": "2024-01-27",
-              "EndDate": "2024-02-08",
+              "StartDate": "27 يناير",
+              "EndDate": "8 فبراير",
               "SeasonID": 1,
               "Duration": 13
             }
@@ -49,24 +49,24 @@ class EditCalenderDb {
             {
               "StarID": 3,
               "StarName": "النثرة",
-              "StartDate": "2024-01-27",
-              "EndDate": "2024-02-08",
+              "StartDate": "27 يناير",
+              "EndDate": "8 فبراير",
               "SeasonID": 1,
               "Duration": 13
             },
             {
               "StarID": 4,
               "StarName": "الطرف",
-              "StartDate": "2024-02-09",
-              "EndDate": "2024-02-21",
+              "StartDate": "9 فبراير",
+              "EndDate": "21 فبراير",
               "SeasonID": 1,
               "Duration": 13
             },
             {
               "StarID": 5,
               "StarName": "الجبهة",
-              "StartDate": "2024-02-22",
-              "EndDate": "2024-03-06",
+              "StartDate": "22 فبراير",
+              "EndDate": "6 مارس",
               "SeasonID": 1,
               "Duration": 13
             }
@@ -82,24 +82,24 @@ class EditCalenderDb {
             {
               "StarID": 5,
               "StarName": "الجبهة",
-              "StartDate": "2024-02-22",
-              "EndDate": "2024-03-06",
+              "StartDate": "22 فبراير",
+              "EndDate": "6 مارس",
               "SeasonID": 1,
               "Duration": 13
             },
             {
               "StarID": 6,
               "StarName": "الزبرة",
-              "StartDate": "2024-03-07",
-              "EndDate": "2024-03-19",
+              "StartDate": "7 مارس",
+              "EndDate": "19 مارس",
               "SeasonID": 1,
               "Duration": 13
             },
             {
               "StarID": 7,
               "StarName": "الصرفة",
-              "StartDate": "2024-03-20",
-              "EndDate": "2024-04-01",
+              "StartDate": "20 مارس",
+              "EndDate": "1 أبريل",
               "SeasonID": 1,
               "Duration": 13
             }
@@ -121,24 +121,24 @@ class EditCalenderDb {
             {
               "StarID": 8,
               "StarName": "العواء",
-              "StartDate": "2024-04-01",
-              "EndDate": "2024-04-13",
+              "StartDate": "1 أبريل",
+              "EndDate": "13 أبريل",
               "SeasonID": 2,
               "Duration": 13
             },
             {
               "StarID": 9,
               "StarName": "السماك",
-              "StartDate": "2024-04-14",
-              "EndDate": "2024-04-26",
+              "StartDate": "14 أبريل",
+              "EndDate": "26 أبريل",
               "SeasonID": 2,
               "Duration": 13
             },
             {
               "StarID": 10,
               "StarName": "الغفر",
-              "StartDate": "2024-04-27",
-              "EndDate": "2024-05-09",
+              "StartDate": "27 أبريل",
+              "EndDate": "9 مايو",
               "SeasonID": 2,
               "Duration": 13
             },
@@ -155,24 +155,24 @@ class EditCalenderDb {
             {
               "StarID": 10,
               "StarName": "الغفر",
-              "StartDate": "2024-04-27",
-              "EndDate": "2024-05-09",
+              "StartDate": "27 أبريل",
+              "EndDate": "9 مايو",
               "SeasonID": 2,
               "Duration": 13
             },
             {
               "StarID": 11,
               "StarName": "الزبان",
-              "StartDate": "2024-05-10",
-              "EndDate": "2024-05-22",
+              "StartDate": "10 مايو",
+              "EndDate": "22 مايو",
               "SeasonID": 2,
               "Duration": 13
             },
             {
               "StarID": 12,
               "StarName": "إكليل",
-              "StartDate": "2024-05-23",
-              "EndDate": "2024-06-04",
+              "StartDate": "23 مايو",
+              "EndDate": "4 يونيو",
               "SeasonID": 2,
               "Duration": 13
             }
@@ -189,24 +189,24 @@ class EditCalenderDb {
             {
               "StarID": 12,
               "StarName": "إكليل",
-              "StartDate": "2024-05-23",
-              "EndDate": "2024-06-04",
+              "StartDate": "23 مايو",
+              "EndDate": "4 يونيو",
               "SeasonID": 2,
               "Duration": 13
             },
             {
               "StarID": 13,
               "StarName": "القلب",
-              "StartDate": "2024-06-05",
-              "EndDate": "2024-06-17",
+              "StartDate": "5 يونيو",
+              "EndDate": "17 يونيو",
               "SeasonID": 2,
               "Duration": 13
             },
             {
               "StarID": 14,
               "StarName": "الشول",
-              "StartDate": "2024-06-18",
-              "EndDate": "2024-06-30",
+              "StartDate": "18 يونيو",
+              "EndDate": "30 يونيو",
               "SeasonID": 2,
               "Duration": 13
             }
@@ -229,24 +229,24 @@ class EditCalenderDb {
             {
               "StarID": 15,
               "StarName": "النعائم",
-              "StartDate": "2024-07-01",
-              "EndDate": "2024-07-13",
+              "StartDate": "1 يوليو",
+              "EndDate": "13 يوليو",
               "SeasonID": 3,
               "Duration": 13
             },
             {
               "StarID": 16,
               "StarName": "البلدة",
-              "StartDate": "2024-07-14",
-              "EndDate": "2024-07-26",
+              "StartDate": "14 يوليو",
+              "EndDate": "26 يوليو",
               "SeasonID": 3,
               "Duration": 13
             },
             {
               "StarID": 17,
               "StarName": "المرزم",
-              "StartDate": "2024-07-27",
-              "EndDate": "2024-08-08",
+              "StartDate": "27 يوليو",
+              "EndDate": "8 أغسطس",
               "SeasonID": 3,
               "Duration": 13
             }
@@ -263,24 +263,24 @@ class EditCalenderDb {
             {
               "StarID": 17,
               "StarName": "المرزم",
-              "StartDate": "2024-07-27",
-              "EndDate": "2024-08-08",
+              "StartDate": "27 يوليو",
+              "EndDate": "8 أغسطس",
               "SeasonID": 3,
               "Duration": 13
             },
             {
               "StarID": 18,
               "StarName": "سهيل",
-              "StartDate": "2024-08-09",
-              "EndDate": "2024-08-21",
+              "StartDate": "9 أغسطس",
+              "EndDate": "21 أغسطس",
               "SeasonID": 3,
               "Duration": 13
             },
             {
               "StarID": 19,
               "StarName": "باعريق",
-              "StartDate": "2024-08-22",
-              "EndDate": "2024-09-03",
+              "StartDate": "22 أغسطس",
+              "EndDate": "3 سبتمبر",
               "SeasonID": 3,
               "Duration": 13
             }
@@ -296,24 +296,24 @@ class EditCalenderDb {
             {
               "StarID": 19,
               "StarName": "باعريق",
-              "StartDate": "2024-08-22",
-              "EndDate": "2024-09-03",
+              "StartDate": "22 أغسطس",
+              "EndDate": "3 سبتمبر",
               "SeasonID": 3,
               "Duration": 13
             },
             {
               "StarID": 20,
               "StarName": "سعد(خباء)",
-              "StartDate": "2024-09-04",
-              "EndDate": "2024-09-16",
+              "StartDate": "4 سبتمبر",
+              "EndDate": "16 سبتمبر",
               "SeasonID": 3,
               "Duration": 13
             },
             {
               "StarID": 21,
               "StarName": "الفرغ",
-              "StartDate": "2024-09-17",
-              "EndDate": "2024-09-29",
+              "StartDate": "17 سبتمبر",
+              "EndDate": "29 سبتمبر",
               "SeasonID": 3,
               "Duration": 13
             }
@@ -336,24 +336,24 @@ class EditCalenderDb {
             {
               "StarID": 22,
               "StarName": "الدلو",
-              "StartDate": "2024-10-01",
-              "EndDate": "2024-10-13",
+              "StartDate": "1 أكتوبر",
+              "EndDate": "13 أكتوبر",
               "SeasonID": 4,
               "Duration": 13
             },
             {
               "StarID": 23,
               "StarName": "الحوت",
-              "StartDate": "2024-10-14",
-              "EndDate": "2024-10-26",
+              "StartDate": "14 أكتوبر",
+              "EndDate": "26 أكتوبر",
               "SeasonID": 4,
               "Duration": 13
             },
             {
               "StarID": 24,
               "StarName": "النطح",
-              "StartDate": "2024-10-27",
-              "EndDate": "2024-11-08",
+              "StartDate": "27 أكتوبر",
+              "EndDate": "8 نوفمبر",
               "SeasonID": 4,
               "Duration": 13
             }
@@ -370,24 +370,24 @@ class EditCalenderDb {
             {
               "StarID": 24,
               "StarName": "النطح",
-              "StartDate": "2024-10-27",
-              "EndDate": "2024-11-08",
+              "StartDate": "27 أكتوبر",
+              "EndDate": "8 نوفمبر",
               "SeasonID": 4,
               "Duration": 13
             },
             {
               "StarID": 25,
               "StarName": "البطين",
-              "StartDate": "2024-11-09",
-              "EndDate": "2024-11-21",
+              "StartDate": "9 نوفمبر",
+              "EndDate": "21 نوفمبر",
               "SeasonID": 4,
               "Duration": 13
             },
             {
               "StarID": 26,
               "StarName": "الثريا",
-              "StartDate": "2024-11-22",
-              "EndDate": "2024-12-04",
+              "StartDate": "22 نوفمبر",
+              "EndDate": "4 ديسمبر",
               "SeasonID": 4,
               "Duration": 13
             }
@@ -404,24 +404,24 @@ class EditCalenderDb {
             {
               "StarID": 26,
               "StarName": "الثريا",
-              "StartDate": "2024-11-22",
-              "EndDate": "2024-12-04",
+              "StartDate": "22 نوفمبر",
+              "EndDate": "4 ديسمبر",
               "SeasonID": 4,
               "Duration": 13
             },
             {
               "StarID": 27,
               "StarName": "البركان",
-              "StartDate": "2024-12-05",
-              "EndDate": "2024-12-17",
+              "StartDate": "5 ديسمبر",
+              "EndDate": "17 ديسمبر",
               "SeasonID": 4,
               "Duration": 13
             },
             {
               "StarID": 28,
               "StarName": "الهقعة",
-              "StartDate": "2024-12-18",
-              "EndDate": "2024-12-30",
+              "StartDate": "18 ديسمبر",
+              "EndDate": "30 ديسمبر",
               "SeasonID": 4,
               "Duration": 13
             }

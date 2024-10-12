@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
+import 'package:jiffy/jiffy.dart';
 
 class CalendarDateVM with ChangeNotifier {
 // CalendarDateVM(){
@@ -31,25 +32,25 @@ class CalendarDateVM with ChangeNotifier {
     notifyListeners();
   }
 
-  // Jiffy get setLocale => Jiffy.parse(_selectedDate.month.toString());
+  Jiffy get setLocale => Jiffy.parse(_selectedDate.month.toString());
 
-// List<String> _arabicMonths = [
-//     'محرم',
-//     'صفر',
-//     'ربيع الأول',
-//     'ربيع الآخر',
-//     'جمادى الأولى',
-//     'جمادى الآخرة',
-//     'رجب',
-//     'شعبان',
-//     'رمضان',
-//     'شوال',
-//     'ذو القعدة',
-//     'ذو الحجة',
-//   ];
+  List<String> _arabicMonths = [
+    "يناير",
+    'فبراير',
+    'مارس',
+    "ابريل",
+    "مايو",
+    "يونيو",
+    'يوليو',
+    'أغسطس',
+    'سبتمبر',
+    'أكتوبر',
+    'نوفمبر',
+    'ديسمبر',
+  ];
 
-  // String get monthNameAR {
-  //   final int hijriMonth = hijriDate.hMonth;
-  //   return _arabicMonths[hijriMonth - 1];
-  // }
+  String get monthNameAR {
+    final int monthAR = selectedDate.month;
+    return _arabicMonths[monthAR - 1];
+  }
 }

@@ -6,7 +6,7 @@ class cust_imageSummer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image.asset("assets/images/Summer.svg"),
+      child: Image.asset("assets/images/Summer.png"),
     );
   }
 }

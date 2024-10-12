@@ -14,15 +14,14 @@ class StarVM {
     EditCalenderDb db = EditCalenderDb();
     List<dynamic> calenderDb = db.editCalender;
     List<Stars> allStars = [];
-    Set<String> starNames = {}; // مجموعة لتخزين أسماء النجوم الفريدة
+    Set<String> starNames = {};
 
     for (var season in calenderDb) {
       for (var month in season["months"]) {
         for (var star in month['stars']) {
-          // التحقق مما إذا كان الاسم غير موجود في المجموعة
           if (!starNames.contains(star["StarName"])) {
             allStars.add(Stars.fromJson(star));
-            starNames.add(star["StarName"]); // إضافة الاسم إلى المجموعة
+            starNames.add(star["StarName"]);
           }
         }
       }
@@ -30,9 +29,9 @@ class StarVM {
 
     return allStars;
   }
+
   SeasonVM seaVM = SeasonVM();
   getStar(DateTime selectedDate) {
-
     var dateNow =
         Jiffy.parse(Jiffy.parse(selectedDate.toString()).MMMd, pattern: "MMMd");
     var firstMonth = Jiffy.parse('01 January', pattern: 'dd MMMM');
@@ -47,16 +46,15 @@ class StarVM {
         if (dateNow.isBetween(starStart, starEnd, unit: Unit.day) ||
             dateNow.isSame(starStart, unit: Unit.day) ||
             dateNow.isSame(starEnd, unit: Unit.day)) {
-         return i;
+          return i;
         }
       } else if (dateNow.isBetween(starStart, starEnd, unit: Unit.day) ||
           dateNow.isSame(starStart, unit: Unit.day) ||
           dateNow.isSame(starEnd, unit: Unit.day)) {
-            return i;
+        return i;
       }
     }
 
     return " ";
   }
-
 }

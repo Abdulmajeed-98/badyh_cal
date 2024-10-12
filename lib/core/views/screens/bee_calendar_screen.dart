@@ -2,15 +2,16 @@ import 'package:badiyh_calendar/core/model/bee_calendar.dart';
 import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_appBar.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_dropDownSearch.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_imageHony.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
 
 class BeeCalendarScreen extends StatelessWidget {
   BeeCalendarScreen({super.key});
-  List<DropdownMenuItem<dynamic>> list = [
-    const DropdownMenuItem(child: Text("data"))
-  ];
+
   var scaffoldKey = GlobalKey<ScaffoldState>();
   BeeCalendarVM bvm = BeeCalendarVM();
   late List<BeeCalendar> allBee;
@@ -23,29 +24,27 @@ class BeeCalendarScreen extends StatelessWidget {
         child: Scaffold(
             drawer: CusAppDrawer(),
             key: scaffoldKey,
-            bottomNavigationBar: CusBottomNaviBar(),
+            bottomNavigationBar: CusBottomNaviBar(
+                imgBee: Image.asset("assets/images/beeBottomOn.png")),
             body: Container(
-              // color: Colors.green,
-              // padding: const EdgeInsets.only(left: 10, right: 10),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              //  color: Colors.yellow,
+              color: Colors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    // color: Colors.blue,
                     alignment: Alignment.center,
-                    //  color: Colors.blue,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    margin: const EdgeInsets.only(bottom: 5),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+                    margin: const EdgeInsets.only(bottom: 1),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(
                             icon: const Icon(
                               Icons.menu,
-                              size: 28,
+                              size: 30,
                               color: Colors.black,
                             ),
                             onPressed: () =>
@@ -57,43 +56,26 @@ class BeeCalendarScreen extends StatelessWidget {
                           IconButton(
                               icon: const Icon(
                                 Icons.arrow_forward_ios,
-                                size: 18,
+                                size: 20,
                                 color: Colors.black,
                               ),
                               onPressed: () {}),
                         ]),
                   ),
-                  Container(
-                    height: 40,
-                    margin: const EdgeInsets.only(bottom: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3),
-                        border: Border.all(
-                            width: 1,
-                            color: const Color.fromRGBO(221, 221, 221, 1))),
-                    child: DropdownButtonFormField(
-                        isExpanded: true,
-                        elevation: 5,
-                        style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: Color.fromRGBO(147, 147, 147, 1)),
-                        items: list,
-                        onChanged: (c) {}),
-                  ),
+                  Cust_DropdownSearch(),
                   Expanded(
                       child: GridView.builder(
                     itemCount: allBee.length,
-                    padding:
-                        const EdgeInsets.only(left: 10, right: 10, bottom: 15),
+                    padding: EdgeInsets.only(bottom: 20, left: 8, right: 8),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisSpacing: 23,
+                            crossAxisSpacing: 18,
                             mainAxisSpacing: 16,
-                            mainAxisExtent: 90,
+                            mainAxisExtent: 100,
                             crossAxisCount: 1),
                     itemBuilder: (ctx, index) => Cust_BoxShadow(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 3),
                         alignmen: Alignment.center,
                         // height: 200,
                         // width: 200,
@@ -102,35 +84,70 @@ class BeeCalendarScreen extends StatelessWidget {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Icon(Icons.apple),
-                                Text(allBee[index].phaseName.toString())
+                                Cust_ImageHony(),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.24,
+                                  child: Text(
+                                    allBee[index].phaseName.toString(),
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                )
                               ],
                             ),
-                            SizedBox(width: 20),
+                            SizedBox(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.03),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(children: [
-                                  Icon(Icons.apple),
-                                  SizedBox(width: 10),
+                                  Cust_ImageStar(),
                                   Text(
                                     allBee[index]
                                         .stars!
                                         .map((star) => star.starName)
                                         .join(' - '),
                                     style: TextStyle(
-                                      fontSize: 10,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.032, // 12.5,
+
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ]),
                                 Row(children: [
                                   // Text.rich( TextSpan()),
-                                  Text("من "),
-                                  Text(allBee[index].startDate.toString()),
-                                  Text(" الى "),
-                                  Text(allBee[index].endDate.toString())
+                                  Text("من ",
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.03, // 12,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(allBee[index].startDate.toString(),
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.032, // 12.5,
+                                          fontWeight: FontWeight.w700)),
+                                  Text(" الى ",
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(allBee[index].endDate.toString(),
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.032, // 12.5,
+                                          fontWeight: FontWeight.w700))
                                 ])
                               ],
                             ),

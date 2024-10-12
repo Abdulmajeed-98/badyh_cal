@@ -1,6 +1,7 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:badiyh_calendar/core/model/pages_api.dart';
 import 'package:badiyh_calendar/core/viewmodels/pages_v_m.dart';
+import 'package:badiyh_calendar/core/views/screens/contact.dart';
 import 'package:badiyh_calendar/core/views/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,8 +19,8 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(const Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, "/home");
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, "/contact");
     });
   }
 
@@ -69,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen>
               "dafdhffjjgjgta",
               style: TextStyle(fontSize: 40),
             ),
-            nextScreen: HomeScreen(),
+            nextScreen: ContactScreen(),
           ),
         ),
       ),

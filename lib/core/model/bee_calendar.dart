@@ -4,7 +4,7 @@ class BeeCalendar {
   String? startDate;
   String? endDate;
   String? description;
-  List<Stars>? stars;
+  List<StarsBee>? stars;
 
   BeeCalendar(
       {this.phaseID,
@@ -21,9 +21,9 @@ class BeeCalendar {
     endDate = json['EndDate'];
     description = json['Description'];
     if (json['stars'] != null) {
-      stars = <Stars>[];
+      stars = <StarsBee>[];
       json['stars'].forEach((v) {
-        stars!.add(Stars.fromJson(v));
+        stars!.add(StarsBee.fromJson(v));
       });
     }
   }
@@ -42,7 +42,7 @@ class BeeCalendar {
   // }
 }
 
-class Stars {
+class StarsBee {
   int? starID;
   String? starName;
   String? startDate;
@@ -50,7 +50,7 @@ class Stars {
   int? seasonID;
   int? duration;
 
-  Stars(
+  StarsBee(
       {this.starID,
       this.starName,
       this.startDate,
@@ -58,7 +58,7 @@ class Stars {
       this.seasonID,
       this.duration});
 
-  Stars.fromJson(Map<String, dynamic> json) {
+  StarsBee.fromJson(Map<String, dynamic> json) {
     starID = json['StarID'];
     starName = json['StarName'];
     startDate = json['StartDate'];

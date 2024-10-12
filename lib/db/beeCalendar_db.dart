@@ -20,8 +20,8 @@ class BeeCalendar_DB {
     {
       "PhaseID": 2,
       "PhaseName": "مجنى السمرة",
-      "StartDate": "2024-02-09",
-      "EndDate": "2024-03-31",
+      "StartDate": "9 فبراير",
+      "EndDate": "31 مارس",
       "Description": "فترة مجنى السمرة",
       "stars": [
         {
@@ -61,8 +61,8 @@ class BeeCalendar_DB {
     {
       "PhaseID": 3,
       "PhaseName": "ظهور الذبر ومجنى الحبضة",
-      "StartDate": "2024-04-01",
-      "EndDate": "2024-04-27",
+      "StartDate": "1 أبريل",
+      "EndDate": "27 أبريل",
       "Description": "فترة ظهور الذبر ومجنى الحبضة",
       "stars": [
         {
@@ -86,8 +86,8 @@ class BeeCalendar_DB {
     {
       "PhaseID": 4,
       "PhaseName": "إثل وقبوة الأربعينية",
-      "StartDate": "2024-04-28",
-      "EndDate": "2024-06-05",
+      "StartDate": "28 أبريل",
+      "EndDate": "5 يونيو",
       "Description": "فترة إثل وقبوة الأربعينية",
       "stars": [
         {
@@ -118,9 +118,9 @@ class BeeCalendar_DB {
     },
     {
       "PhaseID": 5,
-      "PhaseName": "فترة أشد فترة على النحل",
-      "StartDate": "2024-06-06",
-      "EndDate": "2024-07-14",
+      "PhaseName": "أشد فترة على النحل",
+      "StartDate": "6 يونيو",
+      "EndDate": "14 يوليو",
       "Description": "فترة شديدة على النحل",
       "stars": [
         {
@@ -151,9 +151,9 @@ class BeeCalendar_DB {
     },
     {
       "PhaseID": 6,
-      "PhaseName": "مجنى قاع وقبوة",
-      "StartDate": "2024-07-15",
-      "EndDate": "2024-08-22",
+      "PhaseName": "مجنى قاع وقبوة وبداية التحسن",
+      "StartDate": "15 يوليو",
+      "EndDate": "22 أغسطس",
       "Description": "فترة مجنى قاع وقبوة وبداية التحسن",
       "stars": [
         {
@@ -184,9 +184,9 @@ class BeeCalendar_DB {
     },
     {
       "PhaseID": 7,
-      "PhaseName": "أفضل فترة للنحل ومجنى السدر",
-      "StartDate": "2024-08-23",
-      "EndDate": "2024-11-08",
+      "PhaseName": "أفضل فترة للنحل ومجنى السدر (العلب)",
+      "StartDate": "23 أغسطس",
+      "EndDate": "8 نوفمبر",
       "Description": "أفضل فترة للنحل",
       "stars": [
         {
@@ -241,9 +241,9 @@ class BeeCalendar_DB {
     },
     {
       "PhaseID": 8,
-      "PhaseName": "فترة الدبس",
-      "StartDate": "2024-11-09",
-      "EndDate": "2024-12-04",
+      "PhaseName": "فترة الدبس (الجنوة)",
+      "StartDate": "9 نوفمبر",
+      "EndDate": "4 ديسمبر",
       "Description": "فترة الدبس",
       "stars": [
         {
@@ -267,8 +267,8 @@ class BeeCalendar_DB {
     {
       "PhaseID": 9,
       "PhaseName": "فترة شديدة على النحل",
-      "StartDate": "2024-12-05",
-      "EndDate": "2025-01-13",
+      "StartDate": "5 ديسمبر",
+      "EndDate": "13 يناير",
       "Description": "فترة صعبة على النحل",
       "stars": [
         {

@@ -6,7 +6,7 @@ class Cust_ImageSpring extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image.asset("assets/images/Spring.svg"),
+      child: Image.asset("assets/images/Spring.png"),
     );
   }
 }

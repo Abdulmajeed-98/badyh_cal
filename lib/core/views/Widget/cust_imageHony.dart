@@ -6,7 +6,7 @@ class Cust_ImageHony extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image.asset("assets/images/Hony.svg"),
+      child: Image.asset("assets/images/Hony.png"),
     );
   }
 }

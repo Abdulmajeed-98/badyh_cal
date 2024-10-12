@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CusBottomNaviBar extends StatelessWidget {
-  const CusBottomNaviBar({super.key});
-
+  CusBottomNaviBar(
+      {super.key, this.imgHome, this.imgBee, this.imgNews, this.imgCal});
+  Widget? imgHome, imgBee, imgNews, imgCal;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,9 +21,23 @@ class CusBottomNaviBar extends StatelessWidget {
             icon: SizedBox(
               height: 20,
               width: 20,
-              child: Image.asset(
-                "assets/images/home.png",
-              ),
+              child: imgHome ??
+                  Image.asset(
+                    "assets/images/homeBottomOff.png",
+                  ),
+            ),
+            color: Colors.white,
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: SizedBox(
+              height: 20,
+              width: 20,
+              child: imgNews ??
+                  Image.asset(
+                    "assets/images/newsBottomOff.png",
+                    fit: BoxFit.contain,
+                  ),
             ),
             color: Colors.white,
           ),
@@ -32,36 +47,26 @@ class CusBottomNaviBar extends StatelessWidget {
             icon: SizedBox(
               height: 20,
               width: 20,
-              child: Image.asset(
-                "assets/images/bee.png",
-                fit: BoxFit.contain,
-              ),
-            ),
-            color: Colors.white,
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SizedBox(
-              height: 20,
-              width: 20,
-              child: Image.asset(
-                "assets/images/news.png",
-                fit: BoxFit.contain,
-              ),
+              child: imgBee ??
+                  Image.asset(
+                    "assets/images/beeBottomOff.png",
+                    fit: BoxFit.contain,
+                  ),
             ),
             color: Colors.white,
           ),
           IconButton(
             onPressed: () {
-              Navigator.pushReplacementNamed(context, "/star");
+              Navigator.pushReplacementNamed(context, "/calendar");
             },
             icon: SizedBox(
               height: 20,
               width: 20,
-              child: Image.asset(
-                "assets/images/calendar.png",
-                fit: BoxFit.contain,
-              ),
+              child: imgCal ??
+                  Image.asset(
+                    "assets/images/calendarBottomOff.png",
+                    fit: BoxFit.contain,
+                  ),
             ),
             color: Colors.white,
           ),

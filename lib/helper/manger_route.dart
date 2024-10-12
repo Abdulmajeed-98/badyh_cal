@@ -4,6 +4,7 @@ import 'package:badiyh_calendar/core/views/screens/about_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/bee_calendar_screen.dart';
 import 'package:badiyh_calendar/core/model/all_models.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/contact.dart';
 import 'package:badiyh_calendar/core/views/screens/detalis_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/eventsBadyh_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/home_screen.dart';
@@ -58,8 +59,10 @@ class MangerRoute {
       case '/event':
         return MaterialPageRoute(builder: (ctx) => EventsBadyhScreen());
       case '/about':
-        return MaterialPageRoute(builder: (ctx) => const AboutScreen());
-      ////
+        return MaterialPageRoute(builder: (ctx) => AboutScreen());
+      case '/contact':
+        return MaterialPageRoute(builder: (ctx) => ContactScreen());
+      /////
       case '/test':
         return MaterialPageRoute(builder: (ctx) => const TestPage());
       default:

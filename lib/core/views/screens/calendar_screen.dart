@@ -29,6 +29,8 @@ class CalendarScreen extends StatelessWidget {
   StarVM staVM = StarVM();
   MonthVM mvm = MonthVM();
   BeeCalendarVM bvm = BeeCalendarVM();
+  SeasonVM sVM = SeasonVM();
+  CalendarDateVM selc = CalendarDateVM();
   int monthnum = 0;
   List<Stars> lisStar = [];
   List<Months> allmonths = [];
@@ -39,8 +41,8 @@ class CalendarScreen extends StatelessWidget {
     allBee = bvm.loadAllBeePhases();
     allmonths = mvm.loadAllMonths();
     lisStar = staVM.loadAllStars();
-    isToday =
-        DateUtils.isSameDay(CalendarDateVM().selectedDate, DateTime.now());
+    isToday = DateTime.now().isAfter(selc.selectedDate) ||
+        DateTime.now().isAfter(selc.selectedDate);
     // Jiffy.setLocale("ar");
     HijriCalendar.setLocal("ar");
     return ChangeNotifierProvider<CalendarDateVM>(
@@ -99,7 +101,158 @@ class CalendarScreen extends StatelessWidget {
                                 scaffoldKey.currentState!.openDrawer(),
                             txt: "التقويم"),
                         //This Need Provider
-                        Cust_BoxCalendarMain(),
+                        Consumer<CalendarDateVM>(builder: (ctx, cT, child) {
+                          return Cust_BoxShadow(
+                            padding: EdgeInsets.only(
+                                top: 5, bottom: 5, left: 3, right: 5),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    child: InkWell(
+                                        onTap: () {
+                                          cT.previousDay();
+                                          print(
+                                              "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                        },
+                                        child: Icon(Icons.arrow_back_ios)),
+                                  ),
+                                  InkWell(
+                                      onTap: () {
+                                        cT.preeeeeee();
+                                        print(
+                                            "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                      },
+                                      child: Icon(Icons.arrow_back_ios)),
+                                  Container(
+                                    //التقويم
+                                    width: 150,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text("${cT.selectedDate.day}",
+                                            style: TextStyle(
+                                                fontSize: 80,
+                                                color: isToday
+                                                    ? Color.fromRGBO(
+                                                        8, 164, 34, 1)
+                                                    : Colors.grey,
+                                                fontWeight: FontWeight.w700)),
+                                        Text("${cT.monthNameAR}",
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w400)),
+                                        Text("${cT.selectedDate.year}",
+                                            style: const TextStyle(
+                                                fontSize: 25,
+                                                fontWeight: FontWeight.w400)),
+                                        /////////////////////
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text("${cT.hijriDate.hDay}",
+                                                style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w400)),
+                                            const SizedBox(width: 5),
+                                            Text(cT.hijriDate.longMonthName,
+                                                style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w400)),
+                                            const SizedBox(width: 5),
+                                            Text("${cT.hijriDate.hYear}",
+                                                style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w400)),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 120,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      //stars & season
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          // color: Colors.blue,
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Cust_ImgSeasons(),
+                                              SizedBox(height: 10),
+                                              Text("فصل ${sVM.getSeason(cT)}",
+                                                  style: const TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w500)),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.02),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Cust_ImageStar(),
+                                            Text(
+                                                "${lisStar[staVM.getStar(cT.selectedDate)].starName}",
+                                                //${staVM.getHoliday(cT)}
+                                                style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w500)),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Spacer(),
+                                  InkWell(
+                                    onTap: () {
+                                      cT.nextDay();
+                                      print(
+                                          "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                    },
+                                    child: const Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      cT.nextDDDDay();
+                                      print(
+                                          "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                    },
+                                    child: const Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.red,
+                                    ),
+                                  )
+                                ]),
+                          );
+                        }),
+
+                        // Cust_BoxCalendarMain(),
                         const SizedBox(height: 8),
                         //This Need Provider
                         Cust_BoxShadow(

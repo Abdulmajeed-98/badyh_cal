@@ -30,38 +30,22 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        body: Container(
-          width: double.infinity,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/badyh_splach.png"),
-                  fit: BoxFit.cover)),
-          child: FlutterSplashScreen.scale(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
             backgroundColor: Colors.white,
-            duration: Duration(seconds: 3),
-            animationDuration: const Duration(seconds: 2),
-            // gradient: LinearGradient(
-            //     begin: Alignment.topCenter,
-            //     end: Alignment.bottomCenter,
-            //     colors: [Colors.green.shade100, Colors.green.shade900]),
-            onInit: () {
-              Image.asset("assets/images/badyh_splach.png");
-            },
-            onEnd: () {
-              Image.asset("assets/images/badyh_splach.png");
-            },
-            childWidget: SizedBox(
-              height: 350,
-              width: 350,
-              child: Image.asset("assets/images/splashAnim.png"),
-            ),
-            onAnimationEnd: () => Image.asset("assets/images/badyh_splach.png"),
-            nextScreen: CalendarScreen(),
-          ),
-        ),
-      ),
-    );
+            body: Container(
+              child: FlutterSplashScreen.scale(
+                backgroundImage: Image.asset(
+                  "assets/images/badyh_splach.png",
+                ),
+                backgroundColor: Colors.transparent,
+                duration: Duration(seconds: 3),
+                animationDuration: const Duration(seconds: 2),
+                onInit: () {},
+                onEnd: () {},
+                childWidget: Image.asset("assets/images/splashAnim.png"),
+                nextScreen: CalendarScreen(),
+              ),
+            )));
   }
 }

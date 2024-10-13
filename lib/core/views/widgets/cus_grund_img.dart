@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CusGrundImg extends StatelessWidget {
-  CusGrundImg({super.key,this.txt});
+  CusGrundImg({super.key,this.txt,this.style});
   String? txt;
+  TextStyle? style;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -22,7 +23,7 @@ class CusGrundImg extends StatelessWidget {
                   image: AssetImage('assets/images/badyh_complex.png'),
                   fit: BoxFit.fill,
                   opacity: 0.2)),
-          child: Center(child: Text(txt??'',style: Theme.of(context).textTheme.headlineMedium,)),
+          child: Center(child: Text(txt??'',style: style??Theme.of(context).textTheme.headlineMedium,)),
         ),
       ],
     );

@@ -1,5 +1,8 @@
-import 'package:badyh_cal/core/views/widgets/cus_back_button.dart';
-import 'package:badyh_cal/helpers/web_controller.dart';
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
+import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
+import 'package:badiyh_calendar/helpers/web_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -11,6 +14,8 @@ class AboutUsScreen extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
+          drawer: AppDrawer(),
+          key: ScaffoldKey.SK,
           body: Stack(
             children: [
               WebViewWidget(controller: controller),
@@ -18,12 +23,12 @@ class AboutUsScreen extends StatelessWidget {
                 left: 10,
                 top: 15,
                 child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(2.5),
-                    color: Color.fromRGBO(15, 15, 15, 1)
-                  ),
-                  child: CusBackButton()),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2.5),
+                        color: Color.fromRGBO(15, 15, 15, 1)),
+                    child: CusBackButton()),
               ),
+              CusDrawerIcon(onPressed: () => ScaffoldKey.SK.currentState!.openDrawer,)
             ],
           ),
         ),

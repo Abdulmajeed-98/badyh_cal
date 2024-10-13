@@ -1,21 +1,21 @@
-import 'package:badyh_cal/core/models/category.dart';
-import 'package:badyh_cal/core/models/post.dart';
-import 'package:badyh_cal/core/viewmodels/posts_vm.dart';
-import 'package:badyh_cal/core/views/widgets/app_drawer.dart';
-import 'package:badyh_cal/core/views/widgets/cus_back_button.dart';
-import 'package:badyh_cal/core/views/widgets/cus_bottom_navi_bar.dart';
-import 'package:badyh_cal/core/views/widgets/cus_button.dart';
-import 'package:badyh_cal/core/views/widgets/cus_drawer_icon.dart';
-import 'package:badyh_cal/core/views/widgets/cus_grund_img.dart';
-import 'package:badyh_cal/core/views/widgets/cus_tall_container.dart';
-import 'package:badyh_cal/core/views/widgets/cus_wide_container.dart';
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
+import 'package:badiyh_calendar/core/models/category.dart';
+import 'package:badiyh_calendar/core/models/post.dart';
+import 'package:badiyh_calendar/core/viewmodels/posts_vm.dart';
+import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_button.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_tall_container.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_wide_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PostsScreens extends StatelessWidget {
   PostsScreens({super.key, required this.category});
   final Category category;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
   final PostsVm postsVm = Get.put(PostsVm());
   RxBool isOn = true.obs;
 
@@ -30,7 +30,7 @@ class PostsScreens extends StatelessWidget {
         child: Scaffold(
           bottomNavigationBar: CusBottomNaviBar(),
           drawer: AppDrawer(),
-          key: scaffoldKey,
+          key: ScaffoldKey.SK,
           body: FutureBuilder(
             future: postsVm.loadPosts(category_id: category.id!), // تحميل البيانات هنا
             builder: (context, snapshot) {
@@ -123,7 +123,7 @@ class PostsScreens extends StatelessWidget {
                           ],
                         ),
                         CusDrawerIcon(onPressed: () =>
-                                scaffoldKey.currentState!.openDrawer(),),
+                                ScaffoldKey.SK.currentState!.openDrawer(),),
                        CusBackButton(),
                       ],
                     ));

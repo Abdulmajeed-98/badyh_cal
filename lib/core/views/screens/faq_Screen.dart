@@ -1,21 +1,15 @@
-import 'package:badyh_cal/core/models/category.dart';
-import 'package:badyh_cal/core/models/post.dart';
-import 'package:badyh_cal/core/viewmodels/posts_vm.dart';
-import 'package:badyh_cal/core/views/widgets/app_drawer.dart';
-import 'package:badyh_cal/core/views/widgets/cus_back_button.dart';
-import 'package:badyh_cal/core/views/widgets/cus_bottom_navi_bar.dart';
-import 'package:badyh_cal/core/views/widgets/cus_button.dart';
-import 'package:badyh_cal/core/views/widgets/cus_drawer_icon.dart';
-import 'package:badyh_cal/core/views/widgets/cus_grund_img.dart';
-import 'package:badyh_cal/core/views/widgets/cus_tall_container.dart';
-import 'package:badyh_cal/core/views/widgets/cus_wide_container.dart';
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
+import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
+import 'package:badiyh_calendar/db/common_quistion.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class FaqScreen extends StatelessWidget {
   FaqScreen({super.key});
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  CommonQuistionDb q = CommonQuistionDb();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,7 +18,7 @@ class FaqScreen extends StatelessWidget {
         child: Scaffold(
             bottomNavigationBar: CusBottomNaviBar(),
             drawer: AppDrawer(),
-            key: scaffoldKey,
+            key: ScaffoldKey.SK,
             body:
                 // Obx(() =>
                 // postsVm.posts.isEmpty?
@@ -37,7 +31,7 @@ class FaqScreen extends StatelessWidget {
                 Column(
                   children: [
                     CusGrundImg(
-                        // txt: category.name,
+                        txt: 'الأسئلة الشائعه' //category.name,
                         ),
                     Container(
                       padding:
@@ -82,20 +76,20 @@ class FaqScreen extends StatelessWidget {
                                       ),
                                     ),
                                     childrenPadding: EdgeInsets.all(10),
-                                    title: Text('هذا النص قابل للتغيير ?'),
+                                    title: Text(q.CommonQuistion[index].keys.first),
                                     children: [
                                       Text(
-                                          'asdasdsasasadasdgjhjskfhdfsjdghjgdshffghdgfjdhfgdfsjdgajsfsdsfhsdafdsggfjgsf')
+                                          q.CommonQuistion[index].values.first)
                                     ],
                                   ),
                                 ),
                             separatorBuilder: (context, index) => SizedBox(
                                   height: 10,
                                 ),
-                            itemCount: 5)),
+                            itemCount: q.CommonQuistion.length)),
                   ],
                 ),
-                CusDrawerIcon(onPressed: () => scaffoldKey.currentState!.openDrawer(),),
+                CusDrawerIcon(onPressed: () => ScaffoldKey.SK.currentState!.openDrawer(),),
                 CusBackButton(),
               ],
             )),

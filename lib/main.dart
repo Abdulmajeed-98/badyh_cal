@@ -1,6 +1,7 @@
-import 'package:badyh_cal/core/theme/app_theme.dart';
-import 'package:badyh_cal/helpers/app_routes.dart';
+import 'package:badiyh_calendar/core/theme/app_theme.dart';
+import 'package:badiyh_calendar/helpers/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get.dart';
 
 void main(){

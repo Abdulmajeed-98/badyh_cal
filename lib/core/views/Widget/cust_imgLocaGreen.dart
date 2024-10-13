@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Cust_ImglocaGreen extends StatelessWidget {
-  Cust_ImglocaGreen({super.key, this.padding});
-  EdgeInsetsGeometry? padding;
+  Cust_ImglocaGreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

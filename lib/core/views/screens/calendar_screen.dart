@@ -30,7 +30,6 @@ class CalendarScreen extends StatelessWidget {
   MonthVM mvm = MonthVM();
   BeeCalendarVM bvm = BeeCalendarVM();
   SeasonVM sVM = SeasonVM();
-  CalendarDateVM selc = CalendarDateVM();
   int monthnum = 0;
   List<Stars> lisStar = [];
   List<Months> allmonths = [];
@@ -41,8 +40,9 @@ class CalendarScreen extends StatelessWidget {
     allBee = bvm.loadAllBeePhases();
     allmonths = mvm.loadAllMonths();
     lisStar = staVM.loadAllStars();
-    isToday = DateTime.now().isAfter(selc.selectedDate) ||
-        DateTime.now().isAfter(selc.selectedDate);
+
+    isToday =
+        DateUtils.isSameDay(CalendarDateVM().selectedDate, DateTime.now());
     // Jiffy.setLocale("ar");
     HijriCalendar.setLocal("ar");
     return ChangeNotifierProvider<CalendarDateVM>(
@@ -127,6 +127,7 @@ class CalendarScreen extends StatelessWidget {
                                       },
                                       child: Icon(Icons.arrow_back_ios)),
                                   Container(
+                                    // color: Colors.yellow,
                                     //التقويم
                                     width: 150,
                                     child: Column(

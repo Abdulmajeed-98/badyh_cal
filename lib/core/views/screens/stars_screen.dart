@@ -25,6 +25,7 @@ class StarsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     allStar = starVM.loadAllStars();
     allseason = seasonVM.loadAllSeasons();
+    int length = 5;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: SafeArea(
@@ -72,7 +73,7 @@ class StarsScreen extends StatelessWidget {
                   Cust_AppbarCalendar(
                       scafKey: () => scaffoldKey.currentState!.openDrawer(),
                       txt: "النجوم"),
-                  Cust_DropdownSearch(),
+                  //   Cust_DropdownSearch(),
                   Expanded(
                       child: GridView.builder(
                     itemCount: allStar.length,
@@ -87,8 +88,6 @@ class StarsScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           vertical: 5, horizontal: 3),
                       alignmen: Alignment.center,
-                      // height: 200,
-                      // width: 200,
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -140,7 +139,13 @@ class StarsScreen extends StatelessWidget {
                             ),
                           ]),
                     ),
-                  ))
+                  )),
+                  // ElevatedButton(
+                  //     onPressed: () {
+                  //       length = allStar.length;
+                  //       print("${length}");
+                  //     },
+                  //     child: Text("data"))
                 ],
               ),
             )),

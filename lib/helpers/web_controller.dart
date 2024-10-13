@@ -1,4 +1,4 @@
-import 'package:badyh_cal/core/constants/http_urls.dart';
+import 'package:badiyh_calendar/core/constants/http_urls.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 final controller = WebViewController()

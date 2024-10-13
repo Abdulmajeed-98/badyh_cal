@@ -1,5 +1,6 @@
-import 'package:badyh_cal/core/models/category.dart';
-import 'package:badyh_cal/core/models/navigation.dart';
+import 'package:badiyh_calendar/core/models/category.dart';
+import 'package:badiyh_calendar/core/models/navigation.dart';
+
 
 class DrawerHelper{
   DrawerHelper._();

@@ -1,8 +1,6 @@
-import 'package:badyh_cal/core/constants/http_urls.dart';
-import 'package:badyh_cal/core/models/category.dart';
-import 'package:badyh_cal/core/models/navigation.dart';
-import 'package:badyh_cal/helpers/drawer_helper.dart';
-
+import 'package:badiyh_calendar/core/constants/http_urls.dart';
+import 'package:badiyh_calendar/core/models/navigation.dart';
+import 'package:badiyh_calendar/helpers/drawer_helper.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {

@@ -1,6 +1,7 @@
-import 'package:badyh_cal/core/constants/http_urls.dart';
-import 'package:badyh_cal/core/models/post.dart';
-import 'package:badyh_cal/helpers/dio_helper.dart';
+
+import 'package:badiyh_calendar/core/constants/http_urls.dart';
+import 'package:badiyh_calendar/core/models/post.dart';
+import 'package:badiyh_calendar/helpers/dio_helper.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as d;
 class PostsVm  extends GetxController{

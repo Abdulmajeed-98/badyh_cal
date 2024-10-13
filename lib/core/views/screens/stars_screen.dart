@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/model/seasons.dart';
 import 'package:badiyh_calendar/core/model/stars.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
@@ -70,7 +71,7 @@ class StarsScreen extends StatelessWidget {
                   // ),
 
                   Cust_AppbarCalendar(
-                      scafKey: () => scaffoldKey.currentState!.openDrawer(),
+                      scafKey: () => ScaffoldKey.SK.currentState!.openDrawer(),
                       txt: "النجوم"),
                   //   Cust_DropdownSearch(),
                   Expanded(

@@ -52,7 +52,7 @@ class CalendarScreen extends StatelessWidget {
           textDirection: TextDirection.rtl,
           child: SafeArea(
             child: Scaffold(
-                drawer: CusAppDrawer(),
+                drawer: AppDrawer(),
                 key: scaffoldKey,
                 bottomNavigationBar: CusBottomNaviBar(
                   imgCal: Image.asset("assets/images/calendarBottomOn.png"),

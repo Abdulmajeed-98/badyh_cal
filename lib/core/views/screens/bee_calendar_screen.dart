@@ -62,7 +62,7 @@ class BeeCalendarScreen extends StatelessWidget {
                   //       ]),
                   // ),
                   Cust_AppbarCalendar(
-                      scafKey: () => scaffoldKey.currentState!.openDrawer(),
+                      scafKey: () => ScaffoldKey.SK.currentState!.openDrawer(),
                       txt: "النجوم"),
                   // Cust_DropdownSearch(),
                   Expanded(

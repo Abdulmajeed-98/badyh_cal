@@ -17,7 +17,7 @@ class CusBottomNaviBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.pushReplacementNamed(context, "/home"),
             icon: SizedBox(
               height: 20,
               width: 20,
@@ -29,7 +29,7 @@ class CusBottomNaviBar extends StatelessWidget {
             color: Colors.white,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.pushReplacementNamed(context, "/news"),
             icon: SizedBox(
               height: 20,
               width: 20,

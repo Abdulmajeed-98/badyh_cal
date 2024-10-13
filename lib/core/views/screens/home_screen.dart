@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
 import 'package:badiyh_calendar/core/models/post.dart';
 import 'package:badiyh_calendar/core/viewmodels/home_vm.dart';
@@ -14,7 +15,6 @@ import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
-  var scaffoldKey = GlobalKey<ScaffoldState>();
   final HomeVm homeVm = Get.put(HomeVm(httpHelper: DioHelper.instance));
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
-          key: scaffoldKey,
+          key: ScaffoldKey.SK,
           bottomNavigationBar: CusBottomNaviBar(),
           drawer: AppDrawer(),
           body: Stack(
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                           SizedBox(
-                            height: 5,
+                            height: 8,
                           ),
                           Text(
                             'مؤسسة البادية للتنمية والأعمال الإنسانية',
@@ -73,8 +73,6 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                   width: double.infinity,
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -97,7 +95,9 @@ class HomeScreen extends StatelessWidget {
                                                 fontSize: 16),
                                           ),
                                         ],
+                                        
                                       ),
+                                      SizedBox(height: 8,),
                                       Container(
                                         margin: EdgeInsets.only(right: 22),
                                         child: Text(
@@ -152,7 +152,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               CusDrawerIcon(
-                onPressed: () => scaffoldKey.currentState!.openDrawer(),
+                onPressed: () => ScaffoldKey.SK.currentState!.openDrawer(),
               )
             ],
           ),
@@ -165,15 +165,15 @@ class HomeScreen extends StatelessWidget {
 // Widget for displaying a list of Posts
 Widget _buildPostGrid(List<Post> posts, BuildContext context) {
   return SizedBox(
-    height: 2 * (MediaQuery.of(context).size.width / 3),
+    height: 2 * (MediaQuery.of(context).size.width / 2.75),
     child: GridView.builder(
 
         // padding: EdgeInsets.symmetric(vertical: 10),
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            // mainAxisSpacing: 10,
+            mainAxisSpacing: 10,
             crossAxisSpacing: 10,
-            mainAxisExtent: 120,
+            mainAxisExtent: (MediaQuery.of(context).size.width / 3),
             crossAxisCount: 2),
         itemCount: 4,
         itemBuilder: (context, i) => CusStack(

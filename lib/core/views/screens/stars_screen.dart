@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/model/seasons.dart';
 import 'package:badiyh_calendar/core/model/stars.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
@@ -13,7 +14,6 @@ import 'package:jiffy/jiffy.dart';
 
 class StarsScreen extends StatelessWidget {
   StarsScreen({super.key});
-  var scaffoldKey = GlobalKey<ScaffoldState>();
   StarVM starVM = StarVM();
   SeasonVM seasonVM = SeasonVM();
   CalendarDateVM selectedDate = CalendarDateVM();
@@ -28,7 +28,7 @@ class StarsScreen extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
             drawer: AppDrawer(),
-            key: scaffoldKey,
+            key: ScaffoldKey.SK,
             bottomNavigationBar: CusBottomNaviBar(),
             body: Container(
               height: MediaQuery.of(context).size.height,
@@ -52,7 +52,7 @@ class StarsScreen extends StatelessWidget {
                               color: Colors.black,
                             ),
                             onPressed: () =>
-                                scaffoldKey.currentState!.openDrawer(),
+                                ScaffoldKey.SK.currentState!.openDrawer(),
                           ),
                           const Text("النجوم",
                               style: TextStyle(

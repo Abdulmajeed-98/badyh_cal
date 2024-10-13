@@ -12,7 +12,7 @@ class CusDrawerIcon extends StatelessWidget {
           color: Colors.white,
           size: 30,
         ),
-        onPressed: () {},
+        onPressed: onPressed,
       ),
     );
   }

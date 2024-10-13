@@ -1,5 +1,9 @@
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
 import 'package:flutter/material.dart';
 
 class ContactScreen extends StatelessWidget {
@@ -9,17 +13,19 @@ class ContactScreen extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: SafeArea(
           child: Scaffold(
+            bottomNavigationBar: CusBottomNaviBar(),
+            key: ScaffoldKey.SK,
             body: Stack(
               children: [
-                Stack(
-                  children: [],
-                ),
                 SingleChildScrollView(
                   child: Container(
-                    padding: EdgeInsets.all(16),
+                    // padding: EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        CusGrundImg(
+                          txt: 'اتصل بنا',
+                        ),
                         Center(
                             child: Text("لديك مشكلة .. فريقنا في خدمتك 7/24",
                                 style: TextStyle(
@@ -147,6 +153,8 @@ class ContactScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                CusDrawerIcon(
+                    onPressed: () => ScaffoldKey.SK.currentState!.openDrawer),
               ],
             ),
           ),

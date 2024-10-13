@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/model/bee_calendar.dart';
 import 'package:badiyh_calendar/core/model/months.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
@@ -23,7 +24,6 @@ import '../../model/stars.dart';
 class CalendarScreen extends StatelessWidget {
   CalendarScreen({super.key});
 
-  var scaffoldKey = GlobalKey<ScaffoldState>();
   SeasonVM sVM = SeasonVM();
   StarVM staVM = StarVM();
   MonthVM mvm = MonthVM();
@@ -51,7 +51,7 @@ class CalendarScreen extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
             drawer: AppDrawer(),
-            key: scaffoldKey,
+            key: ScaffoldKey.SK,
             bottomNavigationBar: CusBottomNaviBar(
               imgCal: Image.asset("assets/images/calendarBottomOn.png"),
             ),
@@ -80,7 +80,7 @@ class CalendarScreen extends StatelessWidget {
                                 color: Colors.black,
                               ),
                               onPressed: () =>
-                                  scaffoldKey.currentState!.openDrawer(),
+                                  ScaffoldKey.SK.currentState!.openDrawer(),
                             ),
                             const Text("التقويم",
                                 style: TextStyle(

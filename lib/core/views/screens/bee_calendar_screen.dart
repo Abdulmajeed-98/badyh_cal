@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/model/bee_calendar.dart';
 import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
@@ -10,8 +11,6 @@ import 'package:flutter/material.dart';
 
 class BeeCalendarScreen extends StatelessWidget {
   BeeCalendarScreen({super.key});
-
-  var scaffoldKey = GlobalKey<ScaffoldState>();
   BeeCalendarVM bvm = BeeCalendarVM();
   late List<BeeCalendar> allBee;
   @override
@@ -22,7 +21,7 @@ class BeeCalendarScreen extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
             drawer: AppDrawer(),
-            key: scaffoldKey,
+            key: ScaffoldKey.SK,
             bottomNavigationBar: CusBottomNaviBar(
                 imgBee: Image.asset("assets/images/beeBottomOn.png")),
             body: Container(
@@ -47,7 +46,7 @@ class BeeCalendarScreen extends StatelessWidget {
                               color: Colors.black,
                             ),
                             onPressed: () =>
-                                scaffoldKey.currentState!.openDrawer(),
+                                ScaffoldKey.SK.currentState!.openDrawer(),
                           ),
                           const Text("مراحل تربية النحل وجني العسل",
                               style: TextStyle(

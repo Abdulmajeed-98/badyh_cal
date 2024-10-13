@@ -1,14 +1,15 @@
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
+import 'package:badiyh_calendar/db/common_quistion.dart';
 import 'package:flutter/material.dart';
 
 class FaqScreen extends StatelessWidget {
   FaqScreen({super.key});
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  CommonQuistionDb q = CommonQuistionDb();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,7 +18,7 @@ class FaqScreen extends StatelessWidget {
         child: Scaffold(
             bottomNavigationBar: CusBottomNaviBar(),
             drawer: AppDrawer(),
-            key: scaffoldKey,
+            key: ScaffoldKey.SK,
             body:
                 // Obx(() =>
                 // postsVm.posts.isEmpty?
@@ -75,20 +76,20 @@ class FaqScreen extends StatelessWidget {
                                       ),
                                     ),
                                     childrenPadding: EdgeInsets.all(10),
-                                    title: Text('هذا النص قابل للتغيير ?'),
+                                    title: Text(q.CommonQuistion[index].keys.first),
                                     children: [
                                       Text(
-                                          'asdasdsasasadasdgjhjskfhdfsjdghjgdshffghdgfjdhfgdfsjdgajsfsdsfhsdafdsggfjgsf')
+                                          q.CommonQuistion[index].values.first)
                                     ],
                                   ),
                                 ),
                             separatorBuilder: (context, index) => SizedBox(
                                   height: 10,
                                 ),
-                            itemCount: 5)),
+                            itemCount: q.CommonQuistion.length)),
                   ],
                 ),
-                CusDrawerIcon(onPressed: () => scaffoldKey.currentState!.openDrawer(),),
+                CusDrawerIcon(onPressed: () => ScaffoldKey.SK.currentState!.openDrawer(),),
                 CusBackButton(),
               ],
             )),

@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/model/events_badyh.dart';
 import 'package:badiyh_calendar/core/viewmodels/events_badyh_VM.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxEvent.dart';
@@ -9,7 +10,6 @@ import 'package:flutter/material.dart';
 
 class EventsBadyhScreen extends StatelessWidget {
   EventsBadyhScreen({super.key});
-  var scaffoldKey = GlobalKey<ScaffoldState>();
   EventsBadyh_VM evm = EventsBadyh_VM();
   List<EventsBadyh> listevent = [];
   @override
@@ -20,7 +20,7 @@ class EventsBadyhScreen extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
             drawer: AppDrawer(),
-            key: scaffoldKey,
+            key: ScaffoldKey.SK,
             bottomNavigationBar: CusBottomNaviBar(),
             body: Column(
               children: [
@@ -40,7 +40,7 @@ class EventsBadyhScreen extends StatelessWidget {
                         size: 35,
                         color: Colors.white,
                       ),
-                      onPressed: () => scaffoldKey.currentState!.openDrawer(),
+                      onPressed: () => ScaffoldKey.SK.currentState!.openDrawer(),
                     ),
                   )
                 ]),

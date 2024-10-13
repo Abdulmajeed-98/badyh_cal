@@ -38,7 +38,7 @@ class CusStack extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: -5,
+            bottom: -10,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(1.25),

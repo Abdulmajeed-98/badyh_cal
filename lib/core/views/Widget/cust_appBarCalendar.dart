@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Cust_AppbarCalendar extends StatelessWidget {
-  Cust_AppbarCalendar(
-      {super.key, required this.scaffoldKey, required this.txt});
+  Cust_AppbarCalendar({super.key, required this.scafKey, required this.txt});
   String txt;
-  void Function()? scaffoldKey;
+  void Function()? scafKey;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +17,7 @@ class Cust_AppbarCalendar extends StatelessWidget {
               size: 30,
               color: Colors.black,
             ),
-            onPressed: () => scaffoldKey),
+            onPressed: () => scafKey),
         Text(txt, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
         IconButton(
             icon: const Icon(

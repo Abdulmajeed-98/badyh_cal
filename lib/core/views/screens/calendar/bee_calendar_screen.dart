@@ -3,12 +3,12 @@ import 'package:badiyh_calendar/core/model/bee_calendar.dart';
 import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_dropDownSearch.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imageHony.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BeeCalendarScreen extends StatelessWidget {
   BeeCalendarScreen({super.key});
@@ -62,8 +62,10 @@ class BeeCalendarScreen extends StatelessWidget {
                   //       ]),
                   // ),
                   Cust_AppbarCalendar(
-                      scafKey: () => ScaffoldKey.SK.currentState!.openDrawer(),
-                      txt: "النجوم"),
+                    txt: "مراحل تربية النحل وجني العسل",
+                    onPressed: () => Get.offNamed("/calendar"),
+                    scafKey: () => ScaffoldKey.SK.currentState!.openDrawer(),
+                  ),
                   // Cust_DropdownSearch(),
                   Expanded(
                       child: GridView.builder(

@@ -19,9 +19,12 @@ class EventsBadyhScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: SafeArea(
         child: Scaffold(
+          // backgroundColor: Color.fromRGBO(255, 255, 255, 1),
             drawer: AppDrawer(),
             key: ScaffoldKey.SK,
-            bottomNavigationBar: CusBottomNaviBar(),
+            bottomNavigationBar: CusBottomNaviBar(
+              imgNews: Image.asset("assets/images/newsBottomOn.png"),
+              ),
             body: Column(
               children: [
                 Stack(children: [

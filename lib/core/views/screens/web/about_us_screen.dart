@@ -15,7 +15,7 @@ class AboutUsScreen extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: Scaffold(
           drawer: AppDrawer(),
-          key: ScaffoldKey.SK,
+          // key: ScaffoldKey.SK,
           body: Stack(
             children: [
               WebViewWidget(controller: controller),
@@ -28,7 +28,7 @@ class AboutUsScreen extends StatelessWidget {
                         color: Color.fromRGBO(15, 15, 15, 1)),
                     child: CusBackButton()),
               ),
-              CusDrawerIcon(onPressed: () => ScaffoldKey.SK.currentState!.openDrawer,)
+              // CusDrawerIcon(onPressed: () => ScaffoldKey.SK.currentState!.openDrawer,)
             ],
           ),
         ),

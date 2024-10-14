@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart'; // استيراد GetX
 
 class CusBottomNaviBar extends StatelessWidget {
   CusBottomNaviBar(
       {super.key, this.imgHome, this.imgBee, this.imgNews, this.imgCal});
   Widget? imgHome, imgBee, imgNews, imgCal;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +19,7 @@ class CusBottomNaviBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            onPressed: () => Navigator.pushReplacementNamed(context, "/home"),
+            onPressed: () => Get.offNamed("/home"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
@@ -29,7 +31,7 @@ class CusBottomNaviBar extends StatelessWidget {
             color: Colors.white,
           ),
           IconButton(
-            onPressed: () => Navigator.pushReplacementNamed(context, "/news"),
+            onPressed: () => Get.offNamed("/events"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
@@ -43,7 +45,7 @@ class CusBottomNaviBar extends StatelessWidget {
           ),
           IconButton(
             iconSize: 3,
-            onPressed: () => Navigator.pushReplacementNamed(context, "/bee"),
+            onPressed: () => Get.offNamed("/bee"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
@@ -57,7 +59,7 @@ class CusBottomNaviBar extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              Navigator.pushReplacementNamed(context, "/calendar");
+              Get.offNamed("/calendar"); // التحويل إلى Get.offNamed
             },
             icon: SizedBox(
               height: 20,

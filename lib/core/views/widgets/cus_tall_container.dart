@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/views/widgets/shimmer_widget/shimmer_image.dart';
 import 'package:flutter/material.dart';
 
 class CusTallContainer extends StatelessWidget {
@@ -24,7 +25,7 @@ class CusTallContainer extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+          image==null? ShimmerContainer() :  Container(
               height: (MediaQuery.of(context).size.width / 2.23) / 1.9,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(2.5)),

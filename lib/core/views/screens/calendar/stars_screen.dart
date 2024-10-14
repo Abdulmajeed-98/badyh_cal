@@ -12,6 +12,7 @@ import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
 class StarsScreen extends StatelessWidget {
@@ -72,7 +73,8 @@ class StarsScreen extends StatelessWidget {
 
                   Cust_AppbarCalendar(
                       scafKey: () => ScaffoldKey.SK.currentState!.openDrawer(),
-                      txt: "النجوم"),
+                      txt: "النجوم",
+                      onPressed: () => Get.offNamed("/calendar")),
                   //   Cust_DropdownSearch(),
                   Expanded(
                       child: GridView.builder(

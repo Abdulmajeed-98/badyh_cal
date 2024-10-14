@@ -5,7 +5,6 @@ import 'package:badiyh_calendar/core/viewmodels/posts_vm.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
-import 'package:badiyh_calendar/core/views/widgets/cus_button.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_tall_container.dart';
@@ -56,7 +55,7 @@ class PostsScreens extends StatelessWidget {
                                   Expanded(
                                     child: DropdownButton(
                                       isExpanded: true,
-                                      items: ['asd', 'zxc', 'fgh']
+                                      items: ['برامج الإغاثة الإنسانية', 'البرامج الصحية', 'البرامج التعليمية']
                                           .map((e) => DropdownMenuItem(
                                               value: e, child: Text(e)))
                                           .toList(),
@@ -119,7 +118,7 @@ class PostsScreens extends StatelessWidget {
                                       },
                                     ),
                             ),
-                            CusButton(margin: EdgeInsets.only(bottom: 10), onTap: () {}),
+                            // CusButton(margin: EdgeInsets.only(bottom: 10), onTap: () {}),
                           ],
                         ),
                         CusDrawerIcon(onPressed: () =>

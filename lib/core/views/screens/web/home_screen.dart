@@ -9,6 +9,7 @@ import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_stack.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_tall_container.dart';
+import 'package:badiyh_calendar/core/views/widgets/shimmer_widget/shimmer_home.dart';
 import 'package:badiyh_calendar/helpers/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,10 @@ class HomeScreen extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: Scaffold(
           key: ScaffoldKey.SK,
-          bottomNavigationBar: CusBottomNaviBar(),
+          bottomNavigationBar: CusBottomNaviBar(
+              imgHome: Image.asset(
+            'assets/images/homebottomOn.png',
+          )),
           drawer: AppDrawer(),
           body: Stack(
             children: [
@@ -53,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Obx(() {
                     if (homeVm.homeList.isEmpty) {
-                      return Center(child: CircularProgressIndicator());
+                      return buildShimmerEffect();
                     } else {
                       return Expanded(
                         child: ListView.separated(
@@ -95,9 +99,10 @@ class HomeScreen extends StatelessWidget {
                                                 fontSize: 16),
                                           ),
                                         ],
-                                        
                                       ),
-                                      SizedBox(height: 8,),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
                                       Container(
                                         margin: EdgeInsets.only(right: 22),
                                         child: Text(
@@ -131,8 +136,7 @@ class HomeScreen extends StatelessWidget {
                                         Theme.of(context).textTheme.bodyLarge,
                                   ),
                                   CusButton(
-                                      onTap: () => Navigator.pushNamed(
-                                          context, '/posts',
+                                      onTap: () => Get.toNamed('/posts',
                                           arguments: item as Category))
                                 ],
                               );
@@ -182,7 +186,7 @@ Widget _buildPostGrid(List<Post> posts, BuildContext context) {
             nameTxt: posts[i].author!,
             titleTxt: posts[i].title!,
             onTap: () {
-              Navigator.pushNamed(context, '/web',arguments: posts[i].link);
+              Get.toNamed('/web', arguments: posts[i].link);
             })),
   );
 }

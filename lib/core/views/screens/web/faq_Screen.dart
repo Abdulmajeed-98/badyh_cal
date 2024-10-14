@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 class FaqScreen extends StatelessWidget {
   FaqScreen({super.key});
   CommonQuistionDb q = CommonQuistionDb();
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,7 +20,7 @@ class FaqScreen extends StatelessWidget {
         child: Scaffold(
             bottomNavigationBar: CusBottomNaviBar(),
             drawer: AppDrawer(),
-            key: ScaffoldKey.SK,
+            key: scaffoldKey,
             body:
                 // Obx(() =>
                 // postsVm.posts.isEmpty?
@@ -30,8 +32,7 @@ class FaqScreen extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    CusGrundImg(
-                        txt: 'الأسئلة الشائعه' //category.name,
+                    CusGrundImg(txt: 'الأسئلة الشائعه' //category.name,
                         ),
                     Container(
                       padding:
@@ -72,14 +73,15 @@ class FaqScreen extends StatelessWidget {
                                       height: 20,
                                       width: 20,
                                       decoration: BoxDecoration(
-                                        image: DecorationImage(image: AssetImage('assets/images/messages-question-1.png'))
-                                      ),
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  'assets/images/messages-question-1.png'))),
                                     ),
                                     childrenPadding: EdgeInsets.all(10),
-                                    title: Text(q.CommonQuistion[index].keys.first),
+                                    title: Text(
+                                        q.CommonQuistion[index].keys.first),
                                     children: [
-                                      Text(
-                                          q.CommonQuistion[index].values.first)
+                                      Text(q.CommonQuistion[index].values.first)
                                     ],
                                   ),
                                 ),
@@ -89,7 +91,9 @@ class FaqScreen extends StatelessWidget {
                             itemCount: q.CommonQuistion.length)),
                   ],
                 ),
-                CusDrawerIcon(onPressed: () => ScaffoldKey.SK.currentState!.openDrawer(),),
+                CusDrawerIcon(
+                  onPressed: () => scaffoldKey.currentState!.openDrawer(),
+                ),
                 CusBackButton(),
               ],
             )),

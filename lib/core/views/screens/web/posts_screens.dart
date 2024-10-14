@@ -20,6 +20,7 @@ class PostsScreens extends StatelessWidget {
 
   late Post post;
 
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     // إزالة استدعاء loadPosts من هنا
@@ -29,14 +30,15 @@ class PostsScreens extends StatelessWidget {
         child: Scaffold(
           bottomNavigationBar: CusBottomNaviBar(),
           drawer: AppDrawer(),
-          key: ScaffoldKey.SK,
+          key: scaffoldKey,
           body: FutureBuilder(
-            future: postsVm.loadPosts(category_id: category.id!), // تحميل البيانات هنا
+            future: postsVm.loadPosts(
+                category_id: category.id!), // تحميل البيانات هنا
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
               }
-              
+
               return Obx(() => postsVm.posts.isEmpty
                   ? Center(
                       child: CircularProgressIndicator(),
@@ -55,7 +57,11 @@ class PostsScreens extends StatelessWidget {
                                   Expanded(
                                     child: DropdownButton(
                                       isExpanded: true,
-                                      items: ['برامج الإغاثة الإنسانية', 'البرامج الصحية', 'البرامج التعليمية']
+                                      items: [
+                                        'برامج الإغاثة الإنسانية',
+                                        'البرامج الصحية',
+                                        'البرامج التعليمية'
+                                      ]
                                           .map((e) => DropdownMenuItem(
                                               value: e, child: Text(e)))
                                           .toList(),
@@ -77,7 +83,8 @@ class PostsScreens extends StatelessWidget {
                             Expanded(
                               child: isOn.value
                                   ? GridView.builder(
-                                      padding: EdgeInsets.symmetric(horizontal: 14),
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 14),
                                       itemCount: postsVm.posts.length,
                                       gridDelegate:
                                           SliverGridDelegateWithFixedCrossAxisCount(
@@ -105,7 +112,8 @@ class PostsScreens extends StatelessWidget {
                                           SizedBox(
                                         height: 10,
                                       ),
-                                      padding: EdgeInsets.symmetric(horizontal: 14),
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 14),
                                       itemCount: postsVm.posts.length,
                                       itemBuilder: (context, index) {
                                         post = postsVm.posts[index];
@@ -121,9 +129,11 @@ class PostsScreens extends StatelessWidget {
                             // CusButton(margin: EdgeInsets.only(bottom: 10), onTap: () {}),
                           ],
                         ),
-                        CusDrawerIcon(onPressed: () =>
-                                ScaffoldKey.SK.currentState!.openDrawer(),),
-                       CusBackButton(),
+                        CusDrawerIcon(
+                          onPressed: () =>
+                              scaffoldKey.currentState!.openDrawer(),
+                        ),
+                        CusBackButton(),
                       ],
                     ));
             },

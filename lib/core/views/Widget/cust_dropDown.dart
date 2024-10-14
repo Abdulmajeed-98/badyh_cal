@@ -6,7 +6,9 @@ class Cust_DropDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      validator: (value) {},
+      validator: (value) {
+        return null;
+      },
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         contentPadding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),

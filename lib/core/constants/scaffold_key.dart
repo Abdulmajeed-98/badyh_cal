@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-class ScaffoldKey {
-  static final SK = GlobalKey<ScaffoldState>();
-}
+// class ScaffoldKey {
+//   static final SK = GlobalKey<ScaffoldState>();
+// }

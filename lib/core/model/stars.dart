@@ -1,5 +1,3 @@
-import 'package:badiyh_calendar/db/edit_calender_db.dart';
-import 'package:flutter/material.dart';
 
 class Stars {
   int? starID;

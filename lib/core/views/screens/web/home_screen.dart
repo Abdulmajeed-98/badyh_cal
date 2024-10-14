@@ -17,13 +17,15 @@ import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   final HomeVm homeVm = Get.put(HomeVm(httpHelper: DioHelper.instance));
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
-          key: ScaffoldKey.SK,
+          key: scaffoldKey,
           bottomNavigationBar: CusBottomNaviBar(
               imgHome: Image.asset(
             'assets/images/homebottomOn.png',
@@ -137,7 +139,7 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                   CusButton(
                                       onTap: () => Get.toNamed('/posts',
-                                          arguments: item as Category))
+                                          arguments: item))
                                 ],
                               );
                             } else if (item is List<Post> && index < 2) {
@@ -156,7 +158,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               CusDrawerIcon(
-                onPressed: () => ScaffoldKey.SK.currentState!.openDrawer(),
+                onPressed: () => scaffoldKey.currentState!.openDrawer(),
               )
             ],
           ),

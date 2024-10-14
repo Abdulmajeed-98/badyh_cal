@@ -23,7 +23,10 @@ class Cust_FormField extends StatelessWidget {
         ),
         TextFormField(
           onChanged: onChanged,
-          validator: validat ?? (value) {},
+          validator: validat ??
+              (value) {
+                return null;
+              },
           maxLines: max,
           minLines: min,
           decoration: InputDecoration(

@@ -14,6 +14,8 @@ class BeeCalendarScreen extends StatelessWidget {
   BeeCalendarScreen({super.key});
   BeeCalendarVM bvm = BeeCalendarVM();
   late List<BeeCalendar> allBee;
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     allBee = bvm.loadAllBeePhases();
@@ -22,7 +24,7 @@ class BeeCalendarScreen extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
             drawer: AppDrawer(),
-            key: ScaffoldKey.SK,
+            key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(
                 imgBee: Image.asset("assets/images/beeBottomOn.png")),
             body: Container(
@@ -64,7 +66,7 @@ class BeeCalendarScreen extends StatelessWidget {
                   Cust_AppbarCalendar(
                     txt: "مراحل تربية النحل وجني العسل",
                     onPressed: () => Get.offNamed("/calendar"),
-                    scafKey: () => ScaffoldKey.SK.currentState!.openDrawer(),
+                    scafKey: () => scaffoldKey.currentState!.openDrawer(),
                   ),
                   // Cust_DropdownSearch(),
                   Expanded(

@@ -5,9 +5,7 @@ import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
 import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_appBar.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_dropDownSearch.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
@@ -22,6 +20,7 @@ class StarsScreen extends StatelessWidget {
   CalendarDateVM selectedDate = CalendarDateVM();
   List<Stars> allStar = [];
   List<Seasons> allseason = [];
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     allStar = starVM.loadAllStars();
@@ -32,7 +31,7 @@ class StarsScreen extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
             drawer: AppDrawer(),
-            key: ScaffoldKey.SK,
+            key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(),
             body: Container(
               height: MediaQuery.of(context).size.height,
@@ -41,40 +40,41 @@ class StarsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Container(
-                  //   alignment: Alignment.center,
-                  //   padding:
-                  //       const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-                  //   margin: const EdgeInsets.only(bottom: 1),
-                  //   child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //       children: [
-                  //         IconButton(
-                  //           icon: const Icon(
-                  //             Icons.menu,
-                  //             size: 30,
-                  //             color: Colors.black,
-                  //           ),
-                  //           onPressed: () =>
-                  //               scaffoldKey.currentState!.openDrawer(),
-                  //         ),
-                  //         const Text("النجوم",
-                  //             style: TextStyle(
-                  //                 fontSize: 16, fontWeight: FontWeight.w600)),
-                  //         IconButton(
-                  //             icon: const Icon(
-                  //               Icons.arrow_forward_ios,
-                  //               size: 20,
-                  //               color: Colors.black,
-                  //             ),
-                  //             onPressed: () {}),
-                  //       ]),
-                  // ),
+                  Container(
+                    alignment: Alignment.center,
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+                    margin: const EdgeInsets.only(bottom: 1),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            icon: const Icon(
+                              Icons.menu,
+                              size: 30,
+                              color: Colors.black,
+                            ),
+                            onPressed: () =>
+                                scaffoldKey.currentState!.openDrawer(),
+                          ),
+                          const Text("النجوم",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
+                          IconButton(
+                            icon: const Icon(
+                              Icons.arrow_forward_ios,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                            onPressed: () => Get.offNamed("/calendar"),
+                          ),
+                        ]),
+                  ),
 
-                  Cust_AppbarCalendar(
-                      scafKey: () => ScaffoldKey.SK.currentState!.openDrawer(),
-                      txt: "النجوم",
-                      onPressed: () => Get.offNamed("/calendar")),
+                  // Cust_AppbarCalendar(
+                  //     scafKey: () => ScaffoldKey.SK.currentState!.openDrawer(),
+                  //     txt: "النجوم",
+                  //     onPressed: () => Get.offNamed("/calendar")),
                   //   Cust_DropdownSearch(),
                   Expanded(
                       child: GridView.builder(
@@ -105,8 +105,8 @@ class StarsScreen extends StatelessWidget {
                             Text(
                               "فصل ${allseason[allStar[index].seasonID! - 1].seasonName}",
                               style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
                                   color: Color.fromRGBO(147, 147, 147, 1)),
                             ),
                             Row(
@@ -114,13 +114,13 @@ class StarsScreen extends StatelessWidget {
                               children: [
                                 Text("${allStar[index].startDate!}",
                                     style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w500,
                                     )),
                                 Text("  ${Jiffy.now().year.toString()}",
                                     style: TextStyle(
                                       fontSize: 11,
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w500,
                                     )),
                               ],
                             ),

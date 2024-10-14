@@ -35,6 +35,8 @@ class CalendarScreen extends StatelessWidget {
   List<Months> allmonths = [];
   late List<BeeCalendar> allBee;
   late bool isToday;
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     allBee = bvm.loadAllBeePhases();
@@ -53,7 +55,7 @@ class CalendarScreen extends StatelessWidget {
             child: Scaffold(
                 backgroundColor: Color.fromRGBO(255, 255, 255, 1),
                 drawer: AppDrawer(),
-                key: ScaffoldKey.SK,
+                key: scaffoldKey,
                 bottomNavigationBar: CusBottomNaviBar(
                   imgCal: Image.asset("assets/images/calendarBottomOn.png"),
                 ),
@@ -99,7 +101,7 @@ class CalendarScreen extends StatelessWidget {
 
                         Cust_AppbarCalendar(
                             scafKey: () =>
-                                ScaffoldKey.SK.currentState!.openDrawer(),
+                                scaffoldKey.currentState!.openDrawer(),
                             txt: "التقويم",
                             onPressed: () => Get.offAllNamed('/home')),
                         //This Need Provider
@@ -291,11 +293,12 @@ class CalendarScreen extends StatelessWidget {
                               InkWell(
                                   onTap: () => Get.toNamed("/bee"),
                                   child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
                                     child: Text("مشاهدة باقي المراحل..",
                                         style: TextStyle(
                                             // color: Colors.blue,
-                                            fontSize: 11,
+                                            fontSize: 12,
                                             fontWeight: FontWeight.w400)),
                                   ))
                             ],

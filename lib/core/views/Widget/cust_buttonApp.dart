@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Cust_ButtonApp extends StatelessWidget {
   Cust_ButtonApp(

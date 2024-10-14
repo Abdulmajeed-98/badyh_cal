@@ -16,6 +16,8 @@ import 'package:get/get.dart';
 
 class ContactScreen extends StatelessWidget {
   // GlobalKey<FormState> keyForm = GlobalKey();
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   String? msg;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class ContactScreen extends StatelessWidget {
         child: SafeArea(
           child: Scaffold(
             bottomNavigationBar: CusBottomNaviBar(),
-            key: ScaffoldKey.SK,
+            key: scaffoldKey,
             drawer: AppDrawer(),
             body: Stack(
               children: [
@@ -71,7 +73,7 @@ class ContactScreen extends StatelessWidget {
                                 SizedBox(height: 16),
 
                                 Cust_FormField(
-                                    onChanged: (p0) => msg =p0,
+                                    onChanged: (p0) => msg = p0,
                                     txt: "الرسالة",
                                     txtF: "أدخل رسالتك",
                                     max: 10,
@@ -79,35 +81,41 @@ class ContactScreen extends StatelessWidget {
                                 Center(
                                   child: Cust_ButtonApp(
                                     onTap: () {
-                                      msg != null?
-                                      Fluttertoast.showToast(
-                                          msg:
-                                              "تم الارسال بنجاح", // الرسالة التي تريد عرضها
-                                          toastLength: Toast
-                                              .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
-                                          gravity: ToastGravity
-                                              .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
-                                          timeInSecForIosWeb:
-                                              1, // مدة عرض الرسالة لأجهزة iOS والويب
-                                          backgroundColor:
-                                              Colors.black, // لون خلفية الرسالة
-                                          textColor: Colors.white, // لون النص
-                                          fontSize: 16.0 // حجم النص
-                                          ):Fluttertoast.showToast(
-                                          msg:
-                                              "عفوا قم بتعبئة كل الحقول", // الرسالة التي تريد عرضها
-                                          toastLength: Toast
-                                              .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
-                                          gravity: ToastGravity
-                                              .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
-                                          timeInSecForIosWeb:
-                                              1, // مدة عرض الرسالة لأجهزة iOS والويب
-                                          backgroundColor:
-                                              Colors.black, // لون خلفية الرسالة
-                                          textColor: Colors.white, // لون النص
-                                          fontSize: 16.0 // حجم النص
-                                  );
-                                  msg != null? Get.offNamed('/home'):print(msg);},
+                                      msg != null
+                                          ? Fluttertoast.showToast(
+                                              msg:
+                                                  "تم الارسال بنجاح", // الرسالة التي تريد عرضها
+                                              toastLength: Toast
+                                                  .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
+                                              gravity: ToastGravity
+                                                  .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
+                                              timeInSecForIosWeb:
+                                                  1, // مدة عرض الرسالة لأجهزة iOS والويب
+                                              backgroundColor: Colors
+                                                  .black, // لون خلفية الرسالة
+                                              textColor:
+                                                  Colors.white, // لون النص
+                                              fontSize: 16.0 // حجم النص
+                                              )
+                                          : Fluttertoast.showToast(
+                                              msg:
+                                                  "عفوا قم بتعبئة كل الحقول", // الرسالة التي تريد عرضها
+                                              toastLength: Toast
+                                                  .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
+                                              gravity: ToastGravity
+                                                  .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
+                                              timeInSecForIosWeb:
+                                                  1, // مدة عرض الرسالة لأجهزة iOS والويب
+                                              backgroundColor: Colors
+                                                  .black, // لون خلفية الرسالة
+                                              textColor:
+                                                  Colors.white, // لون النص
+                                              fontSize: 16.0 // حجم النص
+                                              );
+                                      msg != null
+                                          ? Get.offNamed('/home')
+                                          : print(msg);
+                                    },
                                     width: 100,
                                   ),
                                 ),
@@ -182,7 +190,7 @@ class ContactScreen extends StatelessWidget {
                   ),
                 ),
                 CusDrawerIcon(
-                    onPressed: () => ScaffoldKey.SK.currentState!.openDrawer),
+                    onPressed: () => scaffoldKey.currentState!.openDrawer()),
                 CusBackButton(),
               ],
             ),

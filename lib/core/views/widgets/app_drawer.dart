@@ -2,6 +2,7 @@ import 'package:badiyh_calendar/core/constants/http_urls.dart';
 import 'package:badiyh_calendar/core/models/navigation.dart';
 import 'package:badiyh_calendar/helpers/drawer_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart'; // استيراد GetX
 
 class AppDrawer extends StatelessWidget {
   AppDrawer({super.key});
@@ -14,28 +15,33 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: [
           Container(
-              margin: EdgeInsets.only(top: 25, right: 25),
-              child: Row(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 15),
-                    height: 48,
-                    width: 48,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/badyh_logo1.png'))),
+            margin: EdgeInsets.only(top: 25, right: 25),
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 15),
+                  height: 48,
+                  width: 48,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/badyh_logo1.png'),
+                    ),
                   ),
-                  Text('مؤسسة البادية للتنمية\nوالأعمال الإنسانية',style: TextStyle(fontWeight: FontWeight.bold)),
-                ],
-              ),
+                ),
+                Text(
+                  'مؤسسة البادية للتنمية\nوالأعمال الإنسانية',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
-          Expanded(child: ListView(children: buildDrawerList(context))),
+          ),
+          Expanded(child: ListView(children: buildDrawerList())),
         ],
       ),
     );
   }
 
-  List<Widget> buildDrawerList(BuildContext context) {
+  List<Widget> buildDrawerList() {
     List<Widget> items = [];
     drawerHelper.drawerItems.forEach((item) {
       if (item is Navigation) {
@@ -45,7 +51,7 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               print(item.route);
               print(HttpUrls.ABOUT_US);
-              Navigator.pushNamed(context, item.route);
+              Get.toNamed(item.route); // التحويل إلى Get.toNamed
             },
           ),
         );
@@ -56,7 +62,7 @@ class AppDrawer extends StatelessWidget {
               ListTile(
                 title: Text(cat.name!),
                 onTap: () {
-                  Navigator.pushNamed(context, "/posts",arguments: cat);
+                  Get.toNamed("/posts", arguments: cat); // التحويل إلى Get.toNamed
                 },
               ),
             );
@@ -67,7 +73,7 @@ class AppDrawer extends StatelessWidget {
                 return ListTile(
                   title: Text(subChild.name!),
                   onTap: () {
-                    Navigator.pushNamed(context, "/posts",arguments: subChild);
+                    Get.toNamed("/posts", arguments: subChild); // التحويل إلى Get.toNamed
                   },
                 );
               }).toList(),

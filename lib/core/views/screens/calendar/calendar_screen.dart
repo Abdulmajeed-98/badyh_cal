@@ -8,7 +8,6 @@ import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxCalendarMain.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imageBee.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imageHony.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
@@ -17,16 +16,16 @@ import 'package:badiyh_calendar/core/views/Widget/cust_imgSeasons.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' as intlDate;
-import 'package:jiffy/jiffy.dart';
+import 'package:get/get.dart';
+// import 'package:intl/intl.dart' as intlDate;
+// import 'package:jiffy/jiffy.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:provider/provider.dart';
-import '../../model/stars.dart';
+import '../../../model/stars.dart';
 
 class CalendarScreen extends StatelessWidget {
   CalendarScreen({super.key});
 
-  var scaffoldKey = GlobalKey<ScaffoldState>();
   StarVM staVM = StarVM();
   MonthVM mvm = MonthVM();
   BeeCalendarVM bvm = BeeCalendarVM();
@@ -52,8 +51,9 @@ class CalendarScreen extends StatelessWidget {
           textDirection: TextDirection.rtl,
           child: SafeArea(
             child: Scaffold(
+                backgroundColor: Color.fromRGBO(255, 255, 255, 1),
                 drawer: AppDrawer(),
-                key: scaffoldKey,
+                key: ScaffoldKey.SK,
                 bottomNavigationBar: CusBottomNaviBar(
                   imgCal: Image.asset("assets/images/calendarBottomOn.png"),
                 ),
@@ -99,8 +99,9 @@ class CalendarScreen extends StatelessWidget {
 
                         Cust_AppbarCalendar(
                             scafKey: () =>
-                                scaffoldKey.currentState!.openDrawer(),
-                            txt: "التقويم"),
+                                ScaffoldKey.SK.currentState!.openDrawer(),
+                            txt: "التقويم",
+                            onPressed: () => Get.offAllNamed('/home')),
                         //This Need Provider
                         Consumer<CalendarDateVM>(builder: (ctx, cT, child) {
                           return Cust_BoxShadow(
@@ -118,15 +119,19 @@ class CalendarScreen extends StatelessWidget {
                                           print(
                                               "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
                                         },
-                                        child: Icon(Icons.arrow_back_ios)),
+                                        child: Icon(
+                                          Icons.arrow_back_ios,
+
+                                          // color: Colors.red,
+                                        )),
                                   ),
-                                  InkWell(
-                                      onTap: () {
-                                        cT.preeeeeee();
-                                        print(
-                                            "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
-                                      },
-                                      child: Icon(Icons.arrow_back_ios)),
+                                  // InkWell(
+                                  //     onTap: () {
+                                  //       cT.preeeeeee();
+                                  //       print(
+                                  //           "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                  //     },
+                                  //     child: Icon(Icons.arrow_back_ios)),
                                   Container(
                                     // color: Colors.yellow,
                                     //التقويم
@@ -236,20 +241,20 @@ class CalendarScreen extends StatelessWidget {
                                     },
                                     child: const Icon(
                                       Icons.arrow_forward_ios,
-                                      color: Colors.red,
+                                      // color: Colors.red,
                                     ),
                                   ),
-                                  InkWell(
-                                    onTap: () {
-                                      cT.nextDDDDay();
-                                      print(
-                                          "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
-                                    },
-                                    child: const Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: Colors.red,
-                                    ),
-                                  )
+                                  // InkWell(
+                                  //   onTap: () {
+                                  //     cT.nextDDDDay();
+                                  //     print(
+                                  //         "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                  //   },
+                                  //   child: const Icon(
+                                  //     Icons.arrow_forward_ios,
+                                  //     color: Colors.red,
+                                  //   ),
+                                  // )
                                 ]),
                           );
                         }),
@@ -284,13 +289,15 @@ class CalendarScreen extends StatelessWidget {
                                         fontWeight: FontWeight.w500));
                               }),
                               InkWell(
-                                  onTap: () =>
-                                      Navigator.pushNamed(context, "/bee"),
-                                  child: Text("مشاهدة باقي المراحل..",
-                                      style: TextStyle(
-                                          // color: Colors.blue,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w400)))
+                                  onTap: () => Get.toNamed("/bee"),
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                    child: Text("مشاهدة باقي المراحل..",
+                                        style: TextStyle(
+                                            // color: Colors.blue,
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.w400)),
+                                  ))
                             ],
                           ),
                         ),
@@ -305,6 +312,7 @@ class CalendarScreen extends StatelessWidget {
                         Consumer<CalendarDateVM>(builder: (ctx, cT, child) {
                           monthnum = cT.selectedDate.month;
                           return Container(
+                            height: 135,
                             margin: const EdgeInsets.only(bottom: 10),
                             padding: const EdgeInsets.symmetric(
                                 vertical: 16, horizontal: 32),
@@ -312,6 +320,7 @@ class CalendarScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 Text("${allmonths[monthnum - 1].crops}",
+                                    maxLines: 6,
                                     style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w400)),
@@ -319,54 +328,37 @@ class CalendarScreen extends StatelessWidget {
                             ),
                           );
                         }),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () =>
-                                  Navigator.pushNamed(context, "/star"),
-                              child: Cust_BoxShadow(
-                                height: 100,
-                                alignmen: Alignment.center,
-                                width: 150,
-                                child: const Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Cust_ImageStar(),
-                                      Text(
-                                        "النجوم",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                            color:
-                                                Color.fromRGBO(8, 164, 34, 1)),
-                                      ),
-                                    ]),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              InkWell(
+                                onTap: () => Get.toNamed("/star"),
+                                child: Cust_BoxShadow(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.12, //100,
+                                  alignmen: Alignment.center,
+                                  width: MediaQuery.of(context).size.width *
+                                      0.33, //150,
+                                  child: const Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Cust_ImageStar(),
+                                        Text(
+                                          "النجوم",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                              color: Color.fromRGBO(
+                                                  8, 164, 34, 1)),
+                                        ),
+                                      ]),
+                                ),
                               ),
-                            ),
-                            // Expanded(
-                            //   child:
-                            //   Cust_BoxShadow(
-                            //     height: 100,
-                            //     // width: 150,
-                            //     alignmen: Alignment.center,
-                            //     child: const Column(
-                            //         mainAxisAlignment:
-                            //             MainAxisAlignment.spaceAround,
-                            //         children: [
-                            //           Icon(Icons.apple),
-                            //           Text(
-                            //             "المحاصيل",
-                            //             style: TextStyle(
-                            //                 fontSize: 16,
-                            //                 fontWeight: FontWeight.w500,
-                            //                 color: Color.fromRGBO(8, 164, 34, 1)),
-                            //           ),
-                            //         ]),
-                            //   ),
-                            // )
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),

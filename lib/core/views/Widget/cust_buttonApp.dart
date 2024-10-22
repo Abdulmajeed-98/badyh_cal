@@ -12,7 +12,8 @@ class Cust_ButtonApp extends StatelessWidget {
       this.end,
       this.colors,
       this.borderRadius,
-      this.txt});
+      this.txt,
+      this.chd});
   EdgeInsetsGeometry? padding;
   double? height, width;
   String? txt;
@@ -20,6 +21,7 @@ class Cust_ButtonApp extends StatelessWidget {
   List<Color>? colors;
   BorderRadiusGeometry? borderRadius;
   void Function()? onTap;
+  Widget? chd, chd2;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -40,7 +42,7 @@ class Cust_ButtonApp extends StatelessWidget {
                     const Color.fromRGBO(34, 34, 39, 1)
                   ],
             ),
-            borderRadius: borderRadius ?? BorderRadius.circular(2.5),
+            borderRadius: borderRadius ?? BorderRadius.circular(5),
             boxShadow: const [
               BoxShadow(
                   color: Color.fromRGBO(0, 0, 0, 0.15),
@@ -48,7 +50,15 @@ class Cust_ButtonApp extends StatelessWidget {
                   blurRadius: 5)
             ],
           ),
-          child: Text(txt ?? "إرسال", style: TextStyle(color: Colors.white))),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              chd ?? Container(),
+              Text(txt ?? "إرسال", style: TextStyle(color: Colors.white)),
+              chd2 ?? Container(),
+            ],
+          )),
     );
   }
 }

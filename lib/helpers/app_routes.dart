@@ -1,4 +1,5 @@
 import 'package:badiyh_calendar/core/models/category.dart';
+import 'package:badiyh_calendar/core/views/screens/calendar/tableCalendar_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/web/about_us_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/bee_calendar_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/calendar_screen.dart';
@@ -9,6 +10,7 @@ import 'package:badiyh_calendar/core/views/screens/web/home_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/web/posts_screens.dart';
 import 'package:badiyh_calendar/core/views/screens/splash_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/stars_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/web/web_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
@@ -32,9 +34,14 @@ class AppRoutes {
         return MaterialPageRoute(builder: (ctx) => ContactScreen());
       case '/splash':
         return MaterialPageRoute(builder: (ctx) => SplashScreen());
-      // case '/web':
-      // String path = settings.arguments as String;
-      //   return MaterialPageRoute(builder: (ctx) => WebScreen(path: path,));
+      case "/table":
+        return MaterialPageRoute(builder: (ctx) => TableCalendarScreen());
+      case '/web':
+        String path = settings.arguments as String;
+        return MaterialPageRoute(
+            builder: (ctx) => WebScreen(
+                  path: path,
+                ));
       case '/posts':
         {
           Category category = settings.arguments as Category;

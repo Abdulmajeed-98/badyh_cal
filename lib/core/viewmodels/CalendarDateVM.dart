@@ -12,13 +12,13 @@ class CalendarDateVM with ChangeNotifier {
   DateTime get selectedDate => _selectedDate;
   HijriCalendar get hijriDate => HijriCalendar.fromDate(_selectedDate);
 
-  void previousDay() {
-    _selectedDate = _selectedDate.subtract(const Duration(days: 1));
+  void onDaySelected(DateTime day, DateTime focusDay) {
+    _selectedDate = day;
     notifyListeners();
   }
 
-  void preeeeeee() {
-    _selectedDate = _selectedDate.subtract(const Duration(days: 29));
+  void previousDay() {
+    _selectedDate = _selectedDate.subtract(const Duration(days: 1));
     notifyListeners();
   }
 
@@ -29,6 +29,11 @@ class CalendarDateVM with ChangeNotifier {
 
   void nextDDDDay() {
     _selectedDate = _selectedDate.add(const Duration(days: 29));
+    notifyListeners();
+  }
+
+  void preeeeeee() {
+    _selectedDate = _selectedDate.subtract(const Duration(days: 29));
     notifyListeners();
   }
 

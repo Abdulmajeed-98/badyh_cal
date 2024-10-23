@@ -1,10 +1,9 @@
-import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_boxContact.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_dropDown.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_formField.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imgCallGreen.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imgLocaGreen.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
@@ -16,6 +15,7 @@ import 'package:get/get.dart';
 
 class ContactScreen extends StatelessWidget {
   // GlobalKey<FormState> keyForm = GlobalKey();
+  const_urls_img url = const_urls_img();
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   String? msg;
@@ -123,7 +123,11 @@ class ContactScreen extends StatelessWidget {
                                 cust_boxContact(
                                   child: Row(
                                     children: [
-                                      Cust_ImglocaGreen(),
+                                      Cust_ImgBox(
+                                        url: url.locaGreen,
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10, vertical: 9),
+                                      ),
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -146,7 +150,10 @@ class ContactScreen extends StatelessWidget {
                                 cust_boxContact(
                                   child: Row(
                                     children: [
-                                      Cust_ImgcallGreen(),
+                                      Cust_ImgBox(
+                                          url: url.callGreen,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 10, vertical: 9)),
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,

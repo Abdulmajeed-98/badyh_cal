@@ -17,6 +17,33 @@ class CalendarDateVM with ChangeNotifier {
     notifyListeners();
   }
 
+  void toDay() {
+    _selectedDate = DateTime.now();
+    notifyListeners();
+  }
+
+  bool isToday() {
+    bool isToday = false;
+    DateTime today = DateTime.now();
+    DateTime dayBefore = today.subtract(Duration(days: 1));
+    DateTime select;
+    select = selectedDate;
+    isToday = select.isBefore(dayBefore) || select.isAfter(today);
+    // notifyListeners(); //some error
+    print("${isToday}");
+    return isToday;
+  }
+  // bool isToday() {
+  //   bool isToday = false;
+  //   Jiffy today = Jiffy.now();
+  //   Jiffy select;
+  //   select = Jiffy.parseFromDateTime(selectedDate);
+  //   isToday = select.isBefore(today);
+  //   print("${isToday}");
+  //   notifyListeners();
+  //   return isToday;
+  // }
+
   void previousDay() {
     _selectedDate = _selectedDate.subtract(const Duration(days: 1));
     notifyListeners();

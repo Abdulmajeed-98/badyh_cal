@@ -1,10 +1,10 @@
-import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
+import 'package:badiyh_calendar/core/constants/const_txt.dart';
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/model/bee_calendar.dart';
 import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imageHony.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +13,8 @@ import 'package:get/get.dart';
 class BeeCalendarScreen extends StatelessWidget {
   BeeCalendarScreen({super.key});
   BeeCalendarVM bvm = BeeCalendarVM();
+  Const_Txt txt = Const_Txt();
+  const_urls_img url = const_urls_img();
   late List<BeeCalendar> allBee;
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -25,8 +27,8 @@ class BeeCalendarScreen extends StatelessWidget {
         child: Scaffold(
             drawer: AppDrawer(),
             key: scaffoldKey,
-            bottomNavigationBar: CusBottomNaviBar(
-                imgBee: Image.asset("assets/images/beeBottomOn.png")),
+            bottomNavigationBar:
+                CusBottomNaviBar(imgBee: Image.asset(url.beeOn)),
             body: Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
@@ -64,7 +66,7 @@ class BeeCalendarScreen extends StatelessWidget {
                   //       ]),
                   // ),
                   Cust_AppbarCalendar(
-                    txt: "مراحل تربية النحل وجني العسل",
+                    txt: txt.beesPhase,
                     onPressed: () => Get.offNamed("/calendar"),
                     scafKey: () => scaffoldKey.currentState!.openDrawer(),
                   ),
@@ -90,7 +92,7 @@ class BeeCalendarScreen extends StatelessWidget {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Cust_ImageHony(),
+                                Cust_ImgBox(url: url.hony),
                                 Container(
                                   width:
                                       MediaQuery.of(context).size.width * 0.24,
@@ -112,7 +114,7 @@ class BeeCalendarScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(children: [
-                                  Cust_ImageStar(),
+                                  Cust_ImgBox(url: url.star),
                                   Text(
                                     allBee[index]
                                         .stars!

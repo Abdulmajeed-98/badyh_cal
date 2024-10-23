@@ -1,3 +1,5 @@
+import 'package:badiyh_calendar/core/constants/const_txt.dart';
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/model/events_badyh.dart';
 import 'package:badiyh_calendar/core/viewmodels/events_badyh_VM.dart';
@@ -11,6 +13,8 @@ import 'package:flutter/material.dart';
 class EventsBadyhScreen extends StatelessWidget {
   EventsBadyhScreen({super.key});
   EventsBadyh_VM evm = EventsBadyh_VM();
+  Const_Txt txt = Const_Txt();
+  const_urls_img url = const_urls_img();
   List<EventsBadyh> listevent = [];
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -25,7 +29,7 @@ class EventsBadyhScreen extends StatelessWidget {
             drawer: AppDrawer(),
             key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(
-              imgNews: Image.asset("assets/images/newsBottomOn.png"),
+              imgNews: Image.asset(url.newsOn),
             ),
             body: Container(
               color: Colors.white,
@@ -33,7 +37,7 @@ class EventsBadyhScreen extends StatelessWidget {
                 children: [
                   Stack(children: [
                     CusGrundImg(
-                      txt: "مناسبات البادية",
+                      txt: txt.events,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,

@@ -1,12 +1,11 @@
+import 'package:badiyh_calendar/core/constants/const_txt.dart';
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
-import 'package:badiyh_calendar/core/views/screens/calendar/calendar_screen.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
-import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:jiffy/jiffy.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -15,6 +14,8 @@ class TableCalendarScreen extends StatelessWidget {
 
   CalendarDateVM sel = CalendarDateVM();
   DateTime today = DateTime.now();
+  Const_Txt txt = Const_Txt();
+  const_urls_img url = const_urls_img();
   // void onDaySelected(DateTime day, DateTime focusDay) {
   //   today = day;
   // }
@@ -24,7 +25,7 @@ class TableCalendarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Jiffy.setLocale("ar");
     return Directionality(
-        textDirection: TextDirection.rtl,
+        textDirection: TextDirection.ltr,
         child: SafeArea(
             child: Scaffold(
                 backgroundColor: Color.fromRGBO(255, 255, 255, 1),
@@ -39,13 +40,40 @@ class TableCalendarScreen extends StatelessWidget {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Cust_AppbarCalendar(
-                                  scafKey: () =>
-                                      scaffoldKey.currentState!.openDrawer(),
-                                  txt: "التقويم",
-                                  onPressed: () => Navigator.pop(context)
-                                  // Get.offAllNamed('/calendar')
-                                  ),
+                              Container(
+                                alignment: Alignment.center,
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 5, horizontal: 0),
+                                margin: const EdgeInsets.only(bottom: 1),
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      IconButton(
+                                          icon: SizedBox(
+                                              height: 18,
+                                              child: Cust_ImgBox(
+                                                url: url.back,
+                                                color: Color.fromRGBO(
+                                                    68, 68, 68, 1),
+                                              )),
+                                          onPressed: () =>
+                                              Navigator.pop(context)),
+                                      Text(txt.cal,
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600)),
+                                      IconButton(
+                                        icon: Cust_ImgBox(
+                                            url: url.drawer,
+                                            color:
+                                                Color.fromRGBO(34, 34, 39, 1)),
+                                        onPressed: () => scaffoldKey
+                                            .currentState!
+                                            .openDrawer(),
+                                      ),
+                                    ]),
+                              ),
                               ////////////////////
                               Consumer<CalendarDateVM>(
                                   builder: (ctx, ta, child) {
@@ -55,9 +83,18 @@ class TableCalendarScreen extends StatelessWidget {
                                         child: Cust_BoxShadow(
                                       height:
                                           MediaQuery.of(context).size.height *
-                                              0.43,
+                                              0.49,
                                       child: TableCalendar(
+                                          // daysOfWeekStyle: DaysOfWeekStyle(
+                                          //   weekendStyle:
+                                          //       TextStyle(color: Colors.red),
+                                          // ),
                                           calendarBuilders: CalendarBuilders(
+                                              // headerTitleBuilder:
+                                              //     (context, day) => Center(
+                                              //           child: Text(
+                                              //               "${ta.selectedDate.year} ${ta.monthNameAR}"),
+                                              //         ),
                                               todayBuilder: (context, day, focusedDay) =>
                                                   Center(
                                                       child: CircleAvatar(
@@ -109,21 +146,20 @@ class TableCalendarScreen extends StatelessWidget {
                                               formatButtonVisible: false,
                                               titleCentered: true),
                                           focusedDay: ta.selectedDate,
-                                          firstDay: DateTime.utc(2020, 1, 1),
+                                          startingDayOfWeek: StartingDayOfWeek.saturday,
+                                          firstDay: DateTime.utc(2000, 1, 1),
                                           lastDay: DateTime.utc(2030, 1, 1)),
                                     )),
-                                    //   Text("date: " + ta.selectedDate.toString()),
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          // ta.onDaySelected(ta.selectedDate, ta.selectedDate);
+                                    SizedBox(height: 10),
+                                    Cust_ButtonApp(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.3,
+                                        onTap: () {
                                           Navigator.pop(context);
-
-                                          //   ta.preeeeeee;
-                                          print(ta.selectedDate
-                                              .toString()
-                                              .split(" ")[0]);
+                                          ta.toDay();
                                         },
-                                        child: Text("موافق"))
+                                        txt: txt.toDay)
                                   ],
                                 );
                               }),

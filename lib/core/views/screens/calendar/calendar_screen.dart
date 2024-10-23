@@ -1,4 +1,5 @@
-import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
+import 'package:badiyh_calendar/core/constants/const_txt.dart';
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/model/bee_calendar.dart';
 import 'package:badiyh_calendar/core/model/months.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
@@ -8,12 +9,8 @@ import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imageBee.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imageHony.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imgCrops.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imgSeasons.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
@@ -32,12 +29,17 @@ class CalendarScreen extends StatelessWidget {
   MonthVM mvm = MonthVM();
   BeeCalendarVM bvm = BeeCalendarVM();
   SeasonVM sVM = SeasonVM();
+  Const_Txt txt = Const_Txt();
+  const_urls_img url = const_urls_img();
   int monthnum = 0;
   List<Stars> lisStar = [];
   List<Months> allmonths = [];
   late List<BeeCalendar> allBee;
   late bool isToday;
 
+  CalendarDateVM sel = CalendarDateVM();
+  // DateTime today = DateTime.now();
+  // DateTime? select;
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -45,8 +47,6 @@ class CalendarScreen extends StatelessWidget {
     allmonths = mvm.loadAllMonths();
     lisStar = staVM.loadAllStars();
 
-    isToday =
-        DateUtils.isSameDay(CalendarDateVM().selectedDate, DateTime.now());
     // Jiffy.setLocale("ar");
     HijriCalendar.setLocal("ar");
     return Directionality(
@@ -57,7 +57,7 @@ class CalendarScreen extends StatelessWidget {
             drawer: AppDrawer(),
             key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(
-              imgCal: Image.asset("assets/images/calendarBottomOn.png"),
+              imgCal: Image.asset(url.calOn),
             ),
             body: SingleChildScrollView(
               child: Container(
@@ -98,13 +98,15 @@ class CalendarScreen extends StatelessWidget {
                     //             onPressed: () {}),
                     //       ]),
                     // ),
-
                     Cust_AppbarCalendar(
                         scafKey: () => scaffoldKey.currentState!.openDrawer(),
-                        txt: "التقويم",
+                        txt: txt.cal,
                         onPressed: () => Get.offAllNamed('/home')),
                     //This Need Provider
                     Consumer<CalendarDateVM>(builder: (ctx, cT, child) {
+                      // select = cT.selectedDate;
+                      // isToday =
+                      //     select!.isAfter(today) || select!.isBefore(today);
                       return Cust_BoxShadow(
                         padding: EdgeInsets.only(
                             top: 5, bottom: 5, left: 3, right: 5),
@@ -116,25 +118,15 @@ class CalendarScreen extends StatelessWidget {
                                 child: InkWell(
                                     onTap: () {
                                       cT.previousDay();
-                                      print(
-                                          "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                      // print(
+                                      //     "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
                                     },
                                     child: Icon(
                                       Icons.arrow_back_ios,
-
                                       // color: Colors.red,
                                     )),
                               ),
-                              // InkWell(
-                              //     onTap: () {
-                              //       cT.preeeeeee();
-                              //       print(
-                              //           "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
-                              //     },
-                              //     child: Icon(Icons.arrow_back_ios)),
                               Container(
-                                // color: Colors.yellow,
-                                //التقويم
                                 width: 150,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -143,9 +135,9 @@ class CalendarScreen extends StatelessWidget {
                                     Text("${cT.selectedDate.day}",
                                         style: TextStyle(
                                             fontSize: 80,
-                                            color: isToday
-                                                ? Color.fromRGBO(8, 164, 34, 1)
-                                                : Colors.grey,
+                                            color: cT.isToday()
+                                                ? Colors.grey
+                                                : Color.fromRGBO(8, 164, 34, 1),
                                             fontWeight: FontWeight.w700)),
                                     Text("${cT.monthNameAR}",
                                         style: const TextStyle(
@@ -192,9 +184,10 @@ class CalendarScreen extends StatelessWidget {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          Cust_ImgSeasons(),
+                                          Cust_ImgBox(url: url.autumn),
                                           SizedBox(height: 10),
-                                          Text("فصل ${sVM.getSeason(cT)}",
+                                          Text(
+                                              "${txt.season} ${sVM.getSeason(cT)}",
                                               style: const TextStyle(
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w500)),
@@ -209,7 +202,7 @@ class CalendarScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Cust_ImageStar(),
+                                        Cust_ImgBox(url: url.star),
                                         Text(
                                             "${lisStar[staVM.getStar(cT.selectedDate)].starName}",
                                             //${staVM.getHoliday(cT)}
@@ -233,21 +226,9 @@ class CalendarScreen extends StatelessWidget {
                                   // color: Colors.red,
                                 ),
                               ),
-                              // InkWell(
-                              //   onTap: () {
-                              //     cT.nextDDDDay();
-                              //     print(
-                              //         "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
-                              //   },
-                              //   child: const Icon(
-                              //     Icons.arrow_forward_ios,
-                              //     color: Colors.red,
-                              //   ),
-                              // )
                             ]),
                       );
                     }),
-
                     // Cust_BoxCalendarMain(),
                     const SizedBox(height: 8),
                     //This Need Provider
@@ -263,13 +244,13 @@ class CalendarScreen extends StatelessWidget {
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Cust_ImageBee(),
-                                Text("مراحل تربية النحل وجني العسل",
+                                Cust_ImgBox(url: url.bee),
+                                Text(txt.beesPhase,
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500))
                               ]),
-                          Cust_ImageHony(),
+                          Cust_ImgBox(url: url.hony),
                           Consumer<CalendarDateVM>(builder: (ctx, bee, child) {
                             return Text(bvm.getBeePhase(bee).toString(),
                                 style: TextStyle(
@@ -280,7 +261,7 @@ class CalendarScreen extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 10),
-                                child: Text("مشاهدة باقي المراحل..",
+                                child: Text(txt.phaseShow,
                                     style: TextStyle(
                                         // color: Colors.blue,
                                         fontSize: 12,
@@ -294,49 +275,15 @@ class CalendarScreen extends StatelessWidget {
                         chd: SizedBox(
                             height: 16,
                             width: 16,
-                            child:
-                                Image.asset("assets/images/homeBottomOff.png")),
+                            child: Image.asset(url.homeOff)),
                         width: MediaQuery.of(context).size.width * 0.4,
                         onTap: () => Navigator.pushNamed(context, "/table"),
-                        txt: "مشاهدة التقويم"),
-                    /////////////////////////////////////////
-
-                    SizedBox(height: 10),
-                    // Consumer<CalendarDateVM>(builder: (ctx, ta, child) {
-                    //   return Column(
-                    //     children: [
-                    //       Container(
-                    //         child: TableCalendar(
-                    //             onDaySelected: ta.onDaySelected,
-                    //             rowHeight: 43,
-                    //             availableGestures: AvailableGestures.all,
-                    //             selectedDayPredicate: (day) =>
-                    //                 isSameDay(day, ta.selectedDate),
-                    //             headerStyle: HeaderStyle(
-                    //                 formatButtonVisible: false,
-                    //                 titleCentered: true),
-                    //             focusedDay: ta.selectedDate,
-                    //             firstDay: DateTime.utc(2020, 1, 1),
-                    //             lastDay: DateTime.utc(2030, 1, 1)),
-                    //       ),
-                    //       Text("date: " + ta.selectedDate.toString()),
-                    //       ElevatedButton(
-                    //           onPressed: () {
-                    //             ta.preeeeeee;
-                    //             print(ta.selectedDate
-                    //                 .toString()
-                    //                 .split(" ")[0]);
-                    //           },
-                    //           child: Text("1"))
-                    //     ],
-                    //   );
-                    // }),
-                    ///////////////////////////////////////////////////
-
+                        txt: txt.phaseCal),
+                    ////////////////////
                     SizedBox(height: 20),
-                    const Row(children: [
-                      cust_imgCrops(),
-                      Text("محاصيل الشهر",
+                    Row(children: [
+                      Cust_ImgBox(url: url.crops),
+                      Text(txt.crops,
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500))
                     ]),
@@ -372,12 +319,13 @@ class CalendarScreen extends StatelessWidget {
                               alignmen: Alignment.center,
                               width: MediaQuery.of(context).size.width *
                                   0.33, //150,
-                              child: const Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                              child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    Cust_ImageStar(),
+                                    Cust_ImgBox(url: url.star),
                                     Text(
-                                      "النجوم",
+                                      txt.stars,
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,

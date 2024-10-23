@@ -1,10 +1,10 @@
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/model/stars.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
 import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imageStar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_imgSeasons.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +12,7 @@ class Cust_BoxCalendarMain extends StatelessWidget {
   Cust_BoxCalendarMain({super.key});
   SeasonVM sVM = SeasonVM();
   StarVM staVM = StarVM();
+  const_urls_img url = const_urls_img();
   List<Stars> lisStar = [];
   late bool isToday;
   @override
@@ -100,7 +101,7 @@ class Cust_BoxCalendarMain extends StatelessWidget {
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Cust_ImgSeasons(),
+                              Cust_ImgBox(url: url.autumn),
                               SizedBox(height: 10),
                               Text("فصل ${sVM.getSeason(cT)}",
                                   style: const TextStyle(
@@ -114,7 +115,7 @@ class Cust_BoxCalendarMain extends StatelessWidget {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Cust_ImageStar(),
+                            Cust_ImgBox(url: url.star),
                             Text(
                                 "${lisStar[staVM.getStar(cT.selectedDate)].starName}",
                                 //${staVM.getHoliday(cT)}

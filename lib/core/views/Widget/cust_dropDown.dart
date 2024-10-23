@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 
 class Cust_DropDown extends StatelessWidget {
-  const Cust_DropDown({super.key});
-
+  Cust_DropDown({super.key,required this.onChanged});
+  void Function(String?)? onChanged;
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      validator: (value) {},
+      validator: (value) {
+        if (value == null) {
+          return "يجب تعبئة هذا الحقل";
+        }
+        return null;
+      },
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         contentPadding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
@@ -25,7 +30,7 @@ class Cust_DropDown extends StatelessWidget {
           value: 'اقتراح',
         ),
       ],
-      onChanged: (value) {},
+      onChanged: onChanged,
       hint: Text('اختر تصنيفًا'),
     );
   }

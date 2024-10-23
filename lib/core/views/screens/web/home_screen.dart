@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/http_urls.dart';
 import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
 import 'package:badiyh_calendar/core/models/post.dart';
@@ -186,7 +187,8 @@ Widget _buildPostGrid(List<Post> posts, BuildContext context) {
             nameTxt: posts[i].author!,
             titleTxt: posts[i].title!,
             onTap: () {
-              Get.toNamed('/web', arguments: posts[i].link);
+              HttpUrls.WEB_VIEW = posts[i].link!;
+              Get.toNamed('/web');
             })),
   );
 }
@@ -201,13 +203,16 @@ Widget _buildPostList(List<Post> posts, BuildContext context) {
         scrollDirection: Axis.horizontal,
         // physics: NeverScrollableScrollPhysics(),
         itemCount: 4,
-        clipBehavior: Clip.none,
+        clipBehavior: Clip.antiAlias,
         itemBuilder: (context, i) => CusTallContainer(
             width: MediaQuery.of(context).size.width / 2.4,
             image: posts[i].featuredImage,
             dateTxt: posts[i].date!,
             authorTxt: posts[i].author!,
             titleTxt: posts[i].title!,
-            onTap: () {})),
+            onTap: () {
+              HttpUrls.WEB_VIEW = posts[i].link!;
+              Get.toNamed('/web');
+            })),
   );
 }

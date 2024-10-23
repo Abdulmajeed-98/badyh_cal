@@ -1,4 +1,5 @@
 import 'package:badiyh_calendar/core/models/category.dart';
+import 'package:badiyh_calendar/core/models/navigation.dart';
 import 'package:badiyh_calendar/core/views/screens/web/about_us_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/bee_calendar_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/calendar_screen.dart';
@@ -9,6 +10,7 @@ import 'package:badiyh_calendar/core/views/screens/web/home_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/web/posts_screens.dart';
 import 'package:badiyh_calendar/core/views/screens/splash_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/stars_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/web/web_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
@@ -27,14 +29,25 @@ class AppRoutes {
       case '/events':
         return MaterialPageRoute(builder: (ctx) => EventsBadyhScreen());
       case '/faq':
-        return MaterialPageRoute(builder: (ctx) => FaqScreen());
+        {
+          Navigation nav = settings.arguments as Navigation;
+          return MaterialPageRoute(
+              builder: (ctx) => FaqScreen(
+                    nav: nav,
+                  ));
+        }
       case '/contact_us':
-        return MaterialPageRoute(builder: (ctx) => ContactScreen());
+        {
+          Navigation nav = settings.arguments as Navigation;
+          return MaterialPageRoute(
+              builder: (ctx) => ContactScreen(
+                    nav: nav,
+                  ));
+        }
       case '/splash':
         return MaterialPageRoute(builder: (ctx) => SplashScreen());
-      // case '/web':
-      // String path = settings.arguments as String;
-      //   return MaterialPageRoute(builder: (ctx) => WebScreen(path: path,));
+      case '/web':
+        return MaterialPageRoute(builder: (ctx) => WebScreen());
       case '/posts':
         {
           Category category = settings.arguments as Category;

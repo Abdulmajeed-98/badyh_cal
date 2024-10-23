@@ -1,3 +1,5 @@
+import 'package:shimmer/shimmer.dart';
+import 'package:badiyh_calendar/core/constants/http_urls.dart';
 import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
 import 'package:badiyh_calendar/core/models/post.dart';
@@ -22,7 +24,6 @@ class PostsScreens extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // إزالة استدعاء loadPosts من هنا
     return SafeArea(
       child: Directionality(
         textDirection: TextDirection.rtl,
@@ -31,12 +32,13 @@ class PostsScreens extends StatelessWidget {
           drawer: AppDrawer(),
           key: ScaffoldKey.SK,
           body: FutureBuilder(
-            future: postsVm.loadPosts(category_id: category.id!), // تحميل البيانات هنا
+            future: postsVm.loadPosts(category_id: category.id!),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                // عرض الـ Shimmer أثناء التحميل
+                return _buildShimmerLoading(context);
               }
-              
+
               return Obx(() => postsVm.posts.isEmpty
                   ? Center(
                       child: CircularProgressIndicator(),
@@ -55,7 +57,11 @@ class PostsScreens extends StatelessWidget {
                                   Expanded(
                                     child: DropdownButton(
                                       isExpanded: true,
-                                      items: ['برامج الإغاثة الإنسانية', 'البرامج الصحية', 'البرامج التعليمية']
+                                      items: [
+                                        'برامج الإغاثة الإنسانية',
+                                        'البرامج الصحية',
+                                        'البرامج التعليمية'
+                                      ]
                                           .map((e) => DropdownMenuItem(
                                               value: e, child: Text(e)))
                                           .toList(),
@@ -77,13 +83,16 @@ class PostsScreens extends StatelessWidget {
                             Expanded(
                               child: isOn.value
                                   ? GridView.builder(
-                                      padding: EdgeInsets.symmetric(horizontal: 14),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 14),
                                       itemCount: postsVm.posts.length,
                                       gridDelegate:
                                           SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
                                         mainAxisExtent:
-                                            (MediaQuery.of(context).size.width /
+                                            (MediaQuery.of(context)
+                                                        .size
+                                                        .width /
                                                     2.23) -
                                                 10,
                                         crossAxisSpacing: 10,
@@ -96,7 +105,10 @@ class PostsScreens extends StatelessWidget {
                                           dateTxt: post.date!,
                                           authorTxt: post.author!,
                                           titleTxt: post.title!,
-                                          onTap: () {},
+                                          onTap: () {
+                                            HttpUrls.WEB_VIEW = post.link!;
+                                            Get.toNamed('/web');
+                                          },
                                         );
                                       },
                                     )
@@ -105,11 +117,16 @@ class PostsScreens extends StatelessWidget {
                                           SizedBox(
                                         height: 10,
                                       ),
-                                      padding: EdgeInsets.symmetric(horizontal: 14),
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 14),
                                       itemCount: postsVm.posts.length,
                                       itemBuilder: (context, index) {
                                         post = postsVm.posts[index];
                                         return CusWideContainer(
+                                          onTap: () {
+                                            HttpUrls.WEB_VIEW = post.link!;
+                                            Get.toNamed('/web');
+                                          },
                                           image: post.featuredImage,
                                           dateTxt: post.date!,
                                           authorTxt: post.author!,
@@ -118,18 +135,96 @@ class PostsScreens extends StatelessWidget {
                                       },
                                     ),
                             ),
-                            // CusButton(margin: EdgeInsets.only(bottom: 10), onTap: () {}),
                           ],
                         ),
-                        CusDrawerIcon(onPressed: () =>
-                                ScaffoldKey.SK.currentState!.openDrawer(),),
-                       CusBackButton(),
+                        CusDrawerIcon(
+                          onPressed: () =>
+                              ScaffoldKey.SK.currentState!.openDrawer(),
+                        ),
+                        CusBackButton(),
                       ],
                     ));
             },
           ),
         ),
       ),
+    );
+  }
+
+  // Widget for showing Shimmer effect while loading
+  Widget _buildShimmerLoading(BuildContext context) {
+    return Column(
+      children: [
+        CusGrundImg(txt: category.name),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 14),
+          child: Row(
+            children: [
+              Expanded(
+                child: Shimmer.fromColors(
+                  baseColor: Colors.grey[300]!,
+                  highlightColor: Colors.grey[100]!,
+                  child: Container(
+                    height: 48,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(width: 10),
+              Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: Container(
+                  width: 48,
+                  height: 48,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: isOn.value
+              ? GridView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 14),
+                  itemCount: 4, // Placeholder item count while loading
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisExtent: (MediaQuery.of(context).size.width / 2.23) -
+                        10,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: Container(
+                        height: 200,
+                        color: Colors.white,
+                      ),
+                    );
+                  },
+                )
+              : ListView.separated(
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 10,
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 14),
+                  itemCount: 4, // Placeholder item count while loading
+                  itemBuilder: (context, index) {
+                    return Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: Container(
+                        height: 120,
+                        color: Colors.white,
+                      ),
+                    );
+                  },
+                ),
+        ),
+      ],
     );
   }
 }

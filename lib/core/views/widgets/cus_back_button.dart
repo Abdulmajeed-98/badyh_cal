@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CusBackButton extends StatelessWidget {
   CusBackButton({
@@ -19,7 +20,7 @@ class CusBackButton extends StatelessWidget {
           size: 20,
         ),
         onPressed: () {
-          Navigator.pop(context);
+          Get.offNamed('/home');
         },
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
+import 'package:badiyh_calendar/core/models/navigation.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_boxContact.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_dropDown.dart';
@@ -11,12 +12,16 @@ import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 class ContactScreen extends StatelessWidget {
+  ContactScreen({super.key, required this.nav});
+  final Navigation nav;
   // GlobalKey<FormState> keyForm = GlobalKey();
-  String? msg;
+  String? msg, myEmail, firstName, lastName, sub;
+  late final Email mail;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -29,7 +34,7 @@ class ContactScreen extends StatelessWidget {
             body: Stack(
               children: [
                 CusGrundImg(
-                  txt: 'اتصل بنا',
+                  txt: nav.title,
                 ),
                 Container(
                   margin: EdgeInsets.only(
@@ -53,12 +58,27 @@ class ContactScreen extends StatelessWidget {
                                 )),
                                 SizedBox(height: 20),
                                 Cust_FormField(
+                                    validat: (p0) {
+                                      if (p0!.length < 3) {
+                                        return "الاسم يجب ان يكون على الاقل ثلاث احرف";
+                                      }
+                                      return null;
+                                    },
+                                    onChanged: (p0) => firstName = p0,
                                     txtF: "أدخل اسمك الأول",
                                     txt: 'الاسم الأول'),
                                 Cust_FormField(
+                                    validat: (p0) {
+                                      if (p0!.length < 3) {
+                                        return "الاسم يجب ان يكون على الاقل ثلاث احرف";
+                                      }
+                                      return null;
+                                    },
+                                    onChanged: (p0) => lastName = p0,
                                     txtF: 'أدخل اسم عائلتك',
                                     txt: 'اسم العائلة'),
                                 Cust_FormField(
+                                    onChanged: (p0) => myEmail = p0,
                                     txtF: 'أدخل بريدك الإلكتروني',
                                     txt: 'البريد الإلكتروني'),
 
@@ -67,47 +87,69 @@ class ContactScreen extends StatelessWidget {
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500)),
-                                Cust_DropDown(),
+                                Cust_DropDown(
+                                  onChanged: (p0) => sub = p0,
+                                ),
                                 SizedBox(height: 16),
 
                                 Cust_FormField(
-                                    onChanged: (p0) => msg =p0,
+                                    validat: (p0) {
+                                      if (p0 == null) {
+                                        return "يجب تعبئة هذا الحقل";
+                                      }
+                                      return null;
+                                    },
+                                    onChanged: (p0) => msg = p0,
                                     txt: "الرسالة",
                                     txtF: "أدخل رسالتك",
                                     max: 10,
                                     min: 8),
                                 Center(
                                   child: Cust_ButtonApp(
-                                    onTap: () {
-                                      msg != null?
-                                      Fluttertoast.showToast(
-                                          msg:
-                                              "تم الارسال بنجاح", // الرسالة التي تريد عرضها
-                                          toastLength: Toast
-                                              .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
-                                          gravity: ToastGravity
-                                              .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
-                                          timeInSecForIosWeb:
-                                              1, // مدة عرض الرسالة لأجهزة iOS والويب
-                                          backgroundColor:
-                                              Colors.black, // لون خلفية الرسالة
-                                          textColor: Colors.white, // لون النص
-                                          fontSize: 16.0 // حجم النص
-                                          ):Fluttertoast.showToast(
-                                          msg:
-                                              "عفوا قم بتعبئة كل الحقول", // الرسالة التي تريد عرضها
-                                          toastLength: Toast
-                                              .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
-                                          gravity: ToastGravity
-                                              .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
-                                          timeInSecForIosWeb:
-                                              1, // مدة عرض الرسالة لأجهزة iOS والويب
-                                          backgroundColor:
-                                              Colors.black, // لون خلفية الرسالة
-                                          textColor: Colors.white, // لون النص
-                                          fontSize: 16.0 // حجم النص
-                                  );
-                                  msg != null? Get.offNamed('/home'):print(msg);},
+                                    onTap: () async {
+                                      mail = Email(
+                                        subject: sub!,
+                                        body:
+                                            "${msg}/n${firstName! + " " + lastName!}",
+                                        recipients: ["md9mgoody@gmail.com"],
+                                        isHTML: false,
+                                      );
+                                      print(mail);
+                                      FlutterEmailSender.send(mail)
+                                          .then((value) {
+                                        Fluttertoast.showToast(
+                                            msg:
+                                                "تم الارسال بنجاح", // الرسالة التي تريد عرضها
+                                            toastLength: Toast
+                                                .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
+                                            gravity: ToastGravity
+                                                .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
+                                            timeInSecForIosWeb:
+                                                1, // مدة عرض الرسالة لأجهزة iOS والويب
+                                            backgroundColor: Colors
+                                                .black, // لون خلفية الرسالة
+                                            textColor: Colors.white, // لون النص
+                                            fontSize: 16.0 // حجم النص
+                                            );
+                                        Get.offNamed('/home');
+                                      }).catchError((error) {
+                                        print("zzzzzzzzzzzzzzzzzzzzzzz$error");
+                                        Fluttertoast.showToast(
+                                            msg:
+                                                "$error", // الرسالة التي تريد عرضها
+                                            toastLength: Toast
+                                                .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
+                                            gravity: ToastGravity
+                                                .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
+                                            timeInSecForIosWeb:
+                                                1, // مدة عرض الرسالة لأجهزة iOS والويب
+                                            backgroundColor: Colors
+                                                .black, // لون خلفية الرسالة
+                                            textColor: Colors.white, // لون النص
+                                            fontSize: 16.0 // حجم النص
+                                            );
+                                      });
+                                    },
                                     width: 100,
                                   ),
                                 ),
@@ -182,7 +224,8 @@ class ContactScreen extends StatelessWidget {
                   ),
                 ),
                 CusDrawerIcon(
-                    onPressed: () => ScaffoldKey.SK.currentState!.openDrawer),
+                  onPressed: () => ScaffoldKey.SK.currentState!.openDrawer(),
+                ),
                 CusBackButton(),
               ],
             ),

@@ -1,7 +1,5 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:badiyh_calendar/core/viewmodels/setup_vm.dart';
-import 'package:badiyh_calendar/core/views/screens/calendar/calendar_screen.dart';
-import 'package:badiyh_calendar/core/views/screens/web/home_screen.dart';
 import 'package:badiyh_calendar/helpers/drawer_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -60,9 +58,8 @@ class _SplashScreenState extends State<SplashScreen>
       SetupVm setupVm = SetupVm();
       await setupVm.setupDrawer();
       drawerHelper.isEmpty = false;
-      Future.delayed(Duration(seconds: 3), () {
         Get.offNamed('/home');
-      });
+      ;
     }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
+import 'package:intl/intl.dart';
 import 'package:jiffy/jiffy.dart';
 
 class CalendarDateVM with ChangeNotifier {
@@ -8,49 +9,54 @@ class CalendarDateVM with ChangeNotifier {
 //   //previosMethod
 // }
 
-  DateTime _selectedDate = DateTime.now();
+  DateTime _selectedDate = DateTime.now(); //.toUtc().add(Duration(hours: 5))
   DateTime get selectedDate => _selectedDate;
   HijriCalendar get hijriDate => HijriCalendar.fromDate(_selectedDate);
 
   void onDaySelected(DateTime day, DateTime focusDay) {
-    _selectedDate = day;
+    _selectedDate = day; //.toUtc().add(Duration(hours: 5))
     notifyListeners();
   }
 
   void toDay() {
-    _selectedDate = DateTime.now();
+    _selectedDate = DateTime.now(); //.toUtc().add(Duration(hours: 5))
     notifyListeners();
+  }
+
+  DFormat(DateTime date) {
+    return DateFormat.yMd().format(date);
   }
 
   bool isToday() {
     bool isToday = false;
-    DateTime today = DateTime.now();
+    DateTime today = DateTime.now(); //.toUtc().add(Duration(hours: 5))
     DateTime dayBefore = today.subtract(Duration(days: 1));
     DateTime select;
     select = selectedDate;
-    isToday = select.isBefore(dayBefore) || select.isAfter(today);
+    // if (select.day == today.day && select.month == today.month && select.year == today.year) {
+    //  if (DateFormat.yMd().format(select) == DateFormat.yMd().format(today)) {
+    DFormat(select) == DFormat(today) ? isToday = true : isToday = false;
+
+    // isToday = select.isBefore(dayBefore) || select.isAfter(today);
     // notifyListeners(); //some error
-    print("${isToday}");
+    // print("${isToday}");
+    // print("today==== ${today}== ${DateFormat.yMd().format(today)}");
+    // print("select==== ${select}== ${DateFormat.yMd().format(select)}");
+
     return isToday;
   }
-  // bool isToday() {
-  //   bool isToday = false;
-  //   Jiffy today = Jiffy.now();
-  //   Jiffy select;
-  //   select = Jiffy.parseFromDateTime(selectedDate);
-  //   isToday = select.isBefore(today);
-  //   print("${isToday}");
-  //   notifyListeners();
-  //   return isToday;
-  // }
 
   void previousDay() {
     _selectedDate = _selectedDate.subtract(const Duration(days: 1));
+    print(selectedDate);
+    print(selectedDate.timeZoneName);
     notifyListeners();
   }
 
   void nextDay() {
     _selectedDate = _selectedDate.add(const Duration(days: 1));
+    print(selectedDate);
+    print(selectedDate.timeZoneName);
     notifyListeners();
   }
 

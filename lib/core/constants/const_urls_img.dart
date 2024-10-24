@@ -19,5 +19,6 @@ class const_urls_img {
       winter = "assets/images/Winter.png",
       bee = "assets/images/BeeIcon.png",
       back = "assets/images/back.png",
+      next = "assets/images/next.png",
       drawer = "assets/images/drawer.png";
 }

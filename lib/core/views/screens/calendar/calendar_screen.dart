@@ -19,7 +19,6 @@ import 'package:get/get.dart';
 // import 'package:jiffy/jiffy.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:provider/provider.dart';
-import 'package:table_calendar/table_calendar.dart';
 import '../../../model/stars.dart';
 
 class CalendarScreen extends StatelessWidget {
@@ -116,15 +115,18 @@ class CalendarScreen extends StatelessWidget {
                             children: [
                               Container(
                                 child: InkWell(
-                                    onTap: () {
-                                      cT.previousDay();
-                                      // print(
-                                      //     "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
-                                    },
-                                    child: Icon(
-                                      Icons.arrow_back_ios,
-                                      // color: Colors.red,
-                                    )),
+                                  onTap: () {
+                                    cT.previousDay();
+                                    // print(
+                                    //     "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
+                                  },
+                                  child: SizedBox(
+                                      height: 20,
+                                      child: Cust_ImgBox(
+                                          url: url.next,
+                                          color:
+                                              Color.fromRGBO(68, 68, 68, 1))),
+                                ),
                               ),
                               Container(
                                 width: 150,
@@ -136,8 +138,8 @@ class CalendarScreen extends StatelessWidget {
                                         style: TextStyle(
                                             fontSize: 80,
                                             color: cT.isToday()
-                                                ? Colors.grey
-                                                : Color.fromRGBO(8, 164, 34, 1),
+                                                ? Color.fromRGBO(8, 164, 34, 1)
+                                                : Colors.grey,
                                             fontWeight: FontWeight.w700)),
                                     Text("${cT.monthNameAR}",
                                         style: const TextStyle(
@@ -184,8 +186,9 @@ class CalendarScreen extends StatelessWidget {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          Cust_ImgBox(url: url.autumn),
-                                          SizedBox(height: 10),
+                                          Cust_ImgBox(
+                                              url: "${sVM.getSeasonImg(cT)}"),
+                                          SizedBox(width: 2),
                                           Text(
                                               "${txt.season} ${sVM.getSeason(cT)}",
                                               style: const TextStyle(
@@ -203,6 +206,7 @@ class CalendarScreen extends StatelessWidget {
                                           CrossAxisAlignment.center,
                                       children: [
                                         Cust_ImgBox(url: url.star),
+                                        SizedBox(width: 2),
                                         Text(
                                             "${lisStar[staVM.getStar(cT.selectedDate)].starName}",
                                             //${staVM.getHoliday(cT)}
@@ -221,10 +225,11 @@ class CalendarScreen extends StatelessWidget {
                                   print(
                                       "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
                                 },
-                                child: const Icon(
-                                  Icons.arrow_forward_ios,
-                                  // color: Colors.red,
-                                ),
+                                child: SizedBox(
+                                    height: 20,
+                                    child: Cust_ImgBox(
+                                        url: url.back,
+                                        color: Color.fromRGBO(68, 68, 68, 1))),
                               ),
                             ]),
                       );

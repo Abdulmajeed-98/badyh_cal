@@ -13,7 +13,8 @@ class Cust_ButtonApp extends StatelessWidget {
       this.colors,
       this.borderRadius,
       this.txt,
-      this.chd});
+      this.chd,
+      this.chd2});
   EdgeInsetsGeometry? padding;
   double? height, width;
   String? txt;

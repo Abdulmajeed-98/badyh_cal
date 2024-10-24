@@ -13,7 +13,7 @@ class TableCalendarScreen extends StatelessWidget {
   TableCalendarScreen({super.key});
 
   CalendarDateVM sel = CalendarDateVM();
-  DateTime today = DateTime.now();
+  DateTime today = DateTime.now().toUtc().add(Duration(hours: 1));
   Const_Txt txt = Const_Txt();
   const_urls_img url = const_urls_img();
   // void onDaySelected(DateTime day, DateTime focusDay) {
@@ -151,15 +151,31 @@ class TableCalendarScreen extends StatelessWidget {
                                           lastDay: DateTime.utc(2030, 1, 1)),
                                     )),
                                     SizedBox(height: 10),
-                                    Cust_ButtonApp(
-                                        width:
-                                            MediaQuery.of(context).size.width *
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Cust_ButtonApp(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
                                                 0.3,
-                                        onTap: () {
-                                          Navigator.pop(context);
-                                          ta.toDay();
-                                        },
-                                        txt: txt.toDay)
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                              ta.toDay();
+                                            },
+                                            txt: txt.toDay),
+                                        Cust_ButtonApp(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.3,
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            txt: txt.daySelect),
+                                      ],
+                                    )
                                   ],
                                 );
                               }),

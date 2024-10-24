@@ -5,10 +5,12 @@ import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 class BeeCalendarScreen extends StatelessWidget {
   BeeCalendarScreen({super.key});
@@ -25,55 +27,58 @@ class BeeCalendarScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: SafeArea(
         child: Scaffold(
-            drawer: AppDrawer(),
-            key: scaffoldKey,
-            bottomNavigationBar:
-                CusBottomNaviBar(imgBee: Image.asset(url.beeOn)),
-            body: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.white,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // Container(
-                  //   alignment: Alignment.center,
-                  //   padding:
-                  //       const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-                  //   margin: const EdgeInsets.only(bottom: 1),
-                  //   child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //       children: [
-                  //         IconButton(
-                  //           icon: const Icon(
-                  //             Icons.menu,
-                  //             size: 30,
-                  //             color: Colors.black,
-                  //           ),
-                  //           onPressed: () =>
-                  //               scaffoldKey.currentState!.openDrawer(),
-                  //         ),
-                  //         const Text("مراحل تربية النحل وجني العسل",
-                  //             style: TextStyle(
-                  //                 fontSize: 16, fontWeight: FontWeight.w600)),
-                  //         IconButton(
-                  //             icon: const Icon(
-                  //               Icons.arrow_forward_ios,
-                  //               size: 20,
-                  //               color: Colors.black,
-                  //             ),
-                  //             onPressed: () {}),
-                  //       ]),
-                  // ),
-                  Cust_AppbarCalendar(
-                    txt: txt.beesPhase,
-                    onPressed: () => Get.offNamed("/calendar"),
-                    scafKey: () => scaffoldKey.currentState!.openDrawer(),
-                  ),
-                  // Cust_DropdownSearch(),
-                  Expanded(
-                      child: GridView.builder(
-                    itemCount: allBee.length,
+          drawer: AppDrawer(),
+          key: scaffoldKey,
+          bottomNavigationBar: CusBottomNaviBar(imgBee: Image.asset(url.beeOn)),
+          body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Container(
+                //   alignment: Alignment.center,
+                //   padding:
+                //       const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+                //   margin: const EdgeInsets.only(bottom: 1),
+                //   child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //       children: [
+                //         IconButton(
+                //           icon: const Icon(
+                //             Icons.menu,
+                //             size: 30,
+                //             color: Colors.black,
+                //           ),
+                //           onPressed: () =>
+                //               scaffoldKey.currentState!.openDrawer(),
+                //         ),
+                //         const Text("مراحل تربية النحل وجني العسل",
+                //             style: TextStyle(
+                //                 fontSize: 16, fontWeight: FontWeight.w600)),
+                //         IconButton(
+                //             icon: const Icon(
+                //               Icons.arrow_forward_ios,
+                //               size: 20,
+                //               color: Colors.black,
+                //             ),
+                //             onPressed: () {}),
+                //       ]),
+                // ),
+                Cust_AppbarCalendar(
+                  txt: txt.beesPhase,
+                  onPressed: () => Get.offNamed("/calendar"),
+                  scafKey: () => scaffoldKey.currentState!.openDrawer(),
+                ),
+                // Cust_DropdownSearch(),
+                Expanded(
+                    child: Consumer<BeeCalendarVM>(builder: (ctx, bee, child) {
+                  print(bee.displayedBee.length);
+                  return GridView.builder(
+                    itemCount: bee.showAll
+                        ? bee.displayedBee.length
+                        : 4, //allBee.length,
                     padding: EdgeInsets.only(bottom: 20, left: 8, right: 8),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -97,7 +102,8 @@ class BeeCalendarScreen extends StatelessWidget {
                                   width:
                                       MediaQuery.of(context).size.width * 0.24,
                                   child: Text(
-                                    allBee[index].phaseName.toString(),
+                                    bee.displayedBee[index].phaseName
+                                        .toString(),
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 13,
@@ -116,8 +122,7 @@ class BeeCalendarScreen extends StatelessWidget {
                                 Row(children: [
                                   Cust_ImgBox(url: url.star),
                                   Text(
-                                    allBee[index]
-                                        .stars!
+                                    bee.displayedBee[index].stars!
                                         .map((star) => star.starName)
                                         .join(' - '),
                                     style: TextStyle(
@@ -138,7 +143,9 @@ class BeeCalendarScreen extends StatelessWidget {
                                                   .width *
                                               0.03, // 12,
                                           fontWeight: FontWeight.w400)),
-                                  Text(allBee[index].startDate.toString(),
+                                  Text(
+                                      bee.displayedBee[index].startDate
+                                          .toString(),
                                       style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -149,7 +156,9 @@ class BeeCalendarScreen extends StatelessWidget {
                                       style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400)),
-                                  Text(allBee[index].endDate.toString(),
+                                  Text(
+                                      bee.displayedBee[index].endDate
+                                          .toString(),
                                       style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -161,10 +170,34 @@ class BeeCalendarScreen extends StatelessWidget {
                             ),
                           ],
                         )),
-                  ))
+                  );
+                }))
+              ],
+            ),
+          ),
+          floatingActionButton: Consumer<BeeCalendarVM>(
+            builder: (context, bee, child) {
+              return Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned(
+                    bottom: -10,
+                    right: MediaQuery.of(context).size.width * 0.4,
+                    child: Cust_ButtonApp(
+                      txt: bee.showAll ? txt.viewLes : txt.viewAll,
+                      // height: 100,
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      onTap: () {
+                        Provider.of<BeeCalendarVM>(context, listen: false)
+                            .toggleShowAll();
+                      },
+                    ),
+                  ),
                 ],
-              ),
-            )),
+              );
+            },
+          ),
+        ),
       ),
     );
   }

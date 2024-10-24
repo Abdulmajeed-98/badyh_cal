@@ -1,32 +1,51 @@
 import 'package:badiyh_calendar/core/viewmodels/month_v_m.dart';
 import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
 import 'package:badiyh_calendar/db/edit_calender_db.dart';
+import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 import '../model/stars.dart';
 
-class StarVM {
+class StarVM with ChangeNotifier {
+  List<Stars> _allStars = [];
+  bool _showAll = false;
+  List<Stars> get displayedStars => _allStars = loadAllStars();
+  bool get showAll => _showAll;
+
   MonthVM mvm = MonthVM();
 
   List<Stars> loadAllStars() {
     EditCalenderDb db = EditCalenderDb();
     List<dynamic> calenderDb = db.editCalender;
-    List<Stars> allStars = [];
+    // List<Stars> allStars = [];
     Set<String> starNames = {};
-
+    List<Stars> loadAll = [];
     for (var season in calenderDb) {
       for (var month in season["months"]) {
         for (var star in month['stars']) {
           if (!starNames.contains(star["StarName"])) {
-            allStars.add(Stars.fromJson(star));
+            loadAll.add(Stars.fromJson(star));
             starNames.add(star["StarName"]);
           }
         }
       }
     }
-
-    return allStars;
+    // notifyListeners();
+    return loadAll;
   }
 
+  //////////////
+
+  // void loadStars(List<Stars> stars) {
+  //   _allStars = stars;
+  //   notifyListeners();
+  // }
+
+  void toggleShowAll() {
+    _showAll = !_showAll;
+    notifyListeners();
+  }
+
+//////////
   SeasonVM seaVM = SeasonVM();
   getStar(DateTime selectedDate) {
     var dateNow =

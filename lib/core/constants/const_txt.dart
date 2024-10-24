@@ -8,5 +8,8 @@ class Const_Txt {
       stars = "النجوم",
       events = "مناسبات البادية",
       toDay = "تاريخ اليوم",
+      daySelect = "التاريخ المحدد",
+      viewAll = "المزيد",
+      viewLes = "أقل",
       p = "التقويم";
 }

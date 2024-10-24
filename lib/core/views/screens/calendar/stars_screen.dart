@@ -1,6 +1,5 @@
 import 'package:badiyh_calendar/core/constants/const_txt.dart';
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
-import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/model/seasons.dart';
 import 'package:badiyh_calendar/core/model/stars.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
@@ -9,11 +8,13 @@ import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
 import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:provider/provider.dart';
 
 class StarsScreen extends StatelessWidget {
   StarsScreen({super.key});
@@ -22,67 +23,68 @@ class StarsScreen extends StatelessWidget {
   CalendarDateVM selectedDate = CalendarDateVM();
   Const_Txt txt = Const_Txt();
   const_urls_img url = const_urls_img();
-  List<Stars> allStar = [];
+  // List<Stars> allStar = [];
   List<Seasons> allseason = [];
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
-    allStar = starVM.loadAllStars();
+    // allStar = starVM.loadAllStars();
     allseason = seasonVM.loadAllSeasons();
-    int length = 5;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: SafeArea(
         child: Scaffold(
-            drawer: AppDrawer(),
-            key: scaffoldKey,
-            bottomNavigationBar: CusBottomNaviBar(),
-            body: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.white,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // Container(
-                  //   alignment: Alignment.center,
-                  //   padding:
-                  //       const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-                  //   margin: const EdgeInsets.only(bottom: 1),
-                  //   child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //       children: [
-                  //         IconButton(
-                  //           icon: const Icon(
-                  //             Icons.menu,
-                  //             size: 30,
-                  //             color: Colors.black,
-                  //           ),
-                  //           onPressed: () =>
-                  //               scaffoldKey.currentState!.openDrawer(),
-                  //         ),
-                  //         Text(txt.stars,
-                  //             style: TextStyle(
-                  //                 fontSize: 16, fontWeight: FontWeight.w600)),
-                  //         IconButton(
-                  //           icon: const Icon(
-                  //             Icons.arrow_forward_ios,
-                  //             size: 20,
-                  //             color: Colors.black,
-                  //           ),
-                  //           onPressed: () => Get.offNamed("/calendar"),
-                  //         ),
-                  //       ]),
-                  // ),
+          drawer: AppDrawer(),
+          key: scaffoldKey,
+          bottomNavigationBar: CusBottomNaviBar(),
+          body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Container(
+                //   alignment: Alignment.center,
+                //   padding:
+                //       const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+                //   margin: const EdgeInsets.only(bottom: 1),
+                //   child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //       children: [
+                //         IconButton(
+                //           icon: const Icon(
+                //             Icons.menu,
+                //             size: 30,
+                //             color: Colors.black,
+                //           ),
+                //           onPressed: () =>
+                //               scaffoldKey.currentState!.openDrawer(),
+                //         ),
+                //         Text(txt.stars,
+                //             style: TextStyle(
+                //                 fontSize: 16, fontWeight: FontWeight.w600)),
+                //         IconButton(
+                //           icon: const Icon(
+                //             Icons.arrow_forward_ios,
+                //             size: 20,
+                //             color: Colors.black,
+                //           ),
+                //           onPressed: () => Get.offNamed("/calendar"),
+                //         ),
+                //       ]),
+                // ),
 
-                  Cust_AppbarCalendar(
-                      scafKey: () => scaffoldKey.currentState!.openDrawer(),
-                      txt: txt.stars,
-                      onPressed: () => Get.offNamed("/calendar")),
-                  //   Cust_DropdownSearch(),
-                  Expanded(
-                      child: GridView.builder(
-                    itemCount: allStar.length,
+                Cust_AppbarCalendar(
+                    scafKey: () => scaffoldKey.currentState!.openDrawer(),
+                    txt: txt.stars,
+                    onPressed: () => Get.offNamed("/calendar")),
+                //   Cust_DropdownSearch(),
+                Expanded(child: Consumer<StarVM>(builder: (ctx, st, child) {
+                  print("====disStar== ${st.displayedStars.length}");
+                  return GridView.builder(
+                    itemCount: st.showAll ? st.displayedStars.length : 6,
                     padding: EdgeInsets.only(bottom: 20, left: 8, right: 8),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -100,14 +102,14 @@ class StarsScreen extends StatelessWidget {
                           children: [
                             Cust_ImgBox(url: url.star),
                             Text(
-                              "${allStar[index].starName!}",
+                              "${st.displayedStars[index].starName!}",
                               style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                   color: Color.fromRGBO(8, 164, 34, 1)),
                             ),
                             Text(
-                              "${txt.season} ${allseason[allStar[index].seasonID! - 1].seasonName}",
+                              "${txt.season} ${allseason[st.displayedStars[index].seasonID! - 1].seasonName}",
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -116,7 +118,7 @@ class StarsScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("${allStar[index].startDate!}",
+                                Text("${st.displayedStars[index].startDate!}",
                                     style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w500,
@@ -131,7 +133,7 @@ class StarsScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("${allStar[index].endDate!}",
+                                Text("${st.displayedStars[index].endDate!}",
                                     style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w400,
@@ -145,16 +147,35 @@ class StarsScreen extends StatelessWidget {
                             ),
                           ]),
                     ),
-                  )),
-                  // ElevatedButton(
-                  //     onPressed: () {
-                  //       length = allStar.length;
-                  //       print("${length}");
-                  //     },
-                  //     child: Text("data"))
+                  );
+                })),
+                SizedBox(height: 1),
+              ],
+            ),
+          ),
+          floatingActionButton: Consumer<StarVM>(
+            builder: (context, st, child) {
+              return Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned(
+                    bottom: -10,
+                    right: MediaQuery.of(context).size.width * 0.4,
+                    child: Cust_ButtonApp(
+                      txt: st.showAll ? txt.viewLes : txt.viewAll,
+                      // height: 100,
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      onTap: () {
+                        Provider.of<StarVM>(context, listen: false)
+                            .toggleShowAll();
+                      },
+                    ),
+                  ),
                 ],
-              ),
-            )),
+              );
+            },
+          ),
+        ),
       ),
     );
   }

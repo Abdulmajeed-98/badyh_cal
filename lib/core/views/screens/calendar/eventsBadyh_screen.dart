@@ -9,6 +9,7 @@ import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EventsBadyhScreen extends StatelessWidget {
   EventsBadyhScreen({super.key});
@@ -29,6 +30,10 @@ class EventsBadyhScreen extends StatelessWidget {
             drawer: AppDrawer(),
             key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(
+              // onPresHom: () => Get.back(),
+              onPresEv: () {},
+              // onPresBee: () => Get.offNamed("/bee"),
+              // onPresCal: () => Get.offNamed("/calendar"),
               imgNews: Image.asset(url.newsOn),
             ),
             body: Container(

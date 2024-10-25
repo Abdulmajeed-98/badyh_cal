@@ -5,9 +5,18 @@ import 'package:get/get.dart'; // استيراد GetX
 
 class CusBottomNaviBar extends StatelessWidget {
   CusBottomNaviBar(
-      {super.key, this.imgHome, this.imgBee, this.imgNews, this.imgCal});
+      {super.key,
+      this.imgHome,
+      this.imgBee,
+      this.imgNews,
+      this.imgCal,
+      this.onPresHom,
+      this.onPresEv,
+      this.onPresBee,
+      this.onPresCal});
   Widget? imgHome, imgBee, imgNews, imgCal;
   const_urls_img url = const_urls_img();
+  void Function()? onPresHom, onPresEv, onPresBee, onPresCal;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +31,8 @@ class CusBottomNaviBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            onPressed: () => Get.offNamed("/home"), // التحويل إلى Get.offNamed
+            onPressed:
+                onPresHom ?? () => Get.back(), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
@@ -31,8 +41,8 @@ class CusBottomNaviBar extends StatelessWidget {
             color: Colors.white,
           ),
           IconButton(
-            onPressed: () =>
-                Get.offNamed("/events"), // التحويل إلى Get.offNamed
+            onPressed: onPresEv ??
+                () => Get.offNamed("/events"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
@@ -46,7 +56,8 @@ class CusBottomNaviBar extends StatelessWidget {
           ),
           IconButton(
             iconSize: 3,
-            onPressed: () => Get.offNamed("/bee"), // التحويل إلى Get.offNamed
+            onPressed: onPresBee ??
+                () => Get.offNamed("/bee"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
@@ -59,9 +70,10 @@ class CusBottomNaviBar extends StatelessWidget {
             color: Colors.white,
           ),
           IconButton(
-            onPressed: () {
-              Get.offNamed("/calendar"); // التحويل إلى Get.offNamed
-            },
+            onPressed: onPresCal ??
+                () {
+                  Get.offNamed("/calendar"); // التحويل إلى Get.offNamed
+                },
             icon: SizedBox(
               height: 20,
               width: 20,

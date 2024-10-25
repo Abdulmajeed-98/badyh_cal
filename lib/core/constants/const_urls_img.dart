@@ -1,8 +1,8 @@
 class const_urls_img {
   String homeOff = "assets/images/homeBottomOff.png",
-      homeOn = "assets/images/homeBottomOn.png",
+      homeOn = "assets/images/homebottomOn.png",
       newsOff = "assets/images/newsBottomOff.png",
-      newsOn = "assets/images/newsBottomOff.png",
+      newsOn = "assets/images/newsBottomOn.png",
       beeOff = "assets/images/beeBottomOff.png",
       beeOn = "assets/images/beeBottomOn.png",
       calOff = "assets/images/calendarBottomOff.png",

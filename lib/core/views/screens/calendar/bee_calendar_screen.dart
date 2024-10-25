@@ -29,7 +29,12 @@ class BeeCalendarScreen extends StatelessWidget {
         child: Scaffold(
           drawer: AppDrawer(),
           key: scaffoldKey,
-          bottomNavigationBar: CusBottomNaviBar(imgBee: Image.asset(url.beeOn)),
+          bottomNavigationBar: CusBottomNaviBar(
+              // onPresHom: () => Get.back(),
+              // onPresEv: () => Get.offNamed("/events"),
+              onPresBee: () {},
+              // onPresCal: () => Get.offNamed("/calendar"),
+              imgBee: Image.asset(url.beeOn)),
           body: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,

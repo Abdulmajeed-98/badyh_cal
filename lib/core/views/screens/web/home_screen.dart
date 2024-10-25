@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
 import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
@@ -18,7 +19,7 @@ import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   final HomeVm homeVm = Get.put(HomeVm(httpHelper: DioHelper.instance));
-
+  const_urls_img url = const_urls_img();
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,13 @@ class HomeScreen extends StatelessWidget {
         child: Scaffold(
           key: scaffoldKey,
           bottomNavigationBar: CusBottomNaviBar(
+              onPresHom: () {},
+              onPresEv: () => Get.toNamed("/events"),
+              onPresBee: () => Get.toNamed("/bee"),
+              onPresCal: () => Get.toNamed("/calendar"),
               imgHome: Image.asset(
-            'assets/images/homebottomOn.png',
-          )),
+                url.homeOn,
+              )),
           drawer: AppDrawer(),
           body: Stack(
             children: [

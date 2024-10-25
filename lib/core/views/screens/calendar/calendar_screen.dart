@@ -56,6 +56,10 @@ class CalendarScreen extends StatelessWidget {
             drawer: AppDrawer(),
             key: scaffoldKey,
             bottomNavigationBar: CusBottomNaviBar(
+              // onPresHom: () => Get.back(),
+              // onPresEv: () => Get.offNamed("/events"),
+              // onPresBee: () => Get.offNamed("/bee"),
+              onPresCal: () {},
               imgCal: Image.asset(url.calOn),
             ),
             body: SingleChildScrollView(

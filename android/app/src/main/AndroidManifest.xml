@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="https://badyh.org/wp-json/myapi/v1w">
     <application
         android:label="Badyh Calendar"
         android:name="${applicationName}"

@@ -1,4 +1,3 @@
-
 class Stars {
   int? starID;
   String? starName;

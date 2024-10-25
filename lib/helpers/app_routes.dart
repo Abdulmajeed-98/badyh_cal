@@ -1,4 +1,5 @@
 import 'package:badiyh_calendar/core/models/category.dart';
+import 'package:badiyh_calendar/core/models/navigation.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/tableCalendar_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/web/about_us_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/bee_calendar_screen.dart';
@@ -26,22 +27,30 @@ class AppRoutes {
         return MaterialPageRoute(builder: (ctx) => AboutUsScreen());
       case '/calendar':
         return MaterialPageRoute(builder: (ctx) => CalendarScreen());
+      case "/table":
+        return MaterialPageRoute(builder: (ctx) => TableCalendarScreen());
       case '/events':
         return MaterialPageRoute(builder: (ctx) => EventsBadyhScreen());
       case '/faq':
-        return MaterialPageRoute(builder: (ctx) => FaqScreen());
+        {
+          Navigation nav = settings.arguments as Navigation;
+          return MaterialPageRoute(
+              builder: (ctx) => FaqScreen(
+                    nav: nav,
+                  ));
+        }
       case '/contact_us':
-        return MaterialPageRoute(builder: (ctx) => ContactScreen());
+        {
+          Navigation nav = settings.arguments as Navigation;
+          return MaterialPageRoute(
+              builder: (ctx) => ContactScreen(
+                    nav: nav,
+                  ));
+        }
       case '/splash':
         return MaterialPageRoute(builder: (ctx) => SplashScreen());
-      case "/table":
-        return MaterialPageRoute(builder: (ctx) => TableCalendarScreen());
       case '/web':
-        String path = settings.arguments as String;
-        return MaterialPageRoute(
-            builder: (ctx) => WebScreen(
-                  path: path,
-                ));
+        return MaterialPageRoute(builder: (ctx) => WebScreen());
       case '/posts':
         {
           Category category = settings.arguments as Category;

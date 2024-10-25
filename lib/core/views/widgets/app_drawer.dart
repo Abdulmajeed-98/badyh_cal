@@ -49,9 +49,7 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             title: Text(item.title),
             onTap: () {
-              print(item.route);
-              print(HttpUrls.ABOUT_US);
-              Get.toNamed(item.route); // التحويل إلى Get.toNamed
+              Get.toNamed(item.route, arguments: item); // التحويل إلى Get.toNamed
             },
           ),
         );

@@ -57,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen>
       SetupVm setupVm = SetupVm();
       await setupVm.setupDrawer();
       drawerHelper.isEmpty = false;
-      Future.delayed(Duration(seconds: 2), () {
+      Future.delayed(Duration(seconds: 1), () {
         Get.offNamed('/home');
       });
     }

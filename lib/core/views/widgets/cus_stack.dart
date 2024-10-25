@@ -61,22 +61,24 @@ class CusStack extends StatelessWidget {
                     begin: Alignment.topRight,
                     end: Alignment.bottomCenter),
               ),
-              padding: EdgeInsets.only(top: 5, left: 10, right: 10),
+              padding: EdgeInsets.all(5),
               height: 42,
               width: (MediaQuery.of(context).size.width / 2.23) - 14,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Center(
-                    child: Text(
-                      maxLines: 1,
-                      titleTxt,
-                        style: Theme.of(context).textTheme.bodyMedium),
-                  ),
+                  Text(
+                    overflow: TextOverflow.fade,
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    
+                    titleTxt,
+                      style: Theme.of(context).textTheme.bodyMedium),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Icon(
+                        color: Colors.grey,
                         Icons.calendar_today,
                         size: 8,
                       ),
@@ -88,6 +90,7 @@ class CusStack extends StatelessWidget {
                       Icon(
                         Icons.person_outline_rounded,
                         size: 10,
+                        color: Colors.grey,
                       ),
                       Text(
                         nameTxt,

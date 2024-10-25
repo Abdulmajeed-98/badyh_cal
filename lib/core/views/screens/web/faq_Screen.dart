@@ -1,4 +1,5 @@
 import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
+import 'package:badiyh_calendar/core/models/navigation.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
@@ -8,9 +9,9 @@ import 'package:badiyh_calendar/db/common_quistion.dart';
 import 'package:flutter/material.dart';
 
 class FaqScreen extends StatelessWidget {
-  FaqScreen({super.key});
+  FaqScreen({super.key, required this.nav});
+  final Navigation nav;
   CommonQuistionDb q = CommonQuistionDb();
-
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,7 @@ class FaqScreen extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    CusGrundImg(txt: 'الأسئلة الشائعه' //category.name,
-                        ),
+                    CusGrundImg(txt: nav.title),
                     Container(
                       padding:
                           EdgeInsets.symmetric(horizontal: 14, vertical: 10),

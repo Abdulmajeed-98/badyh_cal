@@ -9,7 +9,9 @@ class Cust_FormField extends StatelessWidget {
       required this.txtF,
       this.max,
       this.min,
-      this.autovalidateMode});
+      this.autovalidateMode,
+      this.controller});
+  TextEditingController? controller;
   String txt, txtF;
   int? max, min;
   String? Function(String?)? validat;
@@ -24,7 +26,8 @@ class Cust_FormField extends StatelessWidget {
           txt,
         ),
         TextFormField(
-          autovalidateMode: autovalidateMode??AutovalidateMode.onUserInteraction,
+          autovalidateMode:
+              autovalidateMode ?? AutovalidateMode.onUserInteraction,
           onChanged: onChanged,
           validator: validat ??
               (value) {

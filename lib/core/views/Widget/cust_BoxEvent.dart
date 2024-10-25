@@ -43,7 +43,7 @@ class Cust_BoxEvent extends StatelessWidget {
                 Text(
                   txtSubject ?? "اول ايام شهر رمضان",
                   style: const TextStyle(
-                      fontSize: 8,
+                      fontSize: 10,
                       fontWeight: FontWeight.w400,
                       color: Color.fromRGBO(147, 147, 147, 1)),
                 ),

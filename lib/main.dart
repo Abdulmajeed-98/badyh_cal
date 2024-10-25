@@ -1,11 +1,23 @@
 import 'package:badiyh_calendar/core/theme/app_theme.dart';
+import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
+import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
+import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
 import 'package:badiyh_calendar/helpers/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-void main(){
-  runApp(MyApp());
+void main() {
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<CalendarDateVM>(
+          create: (context) => CalendarDateVM()),
+      ChangeNotifierProvider<StarVM>(create: (context) => StarVM()),
+      ChangeNotifierProvider<BeeCalendarVM>(
+          create: (context) => BeeCalendarVM())
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

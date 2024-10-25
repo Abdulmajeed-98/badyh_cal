@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/views/widgets/shimmer_widget/shimmer_image.dart';
 import 'package:flutter/material.dart';
 
 class CusTallContainer extends StatelessWidget {
@@ -9,7 +10,7 @@ class CusTallContainer extends StatelessWidget {
       required this.authorTxt,
       required this.titleTxt,
       required this.onTap});
-      void Function()? onTap;
+  void Function()? onTap;
   String? image;
   late String dateTxt, authorTxt, titleTxt;
   double? width;
@@ -24,19 +25,23 @@ class CusTallContainer extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            image == null
+                ? ShimmerContainer()
+                : Container(
+                    height: (MediaQuery.of(context).size.width / 2.23) / 1.9,
+                    decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(2.5)),
+                        image: DecorationImage(
+                            image: image == null
+                                ? AssetImage('assets/images/the_news.png')
+                                : NetworkImage(image!),
+                            fit: BoxFit.cover)),
+                  ),
             Container(
-              height: (MediaQuery.of(context).size.width / 2.23) / 1.9,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(2.5)),
-                  image: DecorationImage(
-                      image: image == null
-                          ? AssetImage('assets/images/the_news.png')
-                          : NetworkImage(image!),
-                      fit: BoxFit.cover)),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(2.5)),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(2.5)),
                 boxShadow: [
                   BoxShadow(
                     color: const Color.fromARGB(150, 0, 0, 0),
@@ -56,38 +61,45 @@ class CusTallContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        Icons.calendar_today,
-                        size: 10,
-                        color: Color(0xFF939393),
-                      ),
-                      SizedBox(
-                        width: 4,
-                      ),
-                      Text(dateTxt, style: Theme.of(context).textTheme.bodySmall),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Icon(
-                        Icons.person_outline_rounded,
-                        size: 12,
-                        color: Color(0xFF939393),
-                      ),
-                      SizedBox(
-                        width: 4,
-                      ),
-                      Text(
-                        authorTxt,
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
+                      Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Icon(
+                            Icons.calendar_today,
+                            size: 10,
+                            color: Color(0xFF939393),
+                          ),
+                          Text(dateTxt,
+                              style: Theme.of(context).textTheme.bodySmall),
+                        ],
+                      )),
+                      Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Icon(
+                            Icons.person_outline_rounded,
+                            size: 12,
+                            color: Color(0xFF939393),
+                          ),
+                          Text(
+                            authorTxt,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
+                      ))
                     ],
                   ),
                   SizedBox(
                     height: 4,
                   ),
                   Text(titleTxt,
-                      maxLines: 3, style: Theme.of(context).textTheme.bodyMedium),
+                  maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodyMedium),
                 ],
               ),
             ),

@@ -1,9 +1,8 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:badiyh_calendar/core/viewmodels/setup_vm.dart';
-import 'package:badiyh_calendar/core/views/screens/calendar_screen.dart';
 import 'package:badiyh_calendar/helpers/drawer_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -42,12 +41,12 @@ class _SplashScreenState extends State<SplashScreen>
                   "assets/images/badyh_splach.png",
                 ),
                 backgroundColor: Colors.transparent,
-                duration: Duration(seconds: 3),
-                animationDuration: const Duration(seconds: 2),
+                // duration: Duration(seconds: 0),
+                animationDuration: const Duration(seconds: 3),
                 onInit: () {},
                 onEnd: () {},
                 childWidget: Image.asset("assets/images/splashAnim.png"),
-                nextScreen: CalendarScreen(),
+                // nextScreen: HomeScreen(),
               ),
             )));
   }
@@ -58,8 +57,8 @@ class _SplashScreenState extends State<SplashScreen>
       SetupVm setupVm = SetupVm();
       await setupVm.setupDrawer();
       drawerHelper.isEmpty = false;
-      Future.delayed(Duration(seconds: 3), () {
-        Navigator.pushReplacementNamed(ctx, '/home');
+      Future.delayed(Duration(seconds: 1), () {
+        Get.offNamed('/home');
       });
     }
   }

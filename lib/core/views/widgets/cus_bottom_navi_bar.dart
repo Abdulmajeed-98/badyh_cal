@@ -1,9 +1,14 @@
+import 'package:badiyh_calendar/core/constants/const_txt.dart';
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart'; // استيراد GetX
 
 class CusBottomNaviBar extends StatelessWidget {
   CusBottomNaviBar(
       {super.key, this.imgHome, this.imgBee, this.imgNews, this.imgCal});
   Widget? imgHome, imgBee, imgNews, imgCal;
+  const_urls_img url = const_urls_img();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,25 +22,23 @@ class CusBottomNaviBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            onPressed: () => Navigator.pushReplacementNamed(context, "/home"),
+            onPressed: () => Get.offNamed("/home"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
-              child: imgHome ??
-                  Image.asset(
-                    "assets/images/homeBottomOff.png",
-                  ),
+              child: imgHome ?? Image.asset(url.homeOff),
             ),
             color: Colors.white,
           ),
           IconButton(
-            onPressed: () => Navigator.pushReplacementNamed(context, "/news"),
+            onPressed: () =>
+                Get.offNamed("/events"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
               child: imgNews ??
                   Image.asset(
-                    "assets/images/newsBottomOff.png",
+                    url.newsOff,
                     fit: BoxFit.contain,
                   ),
             ),
@@ -43,13 +46,13 @@ class CusBottomNaviBar extends StatelessWidget {
           ),
           IconButton(
             iconSize: 3,
-            onPressed: () => Navigator.pushReplacementNamed(context, "/bee"),
+            onPressed: () => Get.offNamed("/bee"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,
               child: imgBee ??
                   Image.asset(
-                    "assets/images/beeBottomOff.png",
+                    url.beeOff,
                     fit: BoxFit.contain,
                   ),
             ),
@@ -57,14 +60,14 @@ class CusBottomNaviBar extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              Navigator.pushReplacementNamed(context, "/calendar");
+              Get.offNamed("/calendar"); // التحويل إلى Get.offNamed
             },
             icon: SizedBox(
               height: 20,
               width: 20,
               child: imgCal ??
                   Image.asset(
-                    "assets/images/calendarBottomOff.png",
+                    url.calOff,
                     fit: BoxFit.contain,
                   ),
             ),

@@ -19,9 +19,9 @@ class DrawerHelper{
     drawerItems.add(Navigation(title: "الرئيسية", route: "/home"));
     drawerItems.add(Navigation(title: "من نحن", route: "/about_us"));
     drawerItems.add(drawerCategoriesItems);
-    drawerItems.add(Navigation(title: " التقويم الزراعي", route: "/calndar"));
+    drawerItems.add(Navigation(title: " التقويم الزراعي", route: "/calendar"));
     drawerItems.add(Navigation(title: 'مناسبات البادية', route: "/events"));
-    drawerItems.add(Navigation(title: 'الاسئلة الشائعة', route: "/faq"));
+    drawerItems.add(Navigation(title: 'الأسئلة الشائعة', route: "/faq"));
     drawerItems.add(Navigation(title: 'اتصل بنا', route: "/contact_us"));
     isEmpty=false;
 

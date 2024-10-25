@@ -1,3 +1,4 @@
+import 'package:badiyh_calendar/core/constants/http_urls.dart';
 import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
 import 'package:badiyh_calendar/core/models/post.dart';
@@ -9,6 +10,7 @@ import 'package:badiyh_calendar/core/views/widgets/cus_drawer_icon.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_stack.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_tall_container.dart';
+import 'package:badiyh_calendar/core/views/widgets/shimmer_widget/shimmer_home.dart';
 import 'package:badiyh_calendar/helpers/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,14 +18,19 @@ import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   final HomeVm homeVm = Get.put(HomeVm(httpHelper: DioHelper.instance));
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
-          key: ScaffoldKey.SK,
-          bottomNavigationBar: CusBottomNaviBar(),
+          key: scaffoldKey,
+          bottomNavigationBar: CusBottomNaviBar(
+              imgHome: Image.asset(
+            'assets/images/homebottomOn.png',
+          )),
           drawer: AppDrawer(),
           body: Stack(
             children: [
@@ -53,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Obx(() {
                     if (homeVm.homeList.isEmpty) {
-                      return Center(child: CircularProgressIndicator());
+                      return buildShimmerEffect();
                     } else {
                       return Expanded(
                         child: ListView.separated(
@@ -95,9 +102,10 @@ class HomeScreen extends StatelessWidget {
                                                 fontSize: 16),
                                           ),
                                         ],
-                                        
                                       ),
-                                      SizedBox(height: 8,),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
                                       Container(
                                         margin: EdgeInsets.only(right: 22),
                                         child: Text(
@@ -131,9 +139,8 @@ class HomeScreen extends StatelessWidget {
                                         Theme.of(context).textTheme.bodyLarge,
                                   ),
                                   CusButton(
-                                      onTap: () => Navigator.pushNamed(
-                                          context, '/posts',
-                                          arguments: item as Category))
+                                      onTap: () => Get.toNamed('/posts',
+                                          arguments: item))
                                 ],
                               );
                             } else if (item is List<Post> && index < 2) {
@@ -152,7 +159,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               CusDrawerIcon(
-                onPressed: () => ScaffoldKey.SK.currentState!.openDrawer(),
+                onPressed: () => scaffoldKey.currentState!.openDrawer(),
               )
             ],
           ),
@@ -182,7 +189,8 @@ Widget _buildPostGrid(List<Post> posts, BuildContext context) {
             nameTxt: posts[i].author!,
             titleTxt: posts[i].title!,
             onTap: () {
-              Navigator.pushNamed(context, '/web',arguments: posts[i].link);
+              HttpUrls.WEB_VIEW = posts[i].link!;
+              Get.toNamed('/web');
             })),
   );
 }
@@ -197,13 +205,16 @@ Widget _buildPostList(List<Post> posts, BuildContext context) {
         scrollDirection: Axis.horizontal,
         // physics: NeverScrollableScrollPhysics(),
         itemCount: 4,
-        clipBehavior: Clip.none,
+        clipBehavior: Clip.antiAlias,
         itemBuilder: (context, i) => CusTallContainer(
             width: MediaQuery.of(context).size.width / 2.4,
             image: posts[i].featuredImage,
             dateTxt: posts[i].date!,
             authorTxt: posts[i].author!,
             titleTxt: posts[i].title!,
-            onTap: () {})),
+            onTap: () {
+              HttpUrls.WEB_VIEW = posts[i].link!;
+              Get.toNamed('/web');
+            })),
   );
 }

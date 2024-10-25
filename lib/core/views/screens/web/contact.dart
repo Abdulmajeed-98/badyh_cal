@@ -108,12 +108,86 @@ class ContactScreen extends StatelessWidget {
                                     max: 10,
                                     min: 8),
                                 Center(
-                                  child: Cust_ButtonApp(
+                                  child:
+                                      //  Cust_ButtonApp(
+                                      //   onTap: () async {
+                                      //     mail = Email(
+                                      //       subject: sub!,
+                                      //       body:
+                                      //           "${msg}/n${firstName! + " " + lastName!}",
+                                      //       recipients: ["md9mgoody@gmail.com"],
+                                      //       isHTML: false,
+                                      //     );
+                                      //     print(mail);
+                                      //     FlutterEmailSender.send(mail)
+                                      //         .then((value) {
+                                      //       Fluttertoast.showToast(
+                                      //           msg:
+                                      //               "تم الارسال بنجاح", // الرسالة التي تريد عرضها
+                                      //           toastLength: Toast
+                                      //               .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
+                                      //           gravity: ToastGravity
+                                      //               .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
+                                      //           timeInSecForIosWeb:
+                                      //               1, // مدة عرض الرسالة لأجهزة iOS والويب
+                                      //           backgroundColor: Colors
+                                      //               .black, // لون خلفية الرسالة
+                                      //           textColor: Colors.white, // لون النص
+                                      //           fontSize: 16.0 // حجم النص
+                                      //           );
+                                      //       Get.offNamed('/home');
+                                      //     }).catchError((error) {
+                                      //       print("zzzzzzzzzzzzzzzzzzzzzzz$error");
+                                      //       Fluttertoast.showToast(
+                                      //           msg:
+                                      //               "$error", // الرسالة التي تريد عرضها
+                                      //           toastLength: Toast
+                                      //               .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
+                                      //           gravity: ToastGravity
+                                      //               .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
+                                      //           timeInSecForIosWeb:
+                                      //               1, // مدة عرض الرسالة لأجهزة iOS والويب
+                                      //           backgroundColor: Colors
+                                      //               .black, // لون خلفية الرسالة
+                                      //           textColor: Colors.white, // لون النص
+                                      //           fontSize: 16.0 // حجم النص
+                                      //           );
+                                      //     });
+                                      //   },
+                                      //   width: 100,
+                                      // ),
+                                      Cust_ButtonApp(
                                     onTap: () async {
+                                      // التحقق من أن الحقول ليست فارغة
+                                      if (firstName == null ||
+                                          firstName!.isEmpty ||
+                                          lastName == null ||
+                                          lastName!.isEmpty ||
+                                          msg == null ||
+                                          msg!.isEmpty ||
+                                          sub == null ||
+                                          sub!.isEmpty) {
+                                        Fluttertoast.showToast(
+                                            msg: "عفوا يجب تعبئة كل الحقول",
+                                            toastLength: Toast
+                                                .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
+                                            gravity: ToastGravity
+                                                .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
+                                            timeInSecForIosWeb:
+                                                1, // مدة عرض الرسالة لأجهزة iOS والويب
+                                            backgroundColor: Colors
+                                                .black, // لون خلفية الرسالة
+                                            textColor: Colors.white, // لون النص
+                                            fontSize: 16.0 // حجم النص
+                                            );
+                                        return; // الخروج من الدالة إذا كانت الحقول فارغة
+                                      }
+
+                                      // تابع الإرسال إذا كانت الحقول ممتلئة
                                       mail = Email(
                                         subject: sub!,
                                         body:
-                                            "${msg}/n${firstName! + " " + lastName!}",
+                                            "${msg}\n${firstName! + " " + lastName!}",
                                         recipients: ["md9mgoody@gmail.com"],
                                         isHTML: false,
                                       );
@@ -121,8 +195,7 @@ class ContactScreen extends StatelessWidget {
                                       FlutterEmailSender.send(mail)
                                           .then((value) {
                                         Fluttertoast.showToast(
-                                            msg:
-                                                "تم الارسال بنجاح", // الرسالة التي تريد عرضها
+                                            msg: "تم الارسال بنجاح",
                                             toastLength: Toast
                                                 .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
                                             gravity: ToastGravity
@@ -138,8 +211,7 @@ class ContactScreen extends StatelessWidget {
                                       }).catchError((error) {
                                         print("zzzzzzzzzzzzzzzzzzzzzzz$error");
                                         Fluttertoast.showToast(
-                                            msg:
-                                                "$error", // الرسالة التي تريد عرضها
+                                            msg: "$error",
                                             toastLength: Toast
                                                 .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
                                             gravity: ToastGravity

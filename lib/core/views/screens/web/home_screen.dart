@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                           child: Column(
                         children: [
                           Text(
-                            'أهلاً في تطبيق',
+                            'أهلاً بك في تطبيق',
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                           SizedBox(
@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                                       Container(
                                         margin: EdgeInsets.only(right: 22),
                                         child: Text(
-                                          'تمثلت مجالات عمل البادية في مجالات تنموية وانسلنية اربعة\n(مجال العمل الانساني, المجال الصحي, مجال التعليم, مجال التنمية المستدامة)',
+                                          'تمثلت مجالات عمل البادية في مجالات تنموية وإنسانية اربعة\n(مجال العمل الانساني, المجال الصحي, مجال التعليم, مجال التنمية المستدامة)',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 12),

@@ -83,7 +83,7 @@ class TableCalendarScreen extends StatelessWidget {
                                         child: Cust_BoxShadow(
                                       height:
                                           MediaQuery.of(context).size.height *
-                                              0.49,
+                                              0.45,
                                       child: TableCalendar(
                                           // daysOfWeekStyle: DaysOfWeekStyle(
                                           //   weekendStyle:
@@ -108,8 +108,7 @@ class TableCalendarScreen extends StatelessWidget {
                                                                 color: Colors
                                                                     .white),
                                                           ))),
-                                              selectedBuilder: (context, day,
-                                                      focusedDay) =>
+                                              selectedBuilder: (context, day, focusedDay) =>
                                                   Center(
                                                       child: CircleAvatar(
                                                           backgroundColor:
@@ -137,7 +136,9 @@ class TableCalendarScreen extends StatelessWidget {
                                             Navigator.pop(context);
                                           },
                                           onDaySelected: ta.onDaySelected,
-                                          rowHeight: 35,
+                                          rowHeight:
+                                              MediaQuery.of(context).size.height *
+                                                  0.05,
                                           availableGestures:
                                               AvailableGestures.all,
                                           selectedDayPredicate: (day) =>
@@ -148,9 +149,9 @@ class TableCalendarScreen extends StatelessWidget {
                                           focusedDay: ta.selectedDate,
                                           startingDayOfWeek: StartingDayOfWeek.saturday,
                                           firstDay: DateTime.utc(2000, 1, 1),
-                                          lastDay: DateTime.utc(2030, 1, 1)),
+                                          lastDay: DateTime.utc(2040, 1, 1)),
                                     )),
-                                    SizedBox(height: 10),
+                                    SizedBox(height: 15),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,

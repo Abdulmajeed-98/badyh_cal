@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="https://badyh.org"
-    package="https://badyh.org/wp-json/myapi/v1w">
+    package="https://badyh.org">
+    <!-- package="https://badyh.org/wp-json/myapi/v1w"> -->
     <!--package="https://badyh.org">-->
 
     <uses-permission android:name="android.permission.INTERNET"/>

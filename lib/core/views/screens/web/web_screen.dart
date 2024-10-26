@@ -1,4 +1,5 @@
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
+import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -33,15 +34,17 @@ class WebScreen extends StatelessWidget {
                       ),
                     )
                     ..loadRequest(Uri.parse(HttpUrls.WEB_VIEW))),
-              // Positioned(
-              //   left: 10,
-              //   top: 15,
-              //   child: Container(
-              //       decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(2.5),
-              //           color: Color.fromRGBO(15, 15, 15, 1)),
-              //       child: CusBackButton()),
-              // ),
+              Positioned(
+                left: 10,
+                top: 20,
+                child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2.5),
+                        color: Color.fromRGBO(15, 15, 15, 1)),
+                    child: CusBackButton()),
+              ),
             ],
           ),
         ),

@@ -54,28 +54,32 @@ class PostsScreens extends StatelessWidget {
                               padding: EdgeInsets.symmetric(horizontal: 14),
                               child: Row(
                                 children: [
-                                  Expanded(
-                                    child: DropdownButton(
-                                      isExpanded: true,
-                                      items: [
-                                        'برامج الإغاثة الإنسانية',
-                                        'البرامج الصحية',
-                                        'البرامج التعليمية'
-                                      ]
-                                          .map((e) => DropdownMenuItem(
-                                              value: e, child: Text(e)))
-                                          .toList(),
-                                      onChanged: (value) {},
-                                      hint: Text('التصنيف'),
-                                    ),
-                                  ),
+                                  // Expanded(
+                                  //   child: DropdownButton(
+                                  //     isExpanded: true,
+                                  //     items: [
+                                  //       'برامج الإغاثة الإنسانية',
+                                  //       'البرامج الصحية',
+                                  //       'البرامج التعليمية'
+                                  //     ]
+                                  //         .map((e) => DropdownMenuItem(
+                                  //             value: e, child: Text(e)))
+                                  //         .toList(),
+                                  //     onChanged: (value) {},
+                                  //     hint: Text('التصنيف'),
+                                  //   ),
+                                  // ),
+
                                   IconButton(
                                     onPressed: () {
                                       isOn.value = !isOn.value;
                                     },
                                     icon: isOn.value
-                                        ? Icon(Icons.table_rows)
-                                        : Icon(Icons.grid_view),
+                                        ? Icon(
+                                            Icons.table_rows,
+                                            size: 35,
+                                          )
+                                        : Icon(Icons.grid_view, size: 35),
                                   ),
                                 ],
                               ),

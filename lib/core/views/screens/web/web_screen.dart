@@ -38,11 +38,11 @@ class WebScreen extends StatelessWidget {
                 left: 10,
                 top: 20,
                 child: Container(
-                    height: 50,
+                    height: 55,
                     width: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(2.5),
-                        color: Color.fromRGBO(15, 15, 15, 1)),
+                        color: Color.fromRGBO(255, 255, 255, 1)),
                     child: CusBackButton()),
               ),
             ],

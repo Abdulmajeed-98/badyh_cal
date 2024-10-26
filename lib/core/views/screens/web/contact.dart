@@ -140,25 +140,26 @@ class ContactScreen extends StatelessWidget {
                                         subject: sub!,
                                         body:
                                             "${msg}\n${firstName! + " " + lastName!}",
-                                        recipients: ["md9mgoody@gmail.com"],
+                                        recipients: ["badiyh@gmail.com"],
                                         isHTML: false,
                                       );
                                       // إرسال البريد الإلكتروني
                                       try {
                                         await FlutterEmailSender.send(mail);
-                                        Fluttertoast.showToast(
-                                            msg: "تم الارسال بنجاح",
-                                            toastLength: Toast
-                                                .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
-                                            gravity: ToastGravity
-                                                .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
-                                            timeInSecForIosWeb:
-                                                1, // مدة عرض الرسالة لأجهزة iOS والويب
-                                            backgroundColor: Colors
-                                                .black, // لون خلفية الرسالة
-                                            textColor: Colors.white, // لون النص
-                                            fontSize: 16.0 // حجم النص
-                                            );
+                                        // Fluttertoast.showToast(
+                                        //     msg: "",
+                                        //     toastLength: Toast
+                                        //         .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
+                                        //     gravity: ToastGravity
+                                        //         .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
+                                        //     timeInSecForIosWeb:
+                                        //         1, // مدة عرض الرسالة لأجهزة iOS والويب
+                                        //     backgroundColor: Colors
+                                        //         .black, // لون خلفية الرسالة
+                                        //     textColor: Colors.white, // لون النص
+                                        //     fontSize: 16.0 // حجم النص
+                                        //     );
+
                                         Get.offNamed('/home');
                                       } catch (error) {
                                         Fluttertoast.showToast(

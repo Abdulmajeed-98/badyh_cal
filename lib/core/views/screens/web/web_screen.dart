@@ -34,17 +34,16 @@ class WebScreen extends StatelessWidget {
                         },
                       ),
                     )
-                    ..loadRequest(Uri.parse(HttpUrls.WEB_VIEW))
-                  ),
-              Positioned(
-                left: 10,
-                top: 15,
-                child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(2.5),
-                        color: Color.fromRGBO(15, 15, 15, 1)),
-                    child: CusBackButton()),
-              ),
+                    ..loadRequest(Uri.parse(HttpUrls.WEB_VIEW))),
+              // Positioned(
+              //   left: 10,
+              //   top: 15,
+              //   child: Container(
+              //       decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(2.5),
+              //           color: Color.fromRGBO(15, 15, 15, 1)),
+              //       child: CusBackButton()),
+              // ),
             ],
           ),
         ),

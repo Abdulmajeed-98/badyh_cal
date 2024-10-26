@@ -1,10 +1,15 @@
+import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
+import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebScreen extends StatelessWidget {
   WebScreen({super.key});
+
+  const_urls_img url = const_urls_img();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,15 +43,33 @@ class WebScreen extends StatelessWidget {
                 left: 10,
                 top: 20,
                 child: Container(
-                    height: 55,
-                    width: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(2.5),
-                        color: Color.fromRGBO(255, 255, 255, 1)),
-                    child: CusBackButton()),
+                  height: 55,
+                  width: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(2.5),
+                      color: Color.fromRGBO(15, 15, 15, 1)),
+                  child: IconButton(
+                    icon: SizedBox(
+                      height: 25,
+                      child: Cust_ImgBox(
+                          url: url.back,
+                          color: Color.fromRGBO(255, 255, 255, 1)),
+                    ),
+                    //  Icon(
+                    //   Icons.arrow_forward_ios_rounded,
+                    //   color: Colors.white,
+                    //   size: 20,
+                    // ),
+
+                    onPressed: () {
+                      Get.offNamed('/home');
+                    },
+                  ),
+                ),
               ),
             ],
           ),
+          //  floatingActionButton: CircleAvatar(child: CusBackButton()),
         ),
       ),
     );

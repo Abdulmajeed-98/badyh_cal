@@ -10,13 +10,13 @@ class CusBackButton extends StatelessWidget {
     return Positioned(
       left: 0,
       // top: 5,
-      child: InkWell(
-        child: Icon(
+      child: IconButton(
+        icon: Icon(
           Icons.arrow_forward_ios_rounded,
           color: color ?? Colors.white,
           size: 20,
         ),
-        onTap: () {
+        onPressed: () {
           Get.offNamed('/home');
         },
       ),

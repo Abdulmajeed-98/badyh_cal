@@ -1,11 +1,11 @@
 import 'package:badiyh_calendar/core/constants/const_txt.dart';
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
-import 'package:badiyh_calendar/core/model/bee_calendar.dart';
-import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
+import 'package:badiyh_calendar/core/models/bee_calendar.dart';
+import 'package:badiyh_calendar/core/viewModels/bee_calendar_VM.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_BoxShadow.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_appBarCalendar.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
@@ -42,44 +42,13 @@ class BeeCalendarScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Container(
-                //   alignment: Alignment.center,
-                //   padding:
-                //       const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-                //   margin: const EdgeInsets.only(bottom: 1),
-                //   child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //       children: [
-                //         IconButton(
-                //           icon: const Icon(
-                //             Icons.menu,
-                //             size: 30,
-                //             color: Colors.black,
-                //           ),
-                //           onPressed: () =>
-                //               scaffoldKey.currentState!.openDrawer(),
-                //         ),
-                //         const Text("مراحل تربية النحل وجني العسل",
-                //             style: TextStyle(
-                //                 fontSize: 16, fontWeight: FontWeight.w600)),
-                //         IconButton(
-                //             icon: const Icon(
-                //               Icons.arrow_forward_ios,
-                //               size: 20,
-                //               color: Colors.black,
-                //             ),
-                //             onPressed: () {}),
-                //       ]),
-                // ),
                 Cust_AppbarCalendar(
                   txt: txt.beesPhase,
                   onPressed: () => Get.offNamed("/calendar"),
                   scafKey: () => scaffoldKey.currentState!.openDrawer(),
                 ),
-                // Cust_DropdownSearch(),
                 Expanded(
                     child: Consumer<BeeCalendarVM>(builder: (ctx, bee, child) {
-                  print(bee.displayedBee.length);
                   return GridView.builder(
                     itemCount: bee.showAll
                         ? bee.displayedBee.length

@@ -1,10 +1,10 @@
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
-import 'package:badiyh_calendar/core/model/stars.dart';
-import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
-import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
-import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/models/stars.dart';
+import 'package:badiyh_calendar/core/viewModels/CalendarDateVM.dart';
+import 'package:badiyh_calendar/core/viewModels/season_VM.dart';
+import 'package:badiyh_calendar/core/viewModels/star_VM.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_BoxShadow.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxImg.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -38,13 +38,7 @@ class Cust_BoxCalendarMain extends StatelessWidget {
                         },
                         child: Icon(Icons.arrow_back_ios)),
                   ),
-                  InkWell(
-                      onTap: () {
-                        cT.preeeeeee();
-                        print(
-                            "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
-                      },
-                      child: Icon(Icons.arrow_back_ios)),
+
                   Container(
                     // color: Colors.yellow,
                     //التقويم
@@ -138,17 +132,6 @@ class Cust_BoxCalendarMain extends StatelessWidget {
                       color: Colors.red,
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      cT.nextDDDDay();
-                      print(
-                          "${lisStar[staVM.getStar(cT.selectedDate)].starName}");
-                    },
-                    child: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.red,
-                    ),
-                  )
                 ]),
           );
         }));

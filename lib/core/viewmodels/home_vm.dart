@@ -1,18 +1,3 @@
-// import 'package:get/get.dart';
-
-// class HomeVm extends GetxController {
-//   static HomeVm? hvm;
-//   HomeVm._();
-//   static HomeVm get instance {
-//     if (hvm == null) hvm = HomeVm._();
-//     return hvm!;
-//   }
-
-//   RxList<dynamic> homeList = <dynamic>[].obs;
-// }
-
-
-
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
 import 'package:badiyh_calendar/core/models/post.dart';
@@ -24,7 +9,7 @@ class HomeVm extends GetxController {
   RxList<dynamic> homeList = <dynamic>[].obs;
   final DioHelper _dioHelper;
   RxInt vID = 0.obs;
-  // Dependency Injection via constructor (DIP)
+
   HomeVm({required DioHelper httpHelper}) : _dioHelper = httpHelper;
 
   @override
@@ -40,7 +25,6 @@ class HomeVm extends GetxController {
 
   Future<void> getHomeItems(String parameters) async {
     try {
-
       final response = await _dioHelper.getRequest(
         url: "${HttpUrls.CATEGORY_WITH_POSTS}$parameters",
       );
@@ -49,12 +33,8 @@ class HomeVm extends GetxController {
       Category category = Category.fromJson(response.data["category"]);
       List<Post> allPosts = posts.map((post) => Post.fromJson(post)).toList();
 
-      // Add both category and posts to the home list
       homeList.add(category);
       homeList.add(allPosts);
-    } catch (e) {
-      // Handle error (e.g., log error or show message)
-      print("Error fetching home items: $e");
-    }
+    } catch (e) {}
   }
 }

@@ -1,6 +1,6 @@
-import 'package:badiyh_calendar/core/model/months.dart';
-import 'package:badiyh_calendar/core/model/seasons.dart';
-import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
+import 'package:badiyh_calendar/core/models/months.dart';
+import 'package:badiyh_calendar/core/models/seasons.dart';
+import 'package:badiyh_calendar/core/viewModels/season_VM.dart';
 import 'package:flutter/material.dart';
 
 class MonthVM with ChangeNotifier {
@@ -17,8 +17,6 @@ class MonthVM with ChangeNotifier {
       notifyListeners();
       return seasonMonths;
     } catch (e) {
-      print(e);
-      //  print('sadasdas');
       return [];
     }
   }
@@ -33,8 +31,6 @@ class MonthVM with ChangeNotifier {
       notifyListeners();
       return seasonMonths;
     } catch (e) {
-      print(e);
-      //  print('sadasdas');
       return [];
     }
   }

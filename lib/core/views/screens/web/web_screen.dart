@@ -1,7 +1,6 @@
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
-import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxImg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -55,12 +54,6 @@ class WebScreen extends StatelessWidget {
                           url: url.back,
                           color: Color.fromRGBO(255, 255, 255, 1)),
                     ),
-                    //  Icon(
-                    //   Icons.arrow_forward_ios_rounded,
-                    //   color: Colors.white,
-                    //   size: 20,
-                    // ),
-
                     onPressed: () {
                       Get.offNamed('/home');
                     },
@@ -69,7 +62,6 @@ class WebScreen extends StatelessWidget {
               ),
             ],
           ),
-          //  floatingActionButton: CircleAvatar(child: CusBackButton()),
         ),
       ),
     );

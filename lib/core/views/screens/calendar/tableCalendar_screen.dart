@@ -1,9 +1,9 @@
 import 'package:badiyh_calendar/core/constants/const_txt.dart';
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
-import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
+import 'package:badiyh_calendar/core/viewModels/CalendarDateVM.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_BoxShadow.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -120,17 +120,7 @@ class TableCalendarScreen extends StatelessWidget {
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .white),
-                                                          )))
-                                              // todayBuilder:
-                                              // (context, day, focusedDay) =>
-                                              //     Text("1"),
-                                              // markerBuilder: (context, day,
-                                              //         events) =>
-                                              //     Text("${ta.hijriDate.hDay}")
-                                              // defaultBuilder:
-                                              //     (context, day, focusedDay) =>
-                                              //         Text("data"),
-                                              ),
+                                                          )))),
                                           onDayLongPressed:
                                               (selectedDay, focusedDay) {
                                             Navigator.pop(context);

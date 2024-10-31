@@ -1,14 +1,13 @@
 import 'package:badiyh_calendar/core/constants/const_txt.dart';
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
-import 'package:badiyh_calendar/core/model/seasons.dart';
-import 'package:badiyh_calendar/core/model/stars.dart';
-import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
-import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
-import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
+import 'package:badiyh_calendar/core/models/seasons.dart';
+import 'package:badiyh_calendar/core/viewModels/CalendarDateVM.dart';
+import 'package:badiyh_calendar/core/viewModels/season_VM.dart';
+import 'package:badiyh_calendar/core/viewModels/star_VM.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_BoxShadow.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_appBarCalendar.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
@@ -45,44 +44,12 @@ class StarsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Container(
-                //   alignment: Alignment.center,
-                //   padding:
-                //       const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-                //   margin: const EdgeInsets.only(bottom: 1),
-                //   child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //       children: [
-                //         IconButton(
-                //           icon: const Icon(
-                //             Icons.menu,
-                //             size: 30,
-                //             color: Colors.black,
-                //           ),
-                //           onPressed: () =>
-                //               scaffoldKey.currentState!.openDrawer(),
-                //         ),
-                //         Text(txt.stars,
-                //             style: TextStyle(
-                //                 fontSize: 16, fontWeight: FontWeight.w600)),
-                //         IconButton(
-                //           icon: const Icon(
-                //             Icons.arrow_forward_ios,
-                //             size: 20,
-                //             color: Colors.black,
-                //           ),
-                //           onPressed: () => Get.offNamed("/calendar"),
-                //         ),
-                //       ]),
-                // ),
-
                 Cust_AppbarCalendar(
                     scafKey: () => scaffoldKey.currentState!.openDrawer(),
                     txt: txt.stars,
                     onPressed: () => Get.offNamed("/calendar")),
                 //   Cust_DropdownSearch(),
                 Expanded(child: Consumer<StarVM>(builder: (ctx, st, child) {
-                  print("====disStar== ${st.displayedStars.length}");
                   return GridView.builder(
                     itemCount: st.showAll ? st.displayedStars.length : 6,
                     padding: EdgeInsets.only(bottom: 20, left: 8, right: 8),

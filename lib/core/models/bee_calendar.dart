@@ -27,21 +27,9 @@ class BeeCalendar {
       });
     }
   }
-// not required...
-  // Map<String, dynamic> toJson() {
-  //   final Map<String, dynamic> data = new Map<String, dynamic>();
-  //   data['PhaseID'] = this.phaseID;
-  //   data['PhaseName'] = this.phaseName;
-  //   data['StartDate'] = this.startDate;
-  //   data['EndDate'] = this.endDate;
-  //   data['Description'] = this.description;
-  //   if (this.stars != null) {
-  //     data['stars'] = this.stars!.map((v) => v.toJson()).toList();
-  //   }
-  //   return data;
-  // }
 }
 
+// النجوم في حدول النحل..
 class StarsBee {
   int? starID;
   String? starName;
@@ -68,15 +56,4 @@ class StarsBee {
     seasonID = json['SeasonID'];
     duration = json['Duration'];
   }
-// not required...
-  // Map<String, dynamic> toJson() {
-  //   final Map<String, dynamic> data = new Map<String, dynamic>();
-  //   data['StarID'] = this.starID;
-  //   data['StarName'] = this.starName;
-  //   data['StartDate'] = this.startDate;
-  //   data['EndDate'] = this.endDate;
-  //   data['SeasonID'] = this.seasonID;
-  //   data['Duration'] = this.duration;
-  //   return data;
-  // }
 }

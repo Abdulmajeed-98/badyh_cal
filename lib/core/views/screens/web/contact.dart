@@ -1,10 +1,10 @@
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/models/navigation.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxContact.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_dropDown.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_formField.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxContact.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_buttonApp.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_dropDown.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_formField.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
@@ -84,7 +84,6 @@ class ContactScreen extends StatelessWidget {
                                     onChanged: (p0) => myEmail = p0,
                                     txtF: 'أدخل بريدك الإلكتروني',
                                     txt: 'البريد الإلكتروني'),
-
                                 SizedBox(height: 16),
                                 Text('التصنيف',
                                     style: TextStyle(
@@ -94,7 +93,6 @@ class ContactScreen extends StatelessWidget {
                                   onChanged: (p0) => sub = p0,
                                 ),
                                 SizedBox(height: 16),
-
                                 Cust_FormField(
                                     validat: (p0) {
                                       if (p0 == null) {
@@ -110,7 +108,6 @@ class ContactScreen extends StatelessWidget {
                                 Center(
                                   child: Cust_ButtonApp(
                                     onTap: () async {
-                                      // التحقق من أن الحقول ليست فارغة
                                       if (firstName == null ||
                                           firstName!.isEmpty ||
                                           lastName == null ||
@@ -121,21 +118,14 @@ class ContactScreen extends StatelessWidget {
                                           sub!.isEmpty) {
                                         Fluttertoast.showToast(
                                             msg: "عفوا يجب تعبئة كل الحقول",
-                                            toastLength: Toast
-                                                .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
-                                            gravity: ToastGravity
-                                                .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
-                                            timeInSecForIosWeb:
-                                                1, // مدة عرض الرسالة لأجهزة iOS والويب
-                                            backgroundColor: Colors
-                                                .black, // لون خلفية الرسالة
-                                            textColor: Colors.white, // لون النص
-                                            fontSize: 16.0 // حجم النص
-                                            );
-                                        return; // الخروج من الدالة إذا كانت الحقول فارغة
+                                            toastLength: Toast.LENGTH_LONG,
+                                            gravity: ToastGravity.CENTER,
+                                            timeInSecForIosWeb: 1,
+                                            backgroundColor: Colors.black,
+                                            textColor: Colors.white,
+                                            fontSize: 16.0);
+                                        return;
                                       }
-
-                                      // تابع الإرسال إذا كانت الحقول ممتلئة
                                       mail = Email(
                                         subject: sub!,
                                         body:
@@ -143,38 +133,19 @@ class ContactScreen extends StatelessWidget {
                                         recipients: ["badiyh@gmail.com"],
                                         isHTML: false,
                                       );
-                                      // إرسال البريد الإلكتروني
                                       try {
                                         await FlutterEmailSender.send(mail);
-                                        // Fluttertoast.showToast(
-                                        //     msg: "",
-                                        //     toastLength: Toast
-                                        //         .LENGTH_SHORT, // مدة ظهور الرسالة (قصيرة أو طويلة)
-                                        //     gravity: ToastGravity
-                                        //         .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
-                                        //     timeInSecForIosWeb:
-                                        //         1, // مدة عرض الرسالة لأجهزة iOS والويب
-                                        //     backgroundColor: Colors
-                                        //         .black, // لون خلفية الرسالة
-                                        //     textColor: Colors.white, // لون النص
-                                        //     fontSize: 16.0 // حجم النص
-                                        //     );
 
                                         Get.offNamed('/home');
                                       } catch (error) {
                                         Fluttertoast.showToast(
                                             msg: "$error",
-                                            toastLength: Toast
-                                                .LENGTH_LONG, // مدة ظهور الرسالة (قصيرة أو طويلة)
-                                            gravity: ToastGravity
-                                                .CENTER, // مكان ظهور الرسالة (أعلى، وسط، أسفل)
-                                            timeInSecForIosWeb:
-                                                1, // مدة عرض الرسالة لأجهزة iOS والويب
-                                            backgroundColor: Colors
-                                                .black, // لون خلفية الرسالة
-                                            textColor: Colors.white, // لون النص
-                                            fontSize: 16.0 // حجم النص
-                                            );
+                                            toastLength: Toast.LENGTH_LONG,
+                                            gravity: ToastGravity.CENTER,
+                                            timeInSecForIosWeb: 1,
+                                            backgroundColor: Colors.black,
+                                            textColor: Colors.white,
+                                            fontSize: 16.0);
                                       }
                                     },
                                     width: 100,
@@ -235,20 +206,6 @@ class ContactScreen extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                ////////
-                                // Center(
-                                //   child: ElevatedButton(
-                                //     onPressed: () {
-                                //       // Handle send action
-                                //     },
-                                //     child: Text('إرسال'),
-                                //     style: ElevatedButton.styleFrom(
-                                //       // padding: EdgeInsets.symmetric(vertical: 15)
-                                //       backgroundColor: Colors.black,
-                                //       textStyle: TextStyle(fontSize: 16),
-                                //     ),
-                                //   ),
-                                // ),
                               ],
                             ),
                           ),

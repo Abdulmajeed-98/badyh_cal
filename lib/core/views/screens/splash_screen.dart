@@ -1,5 +1,5 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
-import 'package:badiyh_calendar/core/viewmodels/setup_vm.dart';
+import 'package:badiyh_calendar/core/viewModels/setup_VM.dart';
 import 'package:badiyh_calendar/helpers/drawer_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,20 +14,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   @override
-  // void initState() {
-  //   super.initState();
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-  //   Future.delayed(const Duration(seconds: 3), () {
-  //     Navigator.pushReplacementNamed(context, "/contact");
-  //   });
-  // }
-
-  // @override
-  // void dispose() {
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-  //       overlays: SystemUiOverlay.values);
-  // }
-
   @override
   Widget build(BuildContext context) {
     setup(context);

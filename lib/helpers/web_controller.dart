@@ -8,10 +8,8 @@ final controller = WebViewController()
       onProgress: (int progress) {
         // Update loading bar.
       },
-      onPageStarted: (String url) {
-      },
-      onPageFinished: (String url) {
-      },
+      onPageStarted: (String url) {},
+      onPageFinished: (String url) {},
       onHttpError: (HttpResponseError error) {},
       onWebResourceError: (WebResourceError error) {},
       onNavigationRequest: (NavigationRequest request) {
@@ -19,9 +17,7 @@ final controller = WebViewController()
           return NavigationDecision.prevent;
         }
         return NavigationDecision.navigate;
-
       },
     ),
   )
-  ..loadRequest(Uri.parse(HttpUrls.ABOUT_US))
-  ;
+  ..loadRequest(Uri.parse(HttpUrls.ABOUT_US));

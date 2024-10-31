@@ -13,7 +13,7 @@ class SetupVm extends GetxController {
     try {
       d.Response res =
           await _dioHelper.getRequest(url: HttpUrls.CATEGORY_WITH_SUB);
-      // print("the data of res is ${res.data}");
+      //
 
       List<dynamic> resCategories = res.data;
       List<Category> drawerCategories =
@@ -21,8 +21,6 @@ class SetupVm extends GetxController {
       _drawerHelper.drawerCategoriesItems = drawerCategories;
       _drawerHelper.initDrawer();
       // hvm.homeList.value.addAll(drawerCategories);
-    } catch (e) {
-      print("error is $e");
-    }
+    } catch (e) {}
   }
 }

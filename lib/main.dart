@@ -1,7 +1,7 @@
 import 'package:badiyh_calendar/core/theme/app_theme.dart';
-import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
-import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
-import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
+import 'package:badiyh_calendar/core/viewModels/CalendarDateVM.dart';
+import 'package:badiyh_calendar/core/viewModels/bee_calendar_VM.dart';
+import 'package:badiyh_calendar/core/viewModels/star_VM.dart';
 import 'package:badiyh_calendar/helpers/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

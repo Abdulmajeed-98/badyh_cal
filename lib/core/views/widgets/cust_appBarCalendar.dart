@@ -1,5 +1,5 @@
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxImg.dart';
 import 'package:flutter/material.dart';
 
 class Cust_AppbarCalendar extends StatelessWidget {

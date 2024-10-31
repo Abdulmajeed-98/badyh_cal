@@ -1,4 +1,4 @@
-import 'package:badiyh_calendar/core/model/months.dart';
+import 'package:badiyh_calendar/core/models/months.dart';
 
 class Seasons {
   late int seasonID;

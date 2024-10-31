@@ -1,15 +1,13 @@
 import 'package:badiyh_calendar/core/constants/const_txt.dart';
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
-import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
-import 'package:badiyh_calendar/core/model/events_badyh.dart';
-import 'package:badiyh_calendar/core/viewmodels/events_badyh_VM.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_BoxEvent.dart';
+import 'package:badiyh_calendar/core/models/events_badyh.dart';
+import 'package:badiyh_calendar/core/viewModels/event_badyh_VM.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_BoxEvent.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_grund_img.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class EventsBadyhScreen extends StatelessWidget {
   EventsBadyhScreen({super.key});

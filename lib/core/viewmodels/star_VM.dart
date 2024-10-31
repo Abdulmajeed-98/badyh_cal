@@ -1,9 +1,9 @@
-import 'package:badiyh_calendar/core/viewmodels/month_v_m.dart';
-import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
+import 'package:badiyh_calendar/core/viewModels/month_VM.dart';
+import 'package:badiyh_calendar/core/viewModels/season_VM.dart';
 import 'package:badiyh_calendar/db/edit_calender_db.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
-import '../model/stars.dart';
+import '../models/stars.dart';
 
 class StarVM with ChangeNotifier {
   List<Stars> _allStars = [];
@@ -34,11 +34,6 @@ class StarVM with ChangeNotifier {
   }
 
   //////////////
-
-  // void loadStars(List<Stars> stars) {
-  //   _allStars = stars;
-  //   notifyListeners();
-  // }
 
   void toggleShowAll() {
     _showAll = !_showAll;

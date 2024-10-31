@@ -1,25 +1,23 @@
 import 'package:badiyh_calendar/core/constants/const_txt.dart';
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
-import 'package:badiyh_calendar/core/model/bee_calendar.dart';
-import 'package:badiyh_calendar/core/model/months.dart';
-import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
-import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
-import 'package:badiyh_calendar/core/viewmodels/month_v_m.dart';
-import 'package:badiyh_calendar/core/viewmodels/season_v_m.dart';
-import 'package:badiyh_calendar/core/viewmodels/star_v_m.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_appBarCalendar.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_boxImg.dart';
-import 'package:badiyh_calendar/core/views/Widget/cust_buttonApp.dart';
+import 'package:badiyh_calendar/core/models/bee_calendar.dart';
+import 'package:badiyh_calendar/core/models/months.dart';
+import 'package:badiyh_calendar/core/viewModels/CalendarDateVM.dart';
+import 'package:badiyh_calendar/core/viewModels/bee_calendar_VM.dart';
+import 'package:badiyh_calendar/core/viewModels/month_VM.dart';
+import 'package:badiyh_calendar/core/viewModels/season_VM.dart';
+import 'package:badiyh_calendar/core/viewModels/star_VM.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_BoxShadow.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_appBarCalendar.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_boxImg.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_buttonApp.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:intl/intl.dart' as intlDate;
-// import 'package:jiffy/jiffy.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:provider/provider.dart';
-import '../../../model/stars.dart';
+import '../../../models/stars.dart';
 
 class CalendarScreen extends StatelessWidget {
   CalendarScreen({super.key});
@@ -71,36 +69,6 @@ class CalendarScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Container(
-                    //   alignment: Alignment.center,
-                    //   padding: const EdgeInsets.symmetric(
-                    //       vertical: 5, horizontal: 0),
-                    //   margin: const EdgeInsets.only(bottom: 1),
-                    //   child: Row(
-                    //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //       children: [
-                    //         IconButton(
-                    //           icon: const Icon(
-                    //             Icons.menu,
-                    //             size: 30,
-                    //             color: Colors.black,
-                    //           ),
-                    //           onPressed: () =>
-                    //               scaffoldKey.currentState!.openDrawer(),
-                    //         ),
-                    //         const Text("التقويم",
-                    //             style: TextStyle(
-                    //                 fontSize: 18,
-                    //                 fontWeight: FontWeight.w600)),
-                    //         IconButton(
-                    //             icon: const Icon(
-                    //               Icons.arrow_forward_ios,
-                    //               size: 20,
-                    //               color: Colors.black,
-                    //             ),
-                    //             onPressed: () {}),
-                    //       ]),
-                    // ),
                     Cust_AppbarCalendar(
                         scafKey: () => scaffoldKey.currentState!.openDrawer(),
                         txt: txt.cal,

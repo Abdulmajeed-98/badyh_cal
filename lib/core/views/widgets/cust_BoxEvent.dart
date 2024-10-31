@@ -1,4 +1,4 @@
-import 'package:badiyh_calendar/core/views/Widget/cust_BoxShadow.dart';
+import 'package:badiyh_calendar/core/views/widgets/cust_BoxShadow.dart';
 import 'package:flutter/material.dart';
 
 class Cust_BoxEvent extends StatelessWidget {

@@ -5,7 +5,7 @@ class ContactVM {
     var dio = Dio();
     try {
       Response response = await dio.post(
-        'https://your-api-endpoint.com/send-email', // Replace this with the actual API endpoint
+        'https://your-api-endpoint.com/send-email',
         data: {'email': 'badiyh@gmail.com'},
         options: Options(
           headers: {
@@ -14,13 +14,13 @@ class ContactVM {
         ),
       );
 
-      if (response.statusCode == 200) {
-        print('Email sent successfully!');
-      } else {
-        print('Failed to send email. Status code: ${response.statusCode}');
-      }
+      // if (response.statusCode == 200) {
+      //   print('Email sent successfully!');
+      // } else {
+      //   print('Failed to send email. Status code: ${response.statusCode}');
+      // }
     } catch (e) {
-      print('Error sending email: $e');
+      // print('Error sending email: $e');
     }
   }
 }

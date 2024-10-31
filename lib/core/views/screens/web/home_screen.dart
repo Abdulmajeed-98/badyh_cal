@@ -1,9 +1,8 @@
 import 'package:badiyh_calendar/core/constants/const_urls_img.dart';
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
-import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
 import 'package:badiyh_calendar/core/models/post.dart';
-import 'package:badiyh_calendar/core/viewmodels/home_vm.dart';
+import 'package:badiyh_calendar/core/viewModels/home_VM.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_button.dart';
@@ -129,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                           // physics: NeverScrollableScrollPhysics(),
                           itemCount: homeVm.homeList.length,
                           itemBuilder: (context, index) {
-                            // print(homeVm.homeList.length);
+                            //
                             final item = homeVm.homeList[index];
 
                             // Check if item is a Category or a list of Posts

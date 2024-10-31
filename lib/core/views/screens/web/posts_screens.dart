@@ -1,9 +1,8 @@
 import 'package:shimmer/shimmer.dart';
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
-import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
 import 'package:badiyh_calendar/core/models/post.dart';
-import 'package:badiyh_calendar/core/viewmodels/posts_vm.dart';
+import 'package:badiyh_calendar/core/viewModels/posts_VM.dart';
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_bottom_navi_bar.dart';
@@ -54,22 +53,6 @@ class PostsScreens extends StatelessWidget {
                               padding: EdgeInsets.symmetric(horizontal: 14),
                               child: Row(
                                 children: [
-                                  // Expanded(
-                                  //   child: DropdownButton(
-                                  //     isExpanded: true,
-                                  //     items: [
-                                  //       'برامج الإغاثة الإنسانية',
-                                  //       'البرامج الصحية',
-                                  //       'البرامج التعليمية'
-                                  //     ]
-                                  //         .map((e) => DropdownMenuItem(
-                                  //             value: e, child: Text(e)))
-                                  //         .toList(),
-                                  //     onChanged: (value) {},
-                                  //     hint: Text('التصنيف'),
-                                  //   ),
-                                  // ),
-
                                   IconButton(
                                     onPressed: () {
                                       isOn.value = !isOn.value;
@@ -153,7 +136,6 @@ class PostsScreens extends StatelessWidget {
     );
   }
 
-  // Widget for showing Shimmer effect while loading
   Widget _buildShimmerLoading(BuildContext context) {
     return Column(
       children: [

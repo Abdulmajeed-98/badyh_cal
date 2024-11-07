@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CusStack extends StatelessWidget {
-  CusStack({super.key,
+  CusStack(
+      {super.key,
       this.image,
       required this.dateTxt,
       required this.nameTxt,
       required this.titleTxt,
       required this.onTap});
-      void Function()? onTap;
+  void Function()? onTap;
   String? image;
   late String dateTxt, nameTxt, titleTxt;
 
@@ -22,7 +23,8 @@ class CusStack extends StatelessWidget {
           Container(
             // width: MediaQuery.of(context).size.width / 2.23,
             height: (MediaQuery.of(context).size.width / 2.23),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(1.25)),
+            decoration:
+                BoxDecoration(borderRadius: BorderRadius.circular(1.25)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -31,7 +33,9 @@ class CusStack extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(2.5),
                       image: DecorationImage(
-                          image: image == null? AssetImage('assets/images/badyh_complex.png'):NetworkImage(image!),
+                          image: image == null
+                              ? AssetImage('assets/images/badyh_complex.png')
+                              : NetworkImage(image!),
                           fit: BoxFit.fill)),
                 ),
               ],
@@ -57,9 +61,10 @@ class CusStack extends StatelessWidget {
                   )
                 ],
                 gradient: LinearGradient(
-                    colors: [Color.fromRGBO(240, 240, 240, 10), Colors.white],
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomCenter),
+                  colors: [
+                  Theme.of(context).primaryColorDark,
+                  Theme.of(context).primaryColorLight], 
+                  begin: Alignment.topRight, end: Alignment.bottomCenter),
               ),
               padding: EdgeInsets.all(5),
               height: 42,
@@ -68,11 +73,10 @@ class CusStack extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    overflow: TextOverflow.fade,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    
-                    titleTxt,
+                      overflow: TextOverflow.fade,
+                      textAlign: TextAlign.center,
+                      maxLines: 1,
+                      titleTxt,
                       style: Theme.of(context).textTheme.bodyMedium),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -86,7 +90,6 @@ class CusStack extends StatelessWidget {
                         dateTxt,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
-      
                       Icon(
                         Icons.person_outline_rounded,
                         size: 10,

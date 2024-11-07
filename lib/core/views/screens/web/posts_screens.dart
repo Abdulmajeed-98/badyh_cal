@@ -1,6 +1,5 @@
 import 'package:shimmer/shimmer.dart';
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
-import 'package:badiyh_calendar/core/constants/scaffold_key.dart';
 import 'package:badiyh_calendar/core/models/category.dart';
 import 'package:badiyh_calendar/core/models/post.dart';
 import 'package:badiyh_calendar/core/viewmodels/posts_vm.dart';

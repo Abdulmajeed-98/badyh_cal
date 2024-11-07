@@ -50,10 +50,10 @@ class CusTallContainer extends StatelessWidget {
                     spreadRadius: -5,
                   )
                 ],
-                gradient: LinearGradient(
-                    colors: [Color.fromRGBO(240, 240, 240, 10), Colors.white],
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomCenter),
+                gradient: LinearGradient(colors: [
+                  Theme.of(context).primaryColorDark,
+                  Theme.of(context).primaryColorLight
+                ], begin: Alignment.topRight, end: Alignment.bottomCenter),
               ),
               padding: EdgeInsets.only(top: 5, right: 5, left: 5),
               height: ((MediaQuery.of(context).size.width / 2.23) / 1.9) - 20,
@@ -65,7 +65,7 @@ class CusTallContainer extends StatelessWidget {
                     children: [
                       Expanded(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Icon(
                             Icons.calendar_today,
@@ -78,7 +78,7 @@ class CusTallContainer extends StatelessWidget {
                       )),
                       Expanded(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Icon(
                             Icons.person_outline_rounded,
@@ -97,7 +97,7 @@ class CusTallContainer extends StatelessWidget {
                     height: 4,
                   ),
                   Text(titleTxt,
-                  maxLines: 2,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyMedium),
                 ],

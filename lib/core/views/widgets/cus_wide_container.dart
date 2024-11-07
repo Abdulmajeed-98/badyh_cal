@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CusWideContainer extends StatelessWidget {
   CusWideContainer(
@@ -47,10 +46,10 @@ class CusWideContainer extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius:
                       BorderRadius.horizontal(left: Radius.circular(2.5)),
-                  gradient: LinearGradient(
-                      colors: [Color.fromRGBO(240, 240, 240, 10), Colors.white],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomCenter),
+                  gradient: LinearGradient(colors: [
+                    Theme.of(context).primaryColorDark,
+                    Theme.of(context).primaryColorLight
+                  ], begin: Alignment.topRight, end: Alignment.bottomCenter),
                 ),
                 padding: EdgeInsets.all(5),
                 // width: MediaQuery.of(context).size.width / 2.1,

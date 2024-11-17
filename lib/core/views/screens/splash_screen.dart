@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen>
                   "assets/images/badyh_splach.png",
                 ),
                 backgroundColor: Colors.transparent,
-                // duration: Duration(seconds: 0),
+                duration: Duration(seconds: 0),
                 animationDuration: const Duration(seconds: 3),
                 onInit: () {},
                 onEnd: () {},
@@ -57,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen>
       SetupVm setupVm = SetupVm();
       await setupVm.setupDrawer();
       drawerHelper.isEmpty = false;
-      Future.delayed(Duration(seconds: 1), () {
+      Future.delayed(Duration(seconds: 3), () {
         Get.offNamed('/home');
       });
     }

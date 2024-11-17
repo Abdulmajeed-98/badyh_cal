@@ -1,7 +1,7 @@
 import 'package:badiyh_calendar/core/constants/http_urls.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-final controller = WebViewController()
+final aboutUsController = WebViewController()
   ..setJavaScriptMode(JavaScriptMode.unrestricted)
   ..setNavigationDelegate(
     NavigationDelegate(

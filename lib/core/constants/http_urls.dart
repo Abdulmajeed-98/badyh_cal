@@ -5,9 +5,10 @@ class HttpUrls {
   // URL مع الفئات والمقالات
   static const String CATEGORY_WITH_POSTS = "$BASE_URL/category-with-posts?";
   static const String CATEGORY_WITH_SUB =
-      "$BASE_URL/categories-with-subcategories?category_ids=232,36";
+      "$BASE_URL/categories-with-subcategories";
   static const String POSTS_BY_CATEGORY = "$BASE_URL/posts-by-category";
-  static const String ABOUT_US = "https://badyh.org/about-us";
+  static const String ABOUT_US = "$HOME_PAGE/about-us";
+  static const String HOME_PAGE = "https://badyh.org";
   static String WEB_VIEW = "";
 
   // // إذا كنت بحاجة إلى تعيين متغيرات ديناميكية، يمكن إنشاء دوال مساعدة

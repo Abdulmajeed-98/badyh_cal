@@ -31,7 +31,7 @@ class CusBottomNaviBar extends StatelessWidget {
           ),
           IconButton(
             onPressed: () =>
-                Get.offNamed("/events"), // التحويل إلى Get.offNamed
+                Get.offNamed("/news"), // التحويل إلى Get.offNamed
             icon: SizedBox(
               height: 20,
               width: 20,

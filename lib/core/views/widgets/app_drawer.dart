@@ -46,9 +46,13 @@ class AppDrawer extends StatelessWidget {
       if (item is Navigation) {
         items.add(
           ListTile(
-            title: Text(item.title),
+            title: item.isBold
+                ? Text(item.title,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+                : Text(item.title),
             onTap: () {
-              Get.toNamed(item.route, arguments: item); // التحويل إلى Get.toNamed
+              Get.toNamed(item.route,
+                  arguments: item); // التحويل إلى Get.toNamed
             },
           ),
         );
@@ -59,7 +63,8 @@ class AppDrawer extends StatelessWidget {
               ListTile(
                 title: Text(cat.name!),
                 onTap: () {
-                  Get.toNamed("/posts", arguments: cat); // التحويل إلى Get.toNamed
+                  Get.toNamed("/posts",
+                      arguments: cat); // التحويل إلى Get.toNamed
                 },
               ),
             );
@@ -70,7 +75,8 @@ class AppDrawer extends StatelessWidget {
                 return ListTile(
                   title: Text(subChild.name!),
                   onTap: () {
-                    Get.toNamed("/posts", arguments: subChild); // التحويل إلى Get.toNamed
+                    Get.toNamed("/posts",
+                        arguments: subChild); // التحويل إلى Get.toNamed
                   },
                 );
               }).toList(),

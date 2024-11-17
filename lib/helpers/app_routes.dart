@@ -8,6 +8,7 @@ import 'package:badiyh_calendar/core/views/screens/web/contact.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/eventsBadyh_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/web/faq_Screen.dart';
 import 'package:badiyh_calendar/core/views/screens/web/home_screen.dart';
+import 'package:badiyh_calendar/core/views/screens/web/news_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/web/posts_screens.dart';
 import 'package:badiyh_calendar/core/views/screens/splash_screen.dart';
 import 'package:badiyh_calendar/core/views/screens/calendar/stars_screen.dart';
@@ -19,6 +20,8 @@ class AppRoutes {
     switch (settings.name) {
       case '/home':
         return MaterialPageRoute(builder: (ctx) => HomeScreen());
+      case '/news':
+        return MaterialPageRoute(builder: (ctx) => NewsScreen());
       case '/star':
         return MaterialPageRoute(builder: (ctx) => StarsScreen());
       case '/bee':

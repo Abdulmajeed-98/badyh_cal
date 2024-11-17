@@ -1,6 +1,6 @@
 import 'package:badiyh_calendar/core/views/widgets/app_drawer.dart';
 import 'package:badiyh_calendar/core/views/widgets/cus_back_button.dart';
-import 'package:badiyh_calendar/helpers/web_controller.dart';
+import 'package:badiyh_calendar/helpers/about_us_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -16,7 +16,7 @@ class AboutUsScreen extends StatelessWidget {
           // key: ScaffoldKey.SK,
           body: Stack(
             children: [
-              WebViewWidget(controller: controller),
+              WebViewWidget(controller: aboutUsController),
               Positioned(
                 left: 10,
                 top: 15,

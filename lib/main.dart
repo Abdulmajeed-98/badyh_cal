@@ -1,4 +1,3 @@
-import 'package:badiyh_calendar/core/theme/dark_theme.dart';
 import 'package:badiyh_calendar/core/theme/light_theme.dart';
 import 'package:badiyh_calendar/core/viewmodels/CalendarDateVM.dart';
 import 'package:badiyh_calendar/core/viewmodels/bee_calendar_v_m.dart';
@@ -28,8 +27,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: lightTheme,
-      darkTheme: darkTheme,
-      themeMode: ThemeMode.system,
+      // darkTheme: darkTheme,
+      // themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       initialRoute: '/splash',
       onGenerateRoute: AppRoutes.generatedRoute,

@@ -1,4 +1,5 @@
 class Navigation {
   String title,route;
-  Navigation({required this.title,required this.route});
+  bool isBold;
+  Navigation({required this.title,required this.route,this.isBold = false});
 }
